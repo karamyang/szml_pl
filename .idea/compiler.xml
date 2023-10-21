@@ -2,12 +2,49 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="szml-pl" />
+        <module name="product-bootstrap" />
+        <module name="product-facade" />
+        <module name="product-service" />
+        <module name="admin-model" />
+        <module name="admin-web" />
+        <module name="admin-dal" />
+        <module name="pob-common" />
+        <module name="admin-bootstrap" />
+        <module name="admin-facade" />
+        <module name="product-web" />
+        <module name="product-dal" />
+        <module name="admin-service" />
+        <module name="product-model" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="prd-admin" target="8" />
+      <module name="prd-common" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="admin-bootstrap" options="-parameters" />
+      <module name="admin-dal" options="-parameters" />
+      <module name="admin-facade" options="-parameters" />
+      <module name="admin-model" options="-parameters" />
+      <module name="admin-service" options="-parameters" />
+      <module name="admin-web" options="-parameters" />
+      <module name="pob-admin" options="-parameters" />
+      <module name="pob-common" options="-parameters" />
+      <module name="pob-product" options="-parameters" />
+      <module name="product-bootstrap" options="-parameters" />
+      <module name="product-dal" options="-parameters" />
+      <module name="product-facade" options="-parameters" />
+      <module name="product-model" options="-parameters" />
+      <module name="product-service" options="-parameters" />
+      <module name="product-web" options="-parameters" />
+      <module name="szml-pl" options="-parameters" />
+    </option>
   </component>
 </project>
