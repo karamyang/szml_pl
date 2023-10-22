@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: pob-admin
+server:
+  port: 8088
+logging:
+  path: ./logs/admin

@@ -1,0 +1,8 @@
+#后续改为nacos配置中心
+spring:
+  application:
+    name: pob-product
+server:
+  port: 8087
+logging:
+  path: ./logs/product
