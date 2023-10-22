@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.szml.pl.dao.ProductDraftDao;
 import com.szml.pl.entity.ProductDraft;
 import com.szml.pl.service.ProductDraftService;
+import com.szml.pl.service.stateflow.StateHandler;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @description:
@@ -13,4 +16,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ProductDraftServiceImpl extends ServiceImpl<ProductDraftDao, ProductDraft> implements ProductDraftService {
+    @Resource
+    ProductDraftDao productDraftDao;
+    @Resource
+    StateHandler stateHandler;
 }

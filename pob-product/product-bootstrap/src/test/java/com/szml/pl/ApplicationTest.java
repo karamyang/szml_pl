@@ -39,5 +39,6 @@ public class ApplicationTest {
 //        }
         Product byId = productService.getById(1);
         System.out.println(byId.toString());
+        productService.submit(byId);
     }
 }

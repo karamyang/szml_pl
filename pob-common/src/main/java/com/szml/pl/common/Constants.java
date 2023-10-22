@@ -41,45 +41,37 @@ public class Constants {
     /**
      * 活动状态：1编辑、2提审、3撤审、4通过、5运行(审核通过后worker扫描状态)、6拒绝、7关闭、8开启
      */
-    public enum ActivityState {
+    public enum ProductState {
 
         /**
-         * 1：编辑
+         * 1：草稿
          */
-        EDIT(1, "编辑"),
+        DRAFT(1, "草稿"),
         /**
-         * 2：提审
+         * 2：未审核
          */
-        ARRAIGNMENT(2, "提审"),
+        UNREVIEW(2, "未审核"),
         /**
-         * 3：撤审
+         * 3：审核中
          */
-        REVOKE(3, "撤审"),
+        UNDERREVIEW(3, "审核中"),
         /**
-         * 4：通过
+         * 4：审核通过
          */
-        PASS(4, "通过"),
+        PASSREVIEW(4, "审核通过"),
         /**
-         * 5：运行(活动中)
+         * 5：下线
          */
-        DOING(5, "运行(活动中)"),
+        OFFLINE(5, "下线"),
         /**
-         * 6：拒绝
+         * 6：上线
          */
-        REFUSE(6, "拒绝"),
-        /**
-         * 7：关闭
-         */
-        CLOSE(7, "关闭"),
-        /**
-         * 8：开启
-         */
-        OPEN(8, "开启");
+        ONLINE(6, "上线");
 
         private Integer code;
         private String info;
 
-        ActivityState(Integer code, String info) {
+        ProductState(Integer code, String info) {
             this.code = code;
             this.info = info;
         }

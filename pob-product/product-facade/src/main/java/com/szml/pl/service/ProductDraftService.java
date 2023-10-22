@@ -9,4 +9,5 @@ import com.szml.pl.entity.ProductDraft;
  * @date: 2023/10/22
  */
 public interface ProductDraftService extends IService<ProductDraft> {
+
 }
