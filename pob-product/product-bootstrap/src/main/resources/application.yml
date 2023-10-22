@@ -2,7 +2,16 @@
 spring:
   application:
     name: pob-product
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://101.33.248.222:3306/pob_product?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
 server:
   port: 8087
 logging:
   path: ./logs/product
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+  type-aliases-package: com.szml.pl.entity
