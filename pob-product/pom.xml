@@ -19,6 +19,7 @@
         <module>product-dal</module>
         <module>product-facade</module>
         <module>product-web</module>
+        <module>utils</module>
     </modules>
 
     <properties>
@@ -26,4 +27,11 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.szml.pl</groupId>
+            <artifactId>pob-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

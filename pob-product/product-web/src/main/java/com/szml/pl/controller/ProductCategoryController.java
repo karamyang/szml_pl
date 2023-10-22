@@ -1,7 +1,15 @@
 package com.szml.pl.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.szml.pl.common.Constants;
+import com.szml.pl.common.Result;
+import com.szml.pl.service.ProductCategoryService;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+
 
 /**
  * @description:
@@ -11,4 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/category")
 public class ProductCategoryController {
+    @Resource
+    private ProductCategoryService categoryService;
+    @GetMapping("/querylist")
+    public Result queryCategoryList(){
+        return Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(categoryService.queryCategoryList()));
+    }
 }
