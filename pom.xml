@@ -3,7 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+    <parent>
+        <groupId>com.alipay.sofa</groupId>
+        <artifactId>sofaboot-dependencies</artifactId>
+        <version>3.9.1</version>
+        <relativePath/>
+    </parent>
     <modules>
         <module>pob-common</module>
         <module>pob-admin</module>
@@ -18,12 +23,7 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
-    <parent>
-        <groupId>com.alipay.sofa</groupId>
-        <artifactId>sofaboot-dependencies</artifactId>
-        <version>3.9.1</version>
-        <relativePath/>
-    </parent>
+
     <dependencies>
         <!--        <dependency>-->
         <!--            <groupId>org.mockito</groupId>-->
@@ -31,8 +31,15 @@
         <!--            <version>3.3.3</version>-->
         <!--            <scope>test</scope>-->
         <!--        </dependency>-->
-
-
+        <!--sofaboot启动依赖-->
+        <dependency>
+            <groupId>com.alipay.sofa</groupId>
+            <artifactId>test-sofa-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alipay.sofa</groupId>
+            <artifactId>healthcheck-sofa-boot-starter</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
