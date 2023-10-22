@@ -47,3 +47,5 @@
 2023-10-22 10:38:58,822 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
 2023-10-22 10:39:03,824 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
 2023-10-22 10:39:08,822 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-22 10:50:03,810 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-22 10:50:03,810 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
