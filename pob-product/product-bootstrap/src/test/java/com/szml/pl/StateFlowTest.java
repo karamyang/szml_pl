@@ -5,6 +5,7 @@ import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.Product;
 import com.szml.pl.entity.ProductDraft;
 import com.szml.pl.service.ProductDraftService;
+import com.szml.pl.service.ProductRecordService;
 import com.szml.pl.service.ProductService;
 import com.szml.pl.service.stateflow.IStateHandler;
 import org.junit.jupiter.api.Test;
@@ -75,6 +76,14 @@ public class StateFlowTest {
         BeanUtils.copyProperties(product,productDto);
         Result audit = stateHandler.audit(productDto, productDto.getStatus());
         System.out.println(audit.getCode()+audit.getInfo());
+    }
+
+    @Resource
+    ProductRecordService productRecordService;
+    @Test
+    void record(){
+
+        Integer test = productRecordService.addRecord(productService.getById(3), 1, "test");
     }
 
 }

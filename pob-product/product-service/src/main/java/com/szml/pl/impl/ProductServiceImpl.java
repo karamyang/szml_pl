@@ -62,7 +62,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
         product.setCreateTime(new Timestamp(System.currentTimeMillis()));
         int flag = productDao.insert(product);
         //4.增加操作表记录
-        productRecordService.addRecord(product,1L,"新增商品");
+        productRecordService.addRecord(product,Constants.ProductRecordState.SUBMITDRAFT.getCode(),Constants.ProductRecordState.SUBMITDRAFT.getInfo());
         return flag>0?true:false;
     }
     @Override
@@ -76,7 +76,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
         updateWrapper.set("status", Constants.ProductState.UNDERREVIEW.getCode());
         updateWrapper.set("update_time", new Timestamp(System.currentTimeMillis()));
         int update = productDao.update(product1, updateWrapper);
-        return update>0 ? Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo()) :
+        Integer addRecord = productRecordService.addRecord(product1, Constants.ProductRecordState.REVIEW.getCode(), Constants.ProductRecordState.REVIEW.getInfo());
+        return update>0&&addRecord>0 ? Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo()) :
                 Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(),Constants.ResponseCode.UN_ERROR.getInfo());
     }
 
@@ -91,7 +92,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
         updateWrapper.set("status", Constants.ProductState.UNREVIEW.getCode());
         updateWrapper.set("update_time", new Timestamp(System.currentTimeMillis()));
         int update = productDao.update(product1, updateWrapper);
-        return update==1 ? Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo()) :
+        Integer addRecord = productRecordService.addRecord(product1, Constants.ProductRecordState.NOPASSREVIEW.getCode(), Constants.ProductRecordState.NOPASSREVIEW.getInfo());
+        return update>0&&addRecord>0 ? Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo()) :
                 Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(),Constants.ResponseCode.UN_ERROR.getInfo());
     }
 
@@ -106,7 +108,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
         updateWrapper.set("status", Constants.ProductState.PASSREVIEW.getCode());
         updateWrapper.set("update_time", new Timestamp(System.currentTimeMillis()));
         int update = productDao.update(product1, updateWrapper);
-        return update==1 ? Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo()) :
+        Integer addRecord = productRecordService.addRecord(product1,  Constants.ProductRecordState.PASSREVIEW.getCode(), Constants.ProductRecordState.PASSREVIEW.getInfo());
+        return update>0&&addRecord>0 ? Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo()) :
                 Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(),Constants.ResponseCode.UN_ERROR.getInfo());
     }
 
@@ -122,7 +125,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
         updateWrapper.set("online_time", new Timestamp(System.currentTimeMillis()));
         updateWrapper.set("update_time", new Timestamp(System.currentTimeMillis()));
         int update = productDao.update(product1, updateWrapper);
-        return update==1 ? Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo()) :
+        Integer addRecord = productRecordService.addRecord(product1,  Constants.ProductRecordState.ONLINE.getCode(), Constants.ProductRecordState.ONLINE.getInfo());
+        return update>0&&addRecord>0 ? Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo()) :
                 Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(),Constants.ResponseCode.UN_ERROR.getInfo());
     }
 
@@ -138,7 +142,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
         updateWrapper.set("line_time", new Timestamp(System.currentTimeMillis()));
         updateWrapper.set("update_time", new Timestamp(System.currentTimeMillis()));
         int update = productDao.update(product1, updateWrapper);
-        return update==1 ? Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo()) :
+        Integer addRecord = productRecordService.addRecord(product1,  Constants.ProductRecordState.OFFLINE.getCode(), Constants.ProductRecordState.OFFLINE.getInfo());
+        return update>0&&addRecord>0 ? Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo()) :
                 Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(),Constants.ResponseCode.UN_ERROR.getInfo());
     }
 
@@ -151,7 +156,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
         product1.setStatus(Constants.ProductState.UNREVIEW.getCode());
         product1.setUpdateTime(new Timestamp(System.currentTimeMillis()));
         int update = productDao.updateById(product1);
-        return update==1 ? Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo()) :
+        Integer addRecord = productRecordService.addRecord(product1,  Constants.ProductRecordState.SUBMITDRAFT.getCode(), Constants.ProductRecordState.SUBMITDRAFT.getInfo());
+        return update>0&&addRecord>0 ? Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo()) :
                 Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(),Constants.ResponseCode.UN_ERROR.getInfo());
     }
 

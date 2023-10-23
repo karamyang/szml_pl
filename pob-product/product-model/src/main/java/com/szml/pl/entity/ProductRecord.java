@@ -14,7 +14,7 @@ public class ProductRecord {
   private Long id;
   private Long productId;
   private Long adminId;
-  private Long record;
+  private Integer record;
   private Timestamp createTime;
   private String recordDescription;
 
@@ -46,11 +46,11 @@ public class ProductRecord {
   }
 
 
-  public Long getRecord() {
+  public Integer getRecord() {
     return record;
   }
 
-  public void setRecord(Long record) {
+  public void setRecord(Integer record) {
     this.record = record;
   }
 

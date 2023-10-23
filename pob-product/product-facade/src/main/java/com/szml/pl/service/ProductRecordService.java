@@ -13,5 +13,5 @@ public interface ProductRecordService extends IService<ProductRecord> {
     /**
      * 添加用户操作记录
      */
-    Integer addRecord(Product product,Long state,String desc);
+    Integer addRecord(Product product,Integer state,String desc);
 }

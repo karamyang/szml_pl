@@ -95,6 +95,62 @@ public class Constants {
     }
 
 
+    public enum ProductRecordState {
+
+        /**
+         * 1：保存草稿
+         */
+        SAVEDRAFT(1, "保存草稿"),
+        /**
+         * 2：提交草稿
+         */
+        SUBMITDRAFT(2, "新增商品"),
+        /**
+         * 3：审核
+         */
+        REVIEW(3, "审核"),
+        /**
+         * 4：审核通过
+         */
+        PASSREVIEW(4, "审核通过"),
+        /**
+         * 5：审核驳回
+         */
+        NOPASSREVIEW(5, "审核驳回"),
+        /**
+         * 6：下线
+         */
+        OFFLINE(6, "下线"),
+        /**
+         * 7：上线
+         */
+        ONLINE(7, "上线");
+
+        private Integer code;
+        private String info;
+
+        ProductRecordState(Integer code, String info) {
+            this.code = code;
+            this.info = info;
+        }
+
+        public Integer getCode() {
+            return code;
+        }
+
+        public void setCode(Integer code) {
+            this.code = code;
+        }
+
+        public String getInfo() {
+            return info;
+        }
+
+        public void setInfo(String info) {
+            this.info = info;
+        }
+    }
+
     /**
      * 奖品类型（1:文字描述、2:兑换码、3:优惠券、4:实物奖品）
      */
