@@ -1,4 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.szml.pl.dao.ProductDao">
+
+    <sql id="selectFields">
+        id,product_name,type,category_id,right_id,exchange_type,cash,integral,mixed,stock,restriction,
+        img_url,description,detail,black_list_id,white_list_id,online_time,line_time,status,create_user_id,
+        manage_user_id,not_shipments,create_time,update_time
+    </sql>
+
+    <sql id="selectFields1">
+        A.id,A.product_name,A.type,A.category_id,A.right_id,A.exchange_type,A.cash,A.integral,A.mixed,A.stock,
+        A.restriction,A.img_url,A.description,A.detail,A.black_list_id,A.white_list_id,A.online_time,
+        A.line_time,A.status,A.create_user_id,A.manage_user_id,A.not_shipments,A.create_time,A.update_time
+    </sql>
+
+    <select id="selectProductById" resultType="Product">
+        select <include refid="selectFields"></include>
+        from product
+        where id= #{id}
+    </select>
+
+    <select id="selectProductFromUser" resultType="Product">
+        select <include refid="selectFields"></include>
+        from product
+        <where>
+            status!=3
+            <if test="rightId !=null and rightId !=''">
+                    and right_id=#{rightId}
+            </if>
+
+            <if test="productName !=null and productName !=''">
+                    and product_name=#{productName}
+            </if>
+
+            <if test="onlineTime !=null">
+                    and online_time >= #{onlineTime}
+            </if>
+
+            <if test="lineTime !=null">
+                    and line_time &lt;=#{lineTime}
+            </if>
+
+            <if test="status !=null and status !=''">
+                    and status=#{status}
+            </if>
+
+            <if test="manageUserId !=null and manageUserId !=''">
+                    and manage_user_id=#{manageUserId}
+            </if>
+
+        </where>
+    </select>
+
+    <select id="selectProductFromAdmin" resultType="Product">
+        select <include refid="selectFields"></include>
+        from product
+        <where>
+            <if test="rightId !=null and rightId !=''">
+                and right_id=#{rightId}
+            </if>
+
+            <if test="productName !=null and productName !=''">
+                and product_name=#{productName}
+            </if>
+
+            <if test="onlineTime !=null">
+                and online_time >= #{onlineTime}
+            </if>
+
+            <if test="lineTime !=null">
+                and line_time &lt;=#{lineTime}
+            </if>
+
+            <if test="status !=null and status !=''">
+                and status=#{status}
+            </if>
+
+            <if test="manageUserId !=null and manageUserId !=''">
+                and manage_user_id=#{manageUserId}
+            </if>
+
+        </where>
+    </select>
+
+    <select id="selectProductAndProductAgentFromUser" resultType="Product">
+        select <include refid="selectFields1"></include>
+        from product A,product_agent B
+        <where>
+            A.id=B.product_id and B.admin_id=#{adminId} and A.status!=3
+            <if test="rightId !=null and rightId !=''">
+                and A.right_id=#{rightId}
+            </if>
+
+            <if test="productName !=null and productName !=''">
+                and A.product_name=#{productName}
+            </if>
+
+            <if test="onlineTime !=null">
+                and A.online_time >= #{onlineTime}
+            </if>
+
+            <if test="lineTime !=null">
+                and A.line_time &lt;=#{lineTime}
+            </if>
+
+            <if test="status !=null and status !=''">
+                and A.status=#{status}
+            </if>
+
+            <if test="manageUserId !=null and manageUserId !=''">
+                and A.manage_user_id=#{manageUserId}
+            </if>
+
+        </where>
+    </select>
+
+    <select id="selectProductAndProductAgentFromAdmin" resultType="Product">
+        select <include refid="selectFields1"></include>
+        from product A,product_agent B
+        <where>
+            A.id=B.product_id and B.admin_id=#{adminId}
+            <if test="rightId !=null and rightId !=''">
+                and A.right_id=#{rightId}
+            </if>
+
+            <if test="productName !=null and productName !=''">
+                and A.product_name=#{productName}
+            </if>
+
+            <if test="onlineTime !=null">
+                and A.online_time >= #{onlineTime}
+            </if>
+
+            <if test="lineTime !=null">
+                and A.line_time &lt;=#{lineTime}
+            </if>
+
+            <if test="status !=null and status !=''">
+                and A.status=#{status}
+            </if>
+
+            <if test="manageUserId !=null and manageUserId !=''">
+                and A.manage_user_id=#{manageUserId}
+            </if>
+
+        </where>
+    </select>
 </mapper>

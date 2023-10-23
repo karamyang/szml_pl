@@ -11,4 +11,21 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface AdminDao extends BaseMapper<Admin> {
+    /**
+     * 注册用户
+     */
+    int insertAdmin(Admin admin);
+    /**
+     * 用户查询
+     */
+    Admin selectAdminById(Long id);
+    Admin selectAdminByUsername(String username);
+    Admin selectAdminByEmail(String email);
+    Admin selectAdminByTelephone(String telephone);
+    /**
+     * 修改密码
+     */
+    int updatePassword(Long id,String password);
+
+
 }

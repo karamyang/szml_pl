@@ -29,7 +29,7 @@ public class Product {
   private String whiteListId;
   private Timestamp onlineTime;
   private Timestamp lineTime;
-  private Long status;
+  private Integer status;//商品类型 1:草稿 2:未审核 3:审核中 4:审核通过 5:上线 6:下线 审核中仅管理员可见
   private Long createUserId;
   private Long manageUserId;
   private String notShipments;
@@ -199,12 +199,12 @@ public class Product {
   }
 
 
-  public Long getStatus() {
+  public Integer getStatus() {
     return status;
   }
 
   public void setStatus(Long status) {
-    this.status = status;
+    this.status = Math.toIntExact(status);
   }
 
 

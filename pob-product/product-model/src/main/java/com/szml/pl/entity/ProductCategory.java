@@ -16,7 +16,7 @@ public class ProductCategory {
   private String categoryName;
   private Long parentId;
   private Long categoryLevel;
-  private Long status;
+  private Integer status;
   private String imgUrl;
   private Long leaf;
   private Long priority;
@@ -60,11 +60,11 @@ public class ProductCategory {
   }
 
 
-  public Long getStatus() {
+  public Integer getStatus() {
     return status;
   }
 
-  public void setStatus(Long status) {
+  public void setStatus(Integer status) {
     this.status = status;
   }
 
