@@ -26,9 +26,9 @@ public class GlobalExceptionHandler {
      * 处理其他异常
      *
      */
-    @ExceptionHandler(value = Exception.class)
-    @ResponseBody
-    public Result exceptionHandler( Exception e) {
-        return Result.buildErrorResult();
-    }
+//    @ExceptionHandler(value = Exception.class)
+//    @ResponseBody
+//    public Result exceptionHandler( Exception e) {
+//        return Result.buildErrorResult();
+//    }
 }

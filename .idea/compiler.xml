@@ -18,6 +18,7 @@
         <module name="admin-facade" />
         <module name="product-web" />
         <module name="product-dal" />
+        <module name="utils" />
         <module name="admin-service" />
         <module name="product-model" />
       </profile>
@@ -45,6 +46,7 @@
       <module name="product-service" options="-parameters" />
       <module name="product-web" options="-parameters" />
       <module name="szml-pl" options="-parameters" />
+      <module name="utils" options="-parameters" />
     </option>
   </component>
 </project>

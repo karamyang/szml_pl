@@ -12,11 +12,8 @@
     <file url="file://$PROJECT_DIR$/pob-product/product-dal/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pob-product/product-dal/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pob-product/product-facade/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/pob-product/product-facade/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pob-product/product-model/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/pob-product/product-model/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pob-product/product-service/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/pob-product/product-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pob-product/product-web/src/main/java" charset="UTF-8" />
   </component>
 </project>

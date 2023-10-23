@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.szml.pl.entity.ProductCategory;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * @description:
  * @author：wufengning
@@ -11,4 +13,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface ProductCategoryDao extends BaseMapper<ProductCategory> {
+    List<ProductCategory> queryCategoryList();
 }
