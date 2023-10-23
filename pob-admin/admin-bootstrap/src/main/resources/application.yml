@@ -13,3 +13,35 @@ logging:
 mybatis-plus:
   mapper-locations: classpath*:/mapper/*.xml
   type-aliases-package: com.szml.pl.entity
+
+#dubbo:
+#  application:
+#    id: dubbo-pob-admin
+#    name: dubbo-pob-admin
+#    qosEnable: false
+#  protocol:
+#    id: dubbo
+#    name: dubbo
+#    port: 20880
+#  scan:
+#    base-packages:  com.szml.pl.dubbo
+#  registry:
+#    id: dubbo-pob-registry
+#    address: zookeeper://101.33.248.222:2181
+#  config-center:
+#    address: zookeeper://101.33.248.222:2181
+#  metadata-report:
+#    address: zookeeper://101.33.248.222:2181
+
+#配置dubbo广播模式
+dubbo:
+  application:
+    name: Admin
+    version: 1.0.0
+  registry:
+    address: N/A #multicast://224.5.6.7:1234
+  protocol:
+    name: dubbo
+    port: 20880
+  scan:
+    base-packages: com.szml.pl.dubbo

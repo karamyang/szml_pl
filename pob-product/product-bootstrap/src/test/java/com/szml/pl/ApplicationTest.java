@@ -1,8 +1,13 @@
 package com.szml.pl;
 
+import com.szml.pl.common.dubbo.AdminDubboService;
+import com.szml.pl.common.response.ObjectResult;
 import com.szml.pl.dao.ProductDao;
 import com.szml.pl.entity.Product;
+import com.szml.pl.entity.ProductAgent;
+import com.szml.pl.service.ProductAgentService;
 import com.szml.pl.service.ProductService;
+import org.apache.dubbo.config.annotation.Reference;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -20,6 +25,8 @@ public class ApplicationTest {
     private ProductDao productDao;
     @Resource
     private ProductService productService;
+    @Resource
+    private ProductAgentService productAgentService;
     /**
      * sofaBoot应用启动测试
      */
@@ -39,5 +46,36 @@ public class ApplicationTest {
 //        }
         Product byId = productService.getById(1);
         System.out.println(byId.toString());
+    }
+    @Reference(version = "1.0.0")
+    private AdminDubboService adminDubboService;
+    /**
+     * 远程调用集成测试
+     * 直连测试通过
+     */
+    @Test
+    void RPCTest(){
+        ObjectResult pobAdmin = adminDubboService.getIdByName("pob_admin");
+        System.out.println(pobAdmin.getData());
+    }
+    /**
+     * 集成测试移交管理员
+     * 测试通过
+     */
+    @Test
+    void exchangeManager(){
+        //Boolean aBoolean = productService.updateManager(2L, "wfn");
+        //System.out.println(aBoolean);
+    }
+
+    /**
+     * 根据商品Id查询所有的代理人集成测试
+     */
+    @Test
+    void AgentTest(){
+        List<ProductAgent> productAgents = productAgentService.queryListByProductId(4L);
+        for (ProductAgent productAgent : productAgents) {
+            System.out.println(productAgent.toString());
+        }
     }
 }

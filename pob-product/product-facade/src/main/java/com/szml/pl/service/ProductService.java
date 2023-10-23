@@ -9,4 +9,6 @@ import com.szml.pl.entity.Product;
  * @date: 2023/10/22
  */
 public interface ProductService extends IService<Product> {
+
+    Integer updateManager(Long productId, String manager);
 }

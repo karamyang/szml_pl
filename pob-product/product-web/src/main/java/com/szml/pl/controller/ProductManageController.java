@@ -1,9 +1,15 @@
 package com.szml.pl.controller;
 
-import com.szml.pl.common.Result;
+import com.alibaba.fastjson.JSON;
+import com.szml.pl.common.Constants;
+import com.szml.pl.common.response.Result;
+import com.szml.pl.service.ProductService;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @description:
@@ -13,6 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/manage")
 public class ProductManageController {
+
+    @Resource
+    private ProductService productService;
     /**
      * 商品查询（条件查询）
      */
@@ -25,5 +34,13 @@ public class ProductManageController {
      */
     public Result queryProduct(@RequestParam("productId") Long productId){
         return null;
+    }
+
+    /**
+     * 管理人权限移交
+     */
+    @PostMapping("/updateManager")
+    public Result updateManager(@RequestParam("productId") Long productId,@RequestParam("manager") String manager){
+        return Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productService.updateManager(productId,manager)));
     }
 }

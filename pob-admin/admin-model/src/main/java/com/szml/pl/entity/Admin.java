@@ -1,9 +1,10 @@
 package com.szml.pl.entity;
 
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Admin {
+public class Admin  {
 
   private Long id;
   private String username;

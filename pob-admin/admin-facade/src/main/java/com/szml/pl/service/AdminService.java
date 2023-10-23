@@ -8,5 +8,6 @@ import com.szml.pl.entity.Admin;
  * @author：wufengning
  * @date: 2023/10/22
  */
+
 public interface  AdminService extends IService<Admin> {
 }

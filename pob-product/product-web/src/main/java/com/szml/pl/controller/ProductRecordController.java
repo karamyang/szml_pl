@@ -1,6 +1,6 @@
 package com.szml.pl.controller;
 
-import com.szml.pl.common.Result;
+import com.szml.pl.common.response.Result;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

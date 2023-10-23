@@ -1,5 +1,6 @@
 package com.szml.pl.common;
 
+import com.szml.pl.common.response.Result;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

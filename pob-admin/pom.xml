@@ -18,6 +18,7 @@
         <module>admin-dal</module>
         <module>admin-facade</module>
         <module>admin-model</module>
+        <module>utils</module>
     </modules>
 
     <properties>
