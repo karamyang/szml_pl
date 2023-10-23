@@ -1,6 +1,7 @@
 package com.szml.pl.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.ProductDraft;
 
 /**
@@ -10,4 +11,5 @@ import com.szml.pl.entity.ProductDraft;
  */
 public interface ProductDraftService extends IService<ProductDraft> {
 
+    Boolean saveDraft(ProductDto productDto);
 }

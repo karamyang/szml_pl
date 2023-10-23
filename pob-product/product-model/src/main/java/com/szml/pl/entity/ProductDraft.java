@@ -29,7 +29,7 @@ public class ProductDraft {
   private String whiteListId;
   private Timestamp onlineTime;
   private Timestamp lineTime;
-  private Long status;
+  private Integer status;
   private Long createUserId;
   private Long manageUserId;
   private String notShipments;
@@ -199,11 +199,11 @@ public class ProductDraft {
   }
 
 
-  public Long getStatus() {
+  public Integer getStatus() {
     return status;
   }
 
-  public void setStatus(Long status) {
+  public void setStatus(Integer status) {
     this.status = status;
   }
 

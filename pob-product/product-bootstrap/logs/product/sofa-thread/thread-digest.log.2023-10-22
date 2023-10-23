@@ -1,0 +1,24 @@
+2023-10-22 19:26:11,745 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-22 19:26:11,746 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-22 19:27:44,287 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-22 19:27:44,287 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-22 19:28:58,069 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-22 19:28:58,069 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-22 19:42:35,896 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-22 19:42:35,896 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-22 19:43:04,366 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-22 19:43:04,366 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-22 19:43:30,405 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-22 19:43:30,405 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-22 19:49:06,795 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-22 19:49:06,795 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-22 19:50:08,517 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-22 19:50:08,517 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-22 19:59:47,334 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-22 19:59:47,334 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-22 20:00:06,059 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-22 20:00:06,059 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-22 20:32:16,428 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-22 20:32:16,429 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-22 20:33:58,262 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-22 20:33:58,262 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered

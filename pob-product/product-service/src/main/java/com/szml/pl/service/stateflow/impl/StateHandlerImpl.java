@@ -1,11 +1,14 @@
 package com.szml.pl.service.stateflow.impl;
 
 import com.szml.pl.common.Result;
+import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.Product;
 import com.szml.pl.entity.ProductDraft;
+import com.szml.pl.service.stateflow.IStateHandler;
 import com.szml.pl.service.stateflow.StateConfig;
-import com.szml.pl.service.stateflow.StateHandler;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @description: 商品流程的实现类
@@ -13,39 +16,41 @@ import org.springframework.stereotype.Service;
  * @date: 2023/10/22
  */
 @Service
-public class StateHandlerImpl extends StateConfig implements StateHandler {
+public class StateHandlerImpl extends StateConfig implements IStateHandler {
+
     @Override
-    public Result audit(Product product, Integer currentStatus) {
-        return stateGroup.get(currentStatus).audit(product,currentStatus);
+    public Result audit(ProductDto productDto, Integer currentStatus) {
+
+        return stateGroup.get(currentStatus).audit(productDto,currentStatus);
     }
 
     @Override
-    public Result submit(Product product, Integer currentStatus) {
-        return stateGroup.get(currentStatus).submit(product,currentStatus);
+    public Result submit(ProductDto productDto, Integer currentStatus) {
+        return stateGroup.get(currentStatus).submit(productDto,currentStatus);
     }
 
     @Override
-    public Result pass(Product product, Integer currentStatus) {
-        return stateGroup.get(currentStatus).pass(product,currentStatus);
+    public Result pass(ProductDto productDto, Integer currentStatus) {
+        return stateGroup.get(currentStatus).pass(productDto,currentStatus);
     }
 
     @Override
-    public Result nopass(Product product, Integer currentStatus) {
-        return stateGroup.get(currentStatus).nopass(product,currentStatus);
+    public Result nopass(ProductDto productDto, Integer currentStatus) {
+        return stateGroup.get(currentStatus).nopass(productDto,currentStatus);
     }
 
     @Override
-    public Result online(Product product, Integer currentStatus) {
-        return stateGroup.get(currentStatus).online(product,currentStatus);
+    public Result online(ProductDto productDto, Integer currentStatus) {
+        return stateGroup.get(currentStatus).online(productDto,currentStatus);
     }
 
     @Override
-    public Result offline(Product product, Integer currentStatus) {
-        return stateGroup.get(currentStatus).offline(product,currentStatus);
+    public Result offline(ProductDto productDto, Integer currentStatus) {
+        return stateGroup.get(currentStatus).offline(productDto,currentStatus);
     }
 
     @Override
-    public Result compile(Product product, Integer currentStatus) {
-        return stateGroup.get(currentStatus).compile(product,currentStatus);
+    public Result compile(ProductDto productDto, Integer currentStatus) {
+        return stateGroup.get(currentStatus).compile(productDto,currentStatus);
     }
 }

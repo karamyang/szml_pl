@@ -2,6 +2,7 @@ package com.szml.pl.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.szml.pl.common.Result;
+import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.Product;
 
 /**
@@ -10,17 +11,17 @@ import com.szml.pl.entity.Product;
  * @date: 2023/10/22
  */
 public interface ProductService extends IService<Product> {
-    Result audit(Product product);
+    Result audit(ProductDto product);
 
-    Result nopass(Product product);
+    Result nopass(ProductDto product);
 
-    Result pass(Product product);
+    Result pass(ProductDto product);
 
-    Result online(Product product);
+    Result online(ProductDto product);
 
-    Result offline(Product product);
+    Result offline(ProductDto product);
 
-    Result submit(Product product);
+    Result submit(ProductDto product);
 
-    Result compile(Product product);
+    Boolean commitProduct(ProductDto product);
 }
