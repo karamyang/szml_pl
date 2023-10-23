@@ -47,7 +47,7 @@ public class ProductDraftServiceImpl extends ServiceImpl<ProductDraftDao, Produc
 //            //删除商品表中的数据
 //            productDao.deleteById(productId);
             //3.插入操作记录表数据
-            productRecordService.addRecord(product,2L,"商品删除");
+            productRecordService.addRecord(product,2,"商品删除");
         }
         //4.判断草稿表中是否存在
         ProductDraft productDraft1 = draftDao.selectById(productId);

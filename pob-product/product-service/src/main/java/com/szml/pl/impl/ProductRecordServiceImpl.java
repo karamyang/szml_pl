@@ -20,7 +20,7 @@ public class ProductRecordServiceImpl extends ServiceImpl<ProductRecordDao, Prod
     @Resource
     private ProductRecordDao productRecordDao;
     @Override
-    public Integer addRecord(Product product,Long state,String desc) {
+    public Integer addRecord(Product product,Integer state,String desc) {
         ProductRecord record=new ProductRecord();
         record.setProductId(product.getId());
         //其实此处应该获取当前登录用户的id

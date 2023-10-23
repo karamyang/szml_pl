@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szml.pl.dao.ProductCategoryDao">
+    <select id="queryCategoryList" resultType="com.szml.pl.entity.ProductCategory">
+        SELECT id,category_name,parent_id,category_level,status,img_url,leaf,priority
+        FROM product_category ORDER BY category_level;
+    </select>
+</mapper>
