@@ -2,6 +2,7 @@ package com.szml.pl.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mysql.jdbc.TimeUtil;
+import com.szml.pl.common.Constants;
 import com.szml.pl.dao.ProductDao;
 import com.szml.pl.dao.ProductDraftDao;
 import com.szml.pl.dao.ProductRecordDao;
@@ -39,17 +40,9 @@ public class ProductDraftServiceImpl extends ServiceImpl<ProductDraftDao, Produc
         //1.转化数据
         ProductDraft productDraft=new ProductDraft();
         BeanUtils.copyProperties(productDto,productDraft);
-        productDraft.setStatus(1);
-        //2.查询商品表是否存在，如果存在则删除商品表中的数据
+        productDraft.setStatus(Constants.ProductState.DRAFT.getCode());
         Long productId=productDto.getId();
-        Product product = productDao.selectById(productId);
-        if(product!=null){
-//            //删除商品表中的数据
-//            productDao.deleteById(productId);
-            //3.插入操作记录表数据
-            productRecordService.addRecord(product,2,"商品删除");
-        }
-        //4.判断草稿表中是否存在
+        //2.判断草稿表中是否存在
         ProductDraft productDraft1 = draftDao.selectById(productId);
         if(productDraft1!=null){
             //3.更新商品草稿数据
@@ -59,6 +52,9 @@ public class ProductDraftServiceImpl extends ServiceImpl<ProductDraftDao, Produc
         }
         //5.否则新增商品草稿数据
         productDraft.setCreateTime(new Timestamp(System.currentTimeMillis()));
+        Product product=new Product();
+        BeanUtils.copyProperties(productDto,product);
+        productRecordService.addRecord(product,Constants.ProductRecordState.SAVEDRAFT.getCode(),Constants.ProductRecordState.SAVEDRAFT.getInfo());
         draftDao.insert(productDraft);
         return true;
     }
