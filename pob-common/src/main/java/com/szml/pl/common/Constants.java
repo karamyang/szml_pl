@@ -124,8 +124,12 @@ public class Constants {
         /**
          * 7：上线
          */
-        ONLINE(7, "上线");
+        ONLINE(7, "上线"),
 
+        /**
+         * 8.更新商品
+         */
+        UPDATE(8,"更新商品");
         private Integer code;
         private String info;
 

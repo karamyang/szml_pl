@@ -59,7 +59,9 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
             //防止草稿表中的id和商品表中id冲突
             product.setId(null);
             int flag1 = productDao.insert(product);
-            if(flag<0||flag1<0) return false;
+            if(flag<0||flag1<0) {
+                return false;
+            }
         }
         else {
             //2.判断是否存在于商品表
@@ -69,12 +71,23 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
                 //更新商品
                 product.setUpdateTime(new Timestamp(System.currentTimeMillis()));
                 int flag = productDao.updateById(product);
-                return flag>0?true:false;
+                if(flag>0){
+                    //4.增加操作表记录
+                    productRecordService.addRecord(product,Constants.ProductRecordState.UPDATE.getCode(),Constants.ProductRecordState.UPDATE.getInfo());
+                    return true;
+                }
+                else {
+                    return false;
+                }
             }
-            //3.否则添加商品到商品表
-            product.setCreateTime(new Timestamp(System.currentTimeMillis()));
-            int flag = productDao.insert(product);
-            return flag>0?true:false;
+            else {
+                //3.否则添加商品到商品表
+                product.setCreateTime(new Timestamp(System.currentTimeMillis()));
+                int flag = productDao.insert(product);
+                if(flag<0){
+                    return false;
+                }
+            }
         }
         //4.增加操作表记录
         productRecordService.addRecord(product,Constants.ProductRecordState.SUBMITDRAFT.getCode(),Constants.ProductRecordState.SUBMITDRAFT.getInfo());
