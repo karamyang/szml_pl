@@ -5,14 +5,21 @@ import com.szml.pl.dao.AdminDao;
 import com.szml.pl.entity.Admin;
 import com.szml.pl.service.AdminService;
 import io.micrometer.core.instrument.util.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import java.sql.Timestamp;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @description:
@@ -25,6 +32,17 @@ public class AdminServiceImpl extends ServiceImpl<AdminDao, Admin> implements Ad
     @Resource
     private AdminDao adminDao;
 
+    @Resource
+    private JavaMailSender mailSender;
+
+
+    @Resource
+    private RedisTemplate<String, String> redisTemplate;
+
+    private static final String RESET_PASSWORD_CODE_PREFIX = "reset_password:code:";
+
+    @Value("${spring.mail.username}")
+    private String from;
 
     @Override
     public Map<String, Object> login(String username, String password) {
@@ -91,4 +109,62 @@ public class AdminServiceImpl extends ServiceImpl<AdminDao, Admin> implements Ad
 
         return map;
     }
+
+    @Override
+    public void sendVerificationCodeToEmail(String emailAddress) {
+        // 1. 生成验证码
+        String verificationCode = UUID.randomUUID().toString().replaceAll("-","").substring(0, 4);
+
+        // 2. 将验证码存储到 Redis
+        ValueOperations<String, String> ops = redisTemplate.opsForValue();
+        ops.set(RESET_PASSWORD_CODE_PREFIX + emailAddress, verificationCode, 10, TimeUnit.MINUTES);
+
+        // 3. 发送邮件
+        String emailSubject = "重置密码";//标题
+        String emailContent = "您的验证码为: " + verificationCode;//内容
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(from);
+        message.setTo(emailAddress);
+        message.setSubject(emailSubject);
+        message.setText(emailContent);
+        mailSender.send(message);
+    }
+
+    @Override
+    public boolean checkVerificationCode(String emailAddress,String VerificationCode) {
+        ValueOperations<String, String> ops = redisTemplate.opsForValue();
+        String storedCode = ops.get(RESET_PASSWORD_CODE_PREFIX + emailAddress);
+        return VerificationCode.equals(storedCode);
+    }
+
+    @Override
+    public Map<String, Object> forgetPassword(String password, String emailAddress) {
+        Map<String, Object> map = new HashMap<>();
+
+        // 空值处理
+        if (StringUtils.isBlank(emailAddress)) {
+            map.put("emailMsg", "邮箱不能为空!");
+            return map;
+        }
+        if (StringUtils.isBlank(password)) {
+            map.put("passwordMsg", "密码不能为空!");
+            return map;
+        }
+
+        // 验证邮箱
+        Admin admin = adminDao.selectAdminByEmail(emailAddress);
+        if (admin == null) {
+            map.put("emailMsg", "该邮箱尚未注册!");
+            return map;
+        }
+
+        // 重置密码
+        adminDao.updatePassword(admin.getId(), password);
+
+
+        return map;
+    }
+
+
 }

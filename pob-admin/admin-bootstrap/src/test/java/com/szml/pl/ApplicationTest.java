@@ -2,6 +2,7 @@ package com.szml.pl;
 
 import com.szml.pl.dao.AdminDao;
 import com.szml.pl.entity.Admin;
+import com.szml.pl.service.AdminService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -19,6 +20,8 @@ public class ApplicationTest {
     @Resource
     private AdminDao adminDao;
 
+    @Resource
+    private AdminService adminService;
     /**
      * sofaBoot应用启动测试
      */
@@ -43,5 +46,8 @@ public class ApplicationTest {
         System.out.println(admin1);
     }
 
-
+    @Test
+    void emailTest(){
+        adminService.sendVerificationCodeToEmail("13194134680@163.com");
+    }
 }
