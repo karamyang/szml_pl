@@ -128,6 +128,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
                 Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(),Constants.ResponseCode.UN_ERROR.getInfo());
     }
 
+
     /**
      * 提交审核
      * @param product
@@ -247,5 +248,59 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
                Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(),Constants.ResponseCode.UN_ERROR.getInfo());
     }
 
+
+    @Override
+    public Product findProductById(Long id){
+        return productDao.selectProductById(id);
+    }
+    @Override
+    public List<ProductDto> findProductFromUser(String rightId, String productName,
+                                                Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId){
+        List<ProductDto> productDtos=new ArrayList<>();
+        List<Product> products=productDao.selectProductFromUser(rightId,productName,onlineTime,lineTime,status,manageUserId);
+        for(Product product:products) {
+            ProductDto productDto=new ProductDto();
+            BeanUtils.copyProperties(product,productDto);
+            productDtos.add(productDto);
+        }
+        return productDtos;
+    }
+    @Override
+    public List<ProductDto> findProductFromAdmin(String rightId, String productName,
+                                                 Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId){
+        List<ProductDto> productDtos=new ArrayList<>();
+        List<Product> products=productDao.selectProductFromAdmin(rightId,productName,onlineTime,lineTime,status,manageUserId);
+        for(Product product:products) {
+            ProductDto productDto=new ProductDto();
+            BeanUtils.copyProperties(product,productDto);
+            productDtos.add(productDto);
+        }
+        return productDtos;
+    }
+
+    @Override
+    public List<ProductDto> findProductAndProductAgentFromUser(String rightId, String productName,
+                                                               Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId,Long adminId){
+        List<ProductDto> productDtos=new ArrayList<>();
+        List<Product> products=productDao.selectProductAndProductAgentFromUser(rightId,productName,onlineTime,lineTime,status,manageUserId,adminId);
+        for(Product product:products) {
+            ProductDto productDto=new ProductDto();
+            BeanUtils.copyProperties(product,productDto);
+            productDtos.add(productDto);
+        }
+        return productDtos;
+    }
+    @Override
+    public List<ProductDto> findProductAndProductAgentFromAdmin(String rightId, String productName,
+                                                                Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId,Long adminId){
+        List<ProductDto> productDtos=new ArrayList<>();
+        List<Product> products=productDao.selectProductAndProductAgentFromAdmin(rightId,productName,onlineTime,lineTime,status,manageUserId,adminId);
+        for(Product product:products) {
+            ProductDto productDto=new ProductDto();
+            BeanUtils.copyProperties(product,productDto);
+            productDtos.add(productDto);
+        }
+        return productDtos;
+    }
 
 }

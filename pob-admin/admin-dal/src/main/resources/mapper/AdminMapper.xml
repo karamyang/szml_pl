@@ -1,4 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.szml.pl.dao.AdminDao">
+    <sql id="selectFields">
+        id,username,password,create_time,update_time,telephone,email
+    </sql>
+
+    <sql id="insertFields">
+        username,password,create_time,update_time,telephone,email
+    </sql>
+
+    <select id="selectAdminById" resultType="Admin">
+        select <include refid="selectFields"></include>
+        from admin
+        where id= #{id}
+    </select>
+
+    <select id="selectAdminByUsername" resultType="Admin">
+        select <include refid="selectFields"></include>
+        from admin
+        where username= #{username}
+    </select>
+
+    <select id="selectAdminByTelephone" resultType="Admin">
+        select <include refid="selectFields"></include>
+        from admin
+        where telephone= #{telephone}
+    </select>
+
+    <select id="selectAdminByEmail" resultType="Admin">
+        select <include refid="selectFields"></include>
+        from admin
+        where email= #{email}
+    </select>
+
+    <insert id="insertAdmin" parameterType="Admin" useGeneratedKeys="true" keyProperty="id">
+        insert into admin(<include refid="insertFields"></include>)
+        values(#{username}, #{password}, #{createTime}, #{updateTime}, #{telephone}, #{email})
+    </insert>
+
+
+    <update id="updatePassword">
+        update admin set password =#{password} where id=#{id}
+    </update>
+
 </mapper>

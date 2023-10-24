@@ -18,6 +18,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -58,4 +60,33 @@ public class ProductDraftServiceImpl extends ServiceImpl<ProductDraftDao, Produc
         draftDao.insert(productDraft);
         return true;
     }
+
+
+
+    @Override
+    public List<ProductDto> findProductDraftFromUser(String rightId, String productName,
+                                                     Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId){
+        List<ProductDto> productDtos=new ArrayList<>();
+        List<ProductDraft> productDrafts=draftDao.selectProductDraftFromUser(rightId,productName,onlineTime,lineTime,status,manageUserId);
+        for(ProductDraft productDraft:productDrafts) {
+            ProductDto productDto=new ProductDto();
+            BeanUtils.copyProperties(productDraft,productDto);
+            productDtos.add(productDto);
+        }
+        return productDtos;
+    }
+
+    @Override
+    public List<ProductDto> findProductDraftFromAdmin(String rightId, String productName,
+                                                      Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId){
+        List<ProductDto> productDtos=new ArrayList<>();
+        List<ProductDraft> productDrafts=draftDao.selectProductDraftFromAdmin(rightId,productName,onlineTime,lineTime,status,manageUserId);
+        for(ProductDraft productDraft:productDrafts) {
+            ProductDto productDto=new ProductDto();
+            BeanUtils.copyProperties(productDraft,productDto);
+            productDtos.add(productDto);
+        }
+        return productDtos;
+    }
+
 }
