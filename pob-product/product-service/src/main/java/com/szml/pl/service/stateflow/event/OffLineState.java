@@ -39,7 +39,7 @@ public class OffLineState extends AbstractState {
 
     @Override
     public Result online(ProductDto productDto, Integer currentStatus) {
-        return productService.online(productDto);
+        return lineProducer.sendPobOnline(productDto);
     }
 
     @Override

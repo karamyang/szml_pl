@@ -6,6 +6,7 @@ import com.szml.pl.entity.Product;
 import com.szml.pl.entity.ProductDraft;
 import com.szml.pl.service.ProductDraftService;
 import com.szml.pl.service.ProductService;
+import com.szml.pl.service.mq.rocketmq.producer.LineProducer;
 
 import javax.annotation.Resource;
 
@@ -21,6 +22,8 @@ public abstract class AbstractState {
     protected ProductService productService;
     @Resource
     protected ProductDraftService productDraftService;
+    @Resource
+    protected LineProducer lineProducer;
 
     //发起审核
     public abstract Result audit(ProductDto productDto, Integer currentStatus);

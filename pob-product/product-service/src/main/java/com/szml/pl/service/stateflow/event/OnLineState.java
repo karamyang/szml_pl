@@ -42,7 +42,7 @@ public class OnLineState extends AbstractState {
 
     @Override
     public Result offline(ProductDto productDto, Integer currentStatus) {
-        return productService.offline(productDto);
+        return lineProducer.sendPobOffline(productDto);
     }
 
     @Override

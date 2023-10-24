@@ -1,205 +1,139 @@
-2023-10-23 13:07:15,066 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 13:07:15,069 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 13:19:36,789 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 13:19:36,789 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 13:29:29,841 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 13:29:29,841 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 13:29:44,980 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:30:05,690 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,1]
-2023-10-23 13:30:19,731 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:30:19,731 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,132 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,132 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,132 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,132 INFO  SOFA-Thread-Pool-Monitor-2-thread-5 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,132 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,132 INFO  SOFA-Thread-Pool-Monitor-2-thread-5 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,133 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,133 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,133 INFO  SOFA-Thread-Pool-Monitor-2-thread-10 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,133 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,133 INFO  SOFA-Thread-Pool-Monitor-2-thread-10 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,133 INFO  SOFA-Thread-Pool-Monitor-2-thread-10 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,133 INFO  SOFA-Thread-Pool-Monitor-2-thread-10 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,133 INFO  SOFA-Thread-Pool-Monitor-2-thread-10 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,133 INFO  SOFA-Thread-Pool-Monitor-2-thread-10 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,133 INFO  SOFA-Thread-Pool-Monitor-2-thread-10 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,133 INFO  SOFA-Thread-Pool-Monitor-2-thread-10 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,133 INFO  SOFA-Thread-Pool-Monitor-2-thread-10 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:20,134 INFO  SOFA-Thread-Pool-Monitor-2-thread-10 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:31,556 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 13:31:31,556 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 13:31:36,973 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:31:41,756 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,1]
-2023-10-23 13:31:54,874 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:32:23,027 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:32:23,027 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:32:23,028 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:32:23,028 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:32:23,028 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:32:23,028 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:32:23,028 INFO  SOFA-Thread-Pool-Monitor-2-thread-8 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:32:23,028 INFO  SOFA-Thread-Pool-Monitor-2-thread-5 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:32:30,209 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 13:32:30,209 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 13:32:37,315 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:32:40,970 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,0]
-2023-10-23 13:32:52,367 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:32:52,368 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:32:52,368 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:33:01,945 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:33:04,457 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:33:18,241 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 13:33:18,242 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 13:33:26,995 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:33:30,796 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,1]
-2023-10-23 13:33:59,855 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:33:59,856 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,461 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,462 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,462 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,462 INFO  SOFA-Thread-Pool-Monitor-2-thread-4 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,462 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,462 INFO  SOFA-Thread-Pool-Monitor-2-thread-5 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,462 INFO  SOFA-Thread-Pool-Monitor-2-thread-8 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,462 INFO  SOFA-Thread-Pool-Monitor-2-thread-9 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,463 INFO  SOFA-Thread-Pool-Monitor-2-thread-6 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,463 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,463 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,463 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,463 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,463 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,463 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,463 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,463 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:35:06,463 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:36:27,653 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 13:36:27,653 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 13:45:48,695 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 13:45:48,695 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 13:46:28,521 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 13:46:28,521 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 13:47:29,648 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 13:47:29,648 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 13:47:35,091 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:47:38,422 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,1]
-2023-10-23 13:49:19,982 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,982 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,982 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,982 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,982 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,982 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,982 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,982 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,982 INFO  SOFA-Thread-Pool-Monitor-2-thread-5 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,982 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,983 INFO  SOFA-Thread-Pool-Monitor-2-thread-6 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,983 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,983 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,983 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,983 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,983 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,983 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,983 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,983 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,983 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:19,983 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 13:49:36,386 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 13:49:36,387 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 13:51:55,506 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 13:51:55,506 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 13:54:18,872 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 13:54:18,872 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 14:11:39,127 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 14:11:39,127 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 14:11:53,753 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 14:11:53,753 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 14:11:59,368 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:12:02,833 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,1]
-2023-10-23 14:12:27,193 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:12:27,194 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:12:27,194 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:12:27,194 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:12:27,194 INFO  SOFA-Thread-Pool-Monitor-2-thread-4 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:13:19,506 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 14:13:19,506 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 14:13:25,479 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:13:28,572 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,4]
-2023-10-23 14:13:40,463 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:13:40,464 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:13:40,465 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:14:23,423 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 14:14:23,423 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 14:14:34,713 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:14:38,022 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,1]
-2023-10-23 14:14:55,143 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:15:12,953 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:15:12,953 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:15:12,953 INFO  SOFA-Thread-Pool-Monitor-2-thread-4 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:15:12,953 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:15:12,954 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:15:12,954 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:15:12,954 INFO  SOFA-Thread-Pool-Monitor-2-thread-5 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:15:20,312 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 14:15:20,312 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 14:15:25,584 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:15:28,975 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,0]
-2023-10-23 14:15:47,609 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:15:47,609 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:15:47,609 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:15:47,609 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:15:51,886 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:16:56,515 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:16:56,516 INFO  SOFA-Thread-Pool-Monitor-2-thread-4 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:16:56,516 INFO  SOFA-Thread-Pool-Monitor-2-thread-5 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:16:56,517 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:16:56,518 INFO  SOFA-Thread-Pool-Monitor-2-thread-6 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:16:56,518 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:16:56,519 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:16:56,520 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:16:56,521 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:16:56,521 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:16:56,522 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:16:56,522 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:16:56,522 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:17:01,362 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:17:07,797 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:45:52,357 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 14:45:52,372 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 14:46:21,879 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 14:46:21,879 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 14:47:54,958 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 14:47:54,958 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 14:53:48,584 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 14:53:48,584 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 14:53:54,082 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:54:00,104 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,0]
-2023-10-23 14:54:19,622 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:54:19,622 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:54:19,622 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:54:19,623 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:54:19,623 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:54:36,092 INFO  SOFA-Thread-Pool-Monitor-2-thread-4 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:54:36,093 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:54:36,094 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:54:39,040 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:54:45,711 INFO  SOFA-Thread-Pool-Monitor-2-thread-5 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:54:48,961 INFO  SOFA-Thread-Pool-Monitor-2-thread-6 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:55:22,059 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:55:22,060 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:55:22,061 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:55:22,061 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:55:22,061 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:55:22,061 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
-2023-10-23 14:55:35,753 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 14:55:35,753 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 14:56:04,523 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 14:56:04,523 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 15:48:47,938 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 15:48:47,947 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 15:51:10,368 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 15:51:10,368 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 15:52:38,845 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 15:52:38,845 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
-2023-10-23 19:13:58,761 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
-2023-10-23 19:13:58,766 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-24 13:01:15,517 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-24 13:01:15,518 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-24 13:12:44,560 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-24 13:12:44,560 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-24 13:12:49,552 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:12:49,552 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,148]
+2023-10-24 13:12:54,552 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:12:59,551 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:13:04,551 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:13:09,551 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:13:14,553 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:13:19,552 INFO  SOFA-Thread-Pool-Monitor-2-thread-4 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:13:24,552 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:13:29,553 INFO  SOFA-Thread-Pool-Monitor-2-thread-5 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:13:34,551 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:13:39,552 INFO  SOFA-Thread-Pool-Monitor-2-thread-6 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:13:44,552 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:13:49,553 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:13:54,552 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:13:59,553 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:14:04,552 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:14:09,552 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:14:14,551 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:14:19,552 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:14:24,551 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:14:29,553 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:14:34,551 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:14:39,553 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:14:44,553 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:14:49,551 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:14:54,552 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:14:59,552 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:15:16,897 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-24 13:15:16,898 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-24 13:16:33,301 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-24 13:16:33,301 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-24 13:16:38,293 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:16:38,293 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,119]
+2023-10-24 13:16:43,292 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:16:48,292 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:16:53,293 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:16:58,292 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:17:03,293 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:17:08,293 INFO  SOFA-Thread-Pool-Monitor-2-thread-4 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:17:13,292 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:17:18,294 INFO  SOFA-Thread-Pool-Monitor-2-thread-5 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:17:23,293 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:17:28,293 INFO  SOFA-Thread-Pool-Monitor-2-thread-6 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:17:33,293 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:17:38,293 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:17:43,293 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:17:58,925 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-24 13:17:58,925 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-24 13:18:03,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:18:03,918 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,386]
+2023-10-24 13:18:08,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:18:13,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:18:18,915 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:18:23,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:18:28,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:18:33,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-4 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:18:38,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:18:43,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-5 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:18:48,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:18:53,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-6 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:18:58,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:19:03,915 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:19:08,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:19:13,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:19:18,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:19:23,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:19:28,915 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:19:33,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:19:38,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:19:43,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:19:48,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:19:53,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-7 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:19:58,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:20:03,915 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:20:08,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:20:13,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:20:18,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:20:23,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:20:28,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:20:33,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:20:38,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:20:43,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:20:48,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:20:53,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:20:58,915 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:21:03,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:21:08,915 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:21:13,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:21:18,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:21:23,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:21:28,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:21:33,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:21:38,915 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:21:43,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:21:48,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:21:53,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:21:58,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:22:03,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:22:08,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:22:13,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:22:18,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:22:23,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:22:28,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:22:33,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:22:38,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:22:43,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:22:48,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:22:53,916 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 13:22:58,917 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 15:31:29,737 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-24 15:31:29,759 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-24 15:33:15,427 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-24 15:33:15,427 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-24 15:33:59,066 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-24 15:33:59,066 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-24 15:35:08,822 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-24 15:35:08,822 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-24 15:36:45,681 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-24 15:36:45,681 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-24 15:37:34,558 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 15:37:34,561 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,122]
+2023-10-24 15:37:34,562 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 15:37:34,563 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 15:37:34,564 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 15:37:34,565 INFO  SOFA-Thread-Pool-Monitor-2-thread-3 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 15:37:34,566 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 15:37:34,567 INFO  SOFA-Thread-Pool-Monitor-2-thread-2 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 15:37:34,568 INFO  SOFA-Thread-Pool-Monitor-2-thread-4 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 15:37:34,569 INFO  SOFA-Thread-Pool-Monitor-2-thread-5 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 15:37:49,278 INFO  SOFA-Thread-Pool-Monitor-2-thread-9 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 15:37:49,279 INFO  SOFA-Thread-Pool-Monitor-2-thread-6 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 15:37:49,279 INFO  SOFA-Thread-Pool-Monitor-2-thread-9 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-24 15:40:40,744 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-24 15:40:40,744 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered

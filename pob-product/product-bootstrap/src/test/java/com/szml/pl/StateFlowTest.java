@@ -1,5 +1,6 @@
 package com.szml.pl;
 
+import com.szml.pl.common.Constants;
 import com.szml.pl.common.Result;
 import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.Product;
@@ -7,6 +8,8 @@ import com.szml.pl.entity.ProductDraft;
 import com.szml.pl.service.ProductDraftService;
 import com.szml.pl.service.ProductRecordService;
 import com.szml.pl.service.ProductService;
+import com.szml.pl.service.mq.rocketmq.consumer.OnlineConsumer;
+import com.szml.pl.service.mq.rocketmq.producer.LineProducer;
 import com.szml.pl.service.stateflow.IStateHandler;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeanUtils;
@@ -14,6 +17,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @description: 状态流程测试
@@ -85,5 +90,35 @@ public class StateFlowTest {
 
         Integer test = productRecordService.addRecord(productService.getById(3), 1, "test");
     }
+
+    @Resource
+    LineProducer lineProducer;
+    @Test
+    void mq(){
+        Product product = productService.getById(110);
+        ProductDto productDto = new ProductDto();
+        BeanUtils.copyProperties(product,productDto);
+        System.out.println(productDto.toString());
+        lineProducer.sendPobOnline(productDto);
+        try {
+            Thread.sleep(100000000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Test
+    void piliangcesi(){
+        List<Product> productList=new ArrayList<>();
+        productList.add(productService.getById(1));
+        productList.add(productService.getById(2));
+        productList.add(productService.getById(3));
+        productList.add(productService.getById(4));
+        productList.add(productService.getById(110));
+        Result batchoperation = productService.batchoperation(productList, Constants.ProductRecordState.ONLINE.getCode());
+        System.out.println(batchoperation.getCode()+batchoperation.getInfo());
+    }
+
 
 }

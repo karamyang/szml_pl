@@ -7,12 +7,14 @@ import com.szml.pl.entity.Product;
 import com.szml.pl.entity.ProductDraft;
 import com.szml.pl.impl.ProductDraftServiceImpl;
 import com.szml.pl.service.ProductDraftService;
+import com.szml.pl.service.ProductService;
 import com.szml.pl.service.stateflow.IStateHandler;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 
 /**
@@ -25,14 +27,12 @@ import javax.annotation.Resource;
 public class ProductStateFlowController {
 
     @Resource
-    ProductDraftService productDraftService;
+    ProductService productService;
     @Resource
     IStateHandler stateHandler;
     //发起审核
     @PostMapping(value = "/audit")
     public Result audit(@RequestBody ProductDto productDto) {
-//        return Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo());
-
         return stateHandler.audit(productDto,productDto.getStatus());
     }
     //编辑保存
@@ -56,6 +56,7 @@ public class ProductStateFlowController {
     //上线
     @PostMapping(value = "/online")
     public Result online(@RequestBody ProductDto productDto) {
+        System.out.println(productDto.toString());
         return stateHandler.online(productDto,productDto.getStatus());
     }
 
@@ -69,6 +70,11 @@ public class ProductStateFlowController {
     public Result compile(@RequestBody ProductDto productDto) {
         System.out.println(productDto.toString());
         return stateHandler.compile(productDto,productDto.getStatus());
-//        return Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo());
+    }
+
+    //批量操作
+    @PostMapping(value = "/batchoperation")
+    public Result batchoperation(@RequestBody List<Product> productList,Integer operation) {
+        return productService.batchoperation(productList,operation);
     }
 }

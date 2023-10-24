@@ -19,6 +19,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -55,6 +58,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
             product.setCreateTime(new Timestamp(System.currentTimeMillis()));
             //防止草稿表中的id和商品表中id冲突
             product.setId(null);
+            //更新状态
+            product.setStatus(Constants.ProductState.UNREVIEW.getCode());
             int flag1 = productDao.insert(product);
             if(flag<0||flag1<0) return false;
         }
@@ -64,6 +69,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
             //存在则更新商品
             if(product1!=null){
                 //更新商品
+                //更新状态
+                product.setStatus(Constants.ProductState.UNREVIEW.getCode());
                 product.setUpdateTime(new Timestamp(System.currentTimeMillis()));
                 int flag = productDao.updateById(product);
                 return flag>0?true:false;
@@ -76,6 +83,40 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
         //4.增加操作表记录
         productRecordService.addRecord(product,Constants.ProductRecordState.SUBMITDRAFT.getCode(),Constants.ProductRecordState.SUBMITDRAFT.getInfo());
         return true;
+    }
+
+    @Override
+    @Transactional
+    public Result batchoperation(List<Product> productList, Integer operation) {
+        int record;
+        Iterator<Product> iterator = productList.iterator();
+        boolean b;
+        if(operation.equals(Constants.ProductRecordState.ONLINE.getCode())){
+            record=Constants.ProductState.ONLINE.getCode();
+            while (iterator.hasNext()) {
+                Product product = iterator.next();
+                if (product.getStatus().equals(Constants.ProductState.OFFLINE.getCode()) ||
+                        product.getStatus().equals(Constants.ProductState.PASSREVIEW.getCode())) {
+                    product.setStatus(record);
+                }else {
+                    iterator.remove();//使用迭代器的删除方法删除
+                }
+            }
+            b=productService.updateBatchById(productList);
+        }else {
+            record=Constants.ProductState.OFFLINE.getCode();
+            while (iterator.hasNext()) {
+                Product product = iterator.next();
+                if (product.getStatus().equals(Constants.ProductState.ONLINE.getCode())) {
+                    product.setStatus(record);
+                }else {
+                    iterator.remove();//使用迭代器的删除方法删除
+                }
+            }
+            b=productService.updateBatchById(productList);
+        }
+        return b ? Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo()) :
+                Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(),Constants.ResponseCode.UN_ERROR.getInfo());
     }
 
     /**
