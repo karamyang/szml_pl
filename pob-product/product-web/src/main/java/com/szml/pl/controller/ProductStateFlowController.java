@@ -30,49 +30,65 @@ public class ProductStateFlowController {
     ProductService productService;
     @Resource
     IStateHandler stateHandler;
-    //发起审核
+    /**
+     * 发起审核
+     */
     @PostMapping(value = "/audit")
     public Result audit(@RequestBody ProductDto productDto) {
         return stateHandler.audit(productDto,productDto.getStatus());
     }
-    //编辑保存
+    /**
+     * 提交
+     */
     @PostMapping(value = "/submit")
     public Result submit(@RequestBody ProductDto productDto) {
         return stateHandler.submit(productDto,productDto.getStatus());
     }
 
-    //审核驳回
+    /**
+     * 审核驳回
+     */
     @PostMapping(value = "/nopass")
     public Result nopass(@RequestBody ProductDto productDto) {
         return stateHandler.nopass(productDto,productDto.getStatus());
     }
 
-    //审核通过
+    /**
+     * 审核通过
+     */
     @PostMapping(value = "/pass")
     public Result pass(@RequestBody ProductDto productDto) {
         return stateHandler.pass(productDto,productDto.getStatus());
     }
 
-    //上线
+    /**
+     * 上线
+     */
     @PostMapping(value = "/online")
     public Result online(@RequestBody ProductDto productDto) {
         System.out.println(productDto.toString());
         return stateHandler.online(productDto,productDto.getStatus());
     }
 
-    //下线
+    /**
+     * 下线
+     */
     @PostMapping(value = "/offline")
     public Result offline(@RequestBody ProductDto productDto) {
         return stateHandler.offline(productDto,productDto.getStatus());
     }
-    //编辑
+    /**
+     * 编辑
+     */
     @PostMapping(value = "/compile")
     public Result compile(@RequestBody ProductDto productDto) {
         System.out.println(productDto.toString());
         return stateHandler.compile(productDto,productDto.getStatus());
     }
 
-    //批量操作
+    /**
+     * 批量操作
+     */
     @PostMapping(value = "/batchoperation")
     public Result batchoperation(@RequestBody List<Product> productList,Integer operation) {
         return productService.batchoperation(productList,operation);

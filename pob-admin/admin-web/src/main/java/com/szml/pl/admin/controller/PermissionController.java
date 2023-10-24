@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @RequestMapping("/permission")
-public class PobPermissionController {
+public class PermissionController {
     @RequestMapping(value = "/get", method = RequestMethod.POST)
     @ResponseBody
     public Result getpermission(){

@@ -5,10 +5,7 @@ import com.szml.pl.common.Result;
 import com.szml.pl.entity.Admin;
 import com.szml.pl.service.AdminService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -19,15 +16,17 @@ import java.util.Map;
  * @author：karma
  * @date: 2023/10/21
  */
-@Controller
+@RestController
 @RequestMapping("/admin")
-public class PobAdminController {
+public class AdminController {
 
     @Resource
     private AdminService adminService;
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    @ResponseBody
-    public Result login(String username,String password){
+    /**
+     *  用户登录
+     */
+    @GetMapping (value = "/login")
+    public Result login(@RequestParam String username,@RequestParam String password){
         Map<String,Object> map=adminService.login(username,password);
 
         if(map.containsKey("success")){//登录成功
@@ -38,10 +37,11 @@ public class PobAdminController {
         }
 
     }
-
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    @ResponseBody
-    public Result register(Admin admin){
+    /**
+     *  用户注册
+     */
+    @PostMapping(value = "/register")
+    public Result register(@RequestBody Admin admin){
         Map<String,Object> map=adminService.register(admin);
 
         if(map==null|| map.isEmpty()){//登录成功
@@ -52,9 +52,10 @@ public class PobAdminController {
         }
     }
 
-    //发送验证码到邮箱
-    @RequestMapping(value = "/forget", method = RequestMethod.GET)
-    @ResponseBody
+    /**
+     *  发送验证码到邮箱
+     */
+    @GetMapping(value = "/forget")
     public Result sendVerificationCode(@RequestParam String emailAddress){
 
         adminService.sendVerificationCodeToEmail(emailAddress);
@@ -62,18 +63,21 @@ public class PobAdminController {
         return Result.buildResult(Constants.ResponseCode.SUCCESS);
     }
 
-    //忘记密码
-    @RequestMapping(value = "/resetPassword", method = RequestMethod.POST)
-    @ResponseBody
+    /**
+     *  忘记密码
+     */
+    @GetMapping(value = "/resetPassword")
     public Result resetPassword(@RequestParam String emailAddress,@RequestParam String verificationCode,@RequestParam String newPassword){
 
         //验证码错误
         if(!adminService.checkVerificationCode(emailAddress,verificationCode)){
+            System.out.println("验证码错误");
             return Result.buildErrorResult();
         }
 
-        Map<String,Object> map=adminService.forgetPassword(emailAddress,newPassword);
+        Map<String,Object> map=adminService.forgetPassword(newPassword,emailAddress);
 
+        System.out.println(map);
         if(map==null|| map.isEmpty()){//修改成功
             return Result.buildResult(Constants.ResponseCode.SUCCESS);
         }

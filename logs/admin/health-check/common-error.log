@@ -1,0 +1,6 @@
+2023-10-24 16:47:32,468 ERROR main                             - SOFA-BOOT-01-21001: HealthIndicator[redisHealthContributor] readiness check fail; the status is: DOWN; the detail is: {"error":"org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379"}
+2023-10-24 16:47:32,469 ERROR main                             - SOFA-BOOT-01-21000: SOFABoot HealthIndicator readiness check result: failed
+2023-10-24 16:47:32,469 ERROR main                             - SOFA-BOOT-01-20000: Readiness check result: fail
+2023-10-24 16:49:23,662 ERROR main                             - SOFA-BOOT-01-21001: HealthIndicator[redisHealthContributor] readiness check fail; the status is: DOWN; the detail is: {"error":"org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 101.33.248.222:6379"}
+2023-10-24 16:49:23,662 ERROR main                             - SOFA-BOOT-01-21000: SOFABoot HealthIndicator readiness check result: failed
+2023-10-24 16:49:23,663 ERROR main                             - SOFA-BOOT-01-20000: Readiness check result: fail

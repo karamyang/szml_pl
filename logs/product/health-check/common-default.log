@@ -160,3 +160,57 @@
 2023-10-24 13:59:37,025 INFO  RMI TCP Connection(5)-192.168.56.1 - HealthChecker[sofaComponentHealthChecker] liveness check start.
 2023-10-24 13:59:37,025 INFO  RMI TCP Connection(5)-192.168.56.1 - HealthChecker[sofaComponentHealthChecker] liveness check success with 0 retry.
 2023-10-24 13:59:37,025 INFO  RMI TCP Connection(5)-192.168.56.1 - SOFABoot HealthChecker liveness check result: success.
+2023-10-24 20:05:36,655 INFO  main                             - Found 1 HealthChecker implementation:sofaComponentHealthChecker
+2023-10-24 20:05:36,748 INFO  main                             - Found 3 HealthIndicator implementation:diskSpaceHealthIndicator,pingHealthContributor,dbHealthContributor
+2023-10-24 20:05:36,749 INFO  main                             - Found 0 ReadinessCheckCallback implementation: 
+2023-10-24 20:05:36,750 INFO  main                             - Begin SOFABoot HealthChecker readiness check.
+2023-10-24 20:05:36,751 INFO  main                             - SOFABoot HealthChecker readiness check 1 item: SOFABoot-Components.
+2023-10-24 20:05:36,752 INFO  main                             - HealthChecker[sofaComponentHealthChecker] readiness check start.
+2023-10-24 20:05:36,753 INFO  main                             - Create health-check thread pool, corePoolSize: 1, maxPoolSize: 1.
+2023-10-24 20:05:36,790 INFO  main                             - HealthChecker[sofaComponentHealthChecker] readiness check success with 0 retry.
+2023-10-24 20:05:36,790 INFO  main                             - SOFABoot HealthChecker readiness check result: success.
+2023-10-24 20:05:36,790 INFO  main                             - Begin SOFABoot HealthIndicator readiness check.
+2023-10-24 20:05:36,790 INFO  main                             - SOFABoot HealthChecker readiness check 3 item: diskSpaceHealthIndicator,pingHealthContributor,dbHealthContributor.
+2023-10-24 20:05:36,790 INFO  main                             - HealthIndicator[diskSpaceHealthIndicator] readiness check start.
+2023-10-24 20:05:36,792 INFO  main                             - HealthIndicator[diskSpaceHealthIndicator] readiness check success.
+2023-10-24 20:05:36,792 INFO  main                             - HealthIndicator[pingHealthContributor] readiness check start.
+2023-10-24 20:05:36,792 INFO  main                             - HealthIndicator[pingHealthContributor] readiness check success.
+2023-10-24 20:05:36,792 INFO  main                             - HealthIndicator[dbHealthContributor] readiness check start.
+2023-10-24 20:05:37,260 INFO  main                             - HealthIndicator[dbHealthContributor] readiness check success.
+2023-10-24 20:05:37,260 INFO  main                             - SOFABoot HealthIndicator readiness check result: success.
+2023-10-24 20:05:37,260 INFO  main                             - Invoking all readiness check callbacks...
+2023-10-24 20:05:37,260 INFO  main                             - Begin ReadinessCheckCallback readiness check
+2023-10-24 20:05:37,260 INFO  main                             - ReadinessCheckCallback readiness check result: success.
+2023-10-24 20:05:37,260 INFO  main                             - Readiness check result: success
+2023-10-24 20:05:38,433 INFO  RMI TCP Connection(3)-192.168.56.1 - Begin SOFABoot HealthChecker liveness check.
+2023-10-24 20:05:38,434 INFO  RMI TCP Connection(3)-192.168.56.1 - SOFABoot HealthChecker liveness check 1 item: SOFABoot-Components.
+2023-10-24 20:05:38,434 INFO  RMI TCP Connection(3)-192.168.56.1 - HealthChecker[sofaComponentHealthChecker] liveness check start.
+2023-10-24 20:05:38,434 INFO  RMI TCP Connection(3)-192.168.56.1 - HealthChecker[sofaComponentHealthChecker] liveness check success with 0 retry.
+2023-10-24 20:05:38,434 INFO  RMI TCP Connection(3)-192.168.56.1 - SOFABoot HealthChecker liveness check result: success.
+2023-10-24 20:07:21,950 INFO  main                             - Found 1 HealthChecker implementation:sofaComponentHealthChecker
+2023-10-24 20:07:21,951 INFO  main                             - Found 3 HealthIndicator implementation:diskSpaceHealthIndicator,pingHealthContributor,dbHealthContributor
+2023-10-24 20:07:21,951 INFO  main                             - Found 0 ReadinessCheckCallback implementation: 
+2023-10-24 20:07:21,952 INFO  main                             - Begin SOFABoot HealthChecker readiness check.
+2023-10-24 20:07:21,952 INFO  main                             - SOFABoot HealthChecker readiness check 1 item: SOFABoot-Components.
+2023-10-24 20:07:21,953 INFO  main                             - HealthChecker[sofaComponentHealthChecker] readiness check start.
+2023-10-24 20:07:21,953 INFO  main                             - Create health-check thread pool, corePoolSize: 1, maxPoolSize: 1.
+2023-10-24 20:07:22,062 INFO  main                             - HealthChecker[sofaComponentHealthChecker] readiness check success with 0 retry.
+2023-10-24 20:07:22,062 INFO  main                             - SOFABoot HealthChecker readiness check result: success.
+2023-10-24 20:07:22,062 INFO  main                             - Begin SOFABoot HealthIndicator readiness check.
+2023-10-24 20:07:22,062 INFO  main                             - SOFABoot HealthChecker readiness check 3 item: diskSpaceHealthIndicator,pingHealthContributor,dbHealthContributor.
+2023-10-24 20:07:22,063 INFO  main                             - HealthIndicator[diskSpaceHealthIndicator] readiness check start.
+2023-10-24 20:07:22,064 INFO  main                             - HealthIndicator[diskSpaceHealthIndicator] readiness check success.
+2023-10-24 20:07:22,065 INFO  main                             - HealthIndicator[pingHealthContributor] readiness check start.
+2023-10-24 20:07:22,065 INFO  main                             - HealthIndicator[pingHealthContributor] readiness check success.
+2023-10-24 20:07:22,065 INFO  main                             - HealthIndicator[dbHealthContributor] readiness check start.
+2023-10-24 20:07:22,407 INFO  main                             - HealthIndicator[dbHealthContributor] readiness check success.
+2023-10-24 20:07:22,407 INFO  main                             - SOFABoot HealthIndicator readiness check result: success.
+2023-10-24 20:07:22,407 INFO  main                             - Invoking all readiness check callbacks...
+2023-10-24 20:07:22,407 INFO  main                             - Begin ReadinessCheckCallback readiness check
+2023-10-24 20:07:22,407 INFO  main                             - ReadinessCheckCallback readiness check result: success.
+2023-10-24 20:07:22,408 INFO  main                             - Readiness check result: success
+2023-10-24 20:07:23,036 INFO  RMI TCP Connection(2)-192.168.56.1 - Begin SOFABoot HealthChecker liveness check.
+2023-10-24 20:07:23,037 INFO  RMI TCP Connection(2)-192.168.56.1 - SOFABoot HealthChecker liveness check 1 item: SOFABoot-Components.
+2023-10-24 20:07:23,037 INFO  RMI TCP Connection(2)-192.168.56.1 - HealthChecker[sofaComponentHealthChecker] liveness check start.
+2023-10-24 20:07:23,037 INFO  RMI TCP Connection(2)-192.168.56.1 - HealthChecker[sofaComponentHealthChecker] liveness check success with 0 retry.
+2023-10-24 20:07:23,037 INFO  RMI TCP Connection(2)-192.168.56.1 - SOFABoot HealthChecker liveness check result: success.

@@ -21,6 +21,11 @@ import javax.annotation.Resource;
 public class ProductCategoryController {
     @Resource
     private ProductCategoryService categoryService;
+
+    /**
+     *
+     * @return
+     */
     @GetMapping("/querylist")
     public Result queryCategoryList(){
         return Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(categoryService.queryCategoryList()));
