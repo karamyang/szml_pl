@@ -40,7 +40,11 @@
 
 
     <update id="updatePassword">
-        update user set password =#{password} where id=#{id}
+        update admin set password =#{password} where id=#{id}
+    </update>
+
+    <update id="updateTime">
+        update admin set update_time =#{updateTime} where id=#{id}
     </update>
 
 </mapper>

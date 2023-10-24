@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.szml.pl.entity.Admin;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.sql.Timestamp;
+
 /**
  * @description:
  * @author：wufengning
@@ -26,6 +28,11 @@ public interface AdminDao extends BaseMapper<Admin> {
      * 修改密码
      */
     int updatePassword(Long id,String password);
+
+    /**
+     * 更新修改时间
+     */
+    int updateTime(Long id, Timestamp updateTime);
 
 
 }

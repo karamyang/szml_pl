@@ -161,7 +161,8 @@ public class AdminServiceImpl extends ServiceImpl<AdminDao, Admin> implements Ad
 
         // 重置密码
         adminDao.updatePassword(admin.getId(), password);
-
+        //更新修改时间
+        adminDao.updateTime(admin.getId(),new Timestamp(System.currentTimeMillis()));
 
         return map;
     }
