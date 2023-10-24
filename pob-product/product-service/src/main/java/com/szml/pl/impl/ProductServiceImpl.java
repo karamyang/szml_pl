@@ -58,8 +58,6 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
             product.setCreateTime(new Timestamp(System.currentTimeMillis()));
             //防止草稿表中的id和商品表中id冲突
             product.setId(null);
-            //更新状态
-            product.setStatus(Constants.ProductState.UNREVIEW.getCode());
             int flag1 = productDao.insert(product);
             if(flag<0||flag1<0) return false;
         }
@@ -69,8 +67,6 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
             //存在则更新商品
             if(product1!=null){
                 //更新商品
-                //更新状态
-                product.setStatus(Constants.ProductState.UNREVIEW.getCode());
                 product.setUpdateTime(new Timestamp(System.currentTimeMillis()));
                 int flag = productDao.updateById(product);
                 return flag>0?true:false;
