@@ -7,39 +7,42 @@ spring:
     url: jdbc:mysql://101.33.248.222:3306/pob_product?characterEncoding=utf-8&useSSL=false
     username: root
     password: 123456
+  cloud:
+    nacos:
+      server-addr: 101.33.248.222:8848
+      discovery:
+        namespace: public
 server:
   port: 8087
 logging:
   path: ./logs/product
 
+
 mybatis-plus:
   mapper-locations: classpath*:/mapper/*.xml
   type-aliases-package: com.szml.pl.entity
 
-#dubbo:
-#  application:
-#    id: dubbo-pob-product
-#    name: dubbo-pob-product
-#    qosEnable: false
-#  protocol:
-#    id: dubbo
-#    name: dubbo
-#    port: 20881
-#  registry:
-#    id: dubbo-pob-registry
-#    address: zookeeper://101.33.248.222:2181
-#  config-center:
-#    address: zookeeper://101.33.248.222:2181
-#  metadata-report:
-#    address: zookeeper://101.33.248.222:2181
-
-#配置dubbo广播模式
+# nacos配置
+nacos:
+  discovery:
+    register:
+      healthy: false
+    server-addr: 101.33.248.222:8848
+# 配置dubbo
 dubbo:
   application:
-    name: Admin
-    version: 1.0.0
+    name: pob-product
+    id: pob-product
+  monitor:
+    protocol: dubbo-registry
   registry:
-    address: N/A #multicast://224.5.6.7:1234
+    address: nacos://101.33.248.222:8848
+  config-center:
+    address: nacos://101.33.248.222:8848
+  metadata-report:
+    address: nacos://101.33.248.222:8848
   protocol:
     name: dubbo
-    port: 20880
+    port: 28081 # 端口不能与dubbo-provider重复;
+  consumer:
+    check: false

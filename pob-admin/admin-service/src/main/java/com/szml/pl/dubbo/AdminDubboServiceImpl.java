@@ -8,7 +8,7 @@ import com.szml.pl.common.dubbo.AdminDubboService;
 import com.szml.pl.common.response.ObjectResult;
 import com.szml.pl.dao.AdminDao;
 import com.szml.pl.entity.Admin;
-import org.apache.dubbo.config.annotation.Service;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
@@ -19,9 +19,10 @@ import javax.annotation.Resource;
  * @author：wufengning
  * @date: 2023/10/23
  */
-@Service(version = "1.0.0",protocol = "${dubbo.protocol.id}", application = "${dubbo.application.id}",
-        registry = "${dubbo.registry.id}", timeout = 3000)
+//@Service(version = "1.0.0",protocol = "${dubbo.protocol.id}", application = "${dubbo.application.id}",
+//        registry = "${dubbo.registry.id}", timeout = 3000)
 //@Component
+//@DubboService
 public class AdminDubboServiceImpl implements AdminDubboService {
     @Resource
     private AdminDao adminDao;

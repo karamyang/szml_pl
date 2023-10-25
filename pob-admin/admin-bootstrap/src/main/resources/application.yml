@@ -6,6 +6,14 @@ spring:
     url:  jdbc:mysql://101.33.248.222:3306/pob_admin?characterEncoding=utf-8&useSSL=false
     username: root
     password: 123456
+  main:
+    allow-bean-definition-overriding: true
+#  cloud:
+#    nacos:
+#      server-addr: 101.33.248.222:8848
+#      discovery:
+#        namespace: public
+
 server:
   port: 8088
 logging:
@@ -14,34 +22,39 @@ mybatis-plus:
   mapper-locations: classpath*:/mapper/*.xml
   type-aliases-package: com.szml.pl.entity
 
+# dubbo配置
 #dubbo:
 #  application:
-#    id: dubbo-pob-admin
-#    name: dubbo-pob-admin
-#    qosEnable: false
-#  protocol:
-#    id: dubbo
-#    name: dubbo
-#    port: 20880
-#  scan:
-#    base-packages:  com.szml.pl.dubbo
+#    id: pob-admin # 自己定义
+#    name: pob-admin # 自己定义
+#  monitor:
+#    protocol: dubbo-registry
 #  registry:
-#    id: dubbo-pob-registry
-#    address: zookeeper://101.33.248.222:2181
+#    address: nacos://101.33.248.222:8848 # 自己定义, 写自己的nacos的ip地址, 8848是默认端口 ;
 #  config-center:
-#    address: zookeeper://101.33.248.222:2181
+#    address: nacos://101.33.248.222:8848 # 自己定义, 写自己的nacos的ip地址, 8848是默认端口 ;
 #  metadata-report:
-#    address: zookeeper://101.33.248.222:2181
+#    address: nacos://101.33.248.222:8848 # 自己定义, 写自己的nacos的ip地址, 8848是默认端口 ;
+#  provider: # 具体参数含义, 查看官方文档
+#    threadpool: fixed
+#    threads: 10
+#    loadbalance: roundrobin
+#    timeout: 8000
+#    retries: 3
+#  protocol:
+#    name: dubbo
+#    port: 28080
 
-#配置dubbo广播模式
-dubbo:
-  application:
-    name: Admin
-    version: 1.0.0
-  registry:
-    address: N/A #multicast://224.5.6.7:1234
-  protocol:
-    name: dubbo
-    port: 20880
-  scan:
-    base-packages: com.szml.pl.dubbo
+ #nacos配置, 具体参数,参照官方文档
+#nacos:
+#  discovery:
+#    register:
+#      healthy: false
+#    server-addr: 101.33.248.222:8848 # 自己定义, 写自己的nacos的ip地址, 8848是默认端口 ;
+
+# 自定义jwt key
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: mySecret #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24)
+  tokenHead: Bearer  #JWT负载中拿到开头

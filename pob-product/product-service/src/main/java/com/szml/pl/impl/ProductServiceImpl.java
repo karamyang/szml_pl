@@ -7,7 +7,7 @@ import com.szml.pl.dao.ProductDao;
 import com.szml.pl.common.dto.AdminDto;
 import com.szml.pl.entity.Product;
 import com.szml.pl.service.ProductService;
-import org.apache.dubbo.config.annotation.Reference;
+import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,7 +22,7 @@ import javax.annotation.Resource;
 public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> implements ProductService {
     @Resource
     private ProductDao productDao;
-    @Reference(url = "dubbo://127.0.0.1:20880",timeout = 25000)
+
     private AdminDubboService adminDubboService;
     @Override
     @Transactional

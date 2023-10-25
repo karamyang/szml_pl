@@ -1,6 +1,8 @@
 package com.szml.pl.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.szml.pl.common.dto.AdminDto;
+import com.szml.pl.dto.LoginReq;
 import com.szml.pl.entity.Admin;
 
 /**
@@ -10,4 +12,6 @@ import com.szml.pl.entity.Admin;
  */
 
 public interface  AdminService extends IService<Admin> {
+
+    String login(LoginReq loginReq);
 }
