@@ -1,5 +1,7 @@
 package com.szml.pl;
 
+import com.alipay.sofa.runtime.api.annotation.SofaReference;
+import com.alipay.sofa.runtime.api.annotation.SofaReferenceBinding;
 import com.szml.pl.common.dubbo.AdminDubboService;
 import com.szml.pl.common.response.ObjectResult;
 import com.szml.pl.dao.ProductDao;
@@ -7,7 +9,7 @@ import com.szml.pl.entity.Product;
 import com.szml.pl.entity.ProductAgent;
 import com.szml.pl.service.ProductAgentService;
 import com.szml.pl.service.ProductService;
-import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -47,7 +49,9 @@ public class ApplicationTest {
         Product byId = productService.getById(1);
         System.out.println(byId.toString());
     }
-    @Reference(version = "1.0.0")
+//    @SofaReference(interfaceType = AdminDubboService.class, jvmFirst = false,
+//            binding = @SofaReferenceBinding(bindingType = "bolt"))
+    @DubboReference
     private AdminDubboService adminDubboService;
     /**
      * 远程调用集成测试

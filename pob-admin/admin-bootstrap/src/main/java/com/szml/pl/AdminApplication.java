@@ -1,6 +1,7 @@
 package com.szml.pl;
 
 
+import org.apache.dubbo.config.spring.context.annotation.DubboComponentScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -12,6 +13,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
  */
 //@EnableDubbo
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@DubboComponentScan(basePackages = {"com.szml.pl.dubbo"})
 @SpringBootApplication
 public class AdminApplication {
     public static void main(String[] args) {

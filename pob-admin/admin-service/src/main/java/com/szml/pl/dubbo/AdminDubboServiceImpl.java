@@ -1,5 +1,7 @@
 package com.szml.pl.dubbo;
 
+import com.alipay.sofa.runtime.api.annotation.SofaService;
+import com.alipay.sofa.runtime.api.annotation.SofaServiceBinding;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.szml.pl.common.Constants;
@@ -8,9 +10,10 @@ import com.szml.pl.common.dubbo.AdminDubboService;
 import com.szml.pl.common.response.ObjectResult;
 import com.szml.pl.dao.AdminDao;
 import com.szml.pl.entity.Admin;
-
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
@@ -22,7 +25,8 @@ import javax.annotation.Resource;
 //@Service(version = "1.0.0",protocol = "${dubbo.protocol.id}", application = "${dubbo.application.id}",
 //        registry = "${dubbo.registry.id}", timeout = 3000)
 //@Component
-//@DubboService
+@DubboService
+//@SofaService(interfaceType = AdminDubboService.class, bindings = { @SofaServiceBinding(bindingType = "bolt") })
 public class AdminDubboServiceImpl implements AdminDubboService {
     @Resource
     private AdminDao adminDao;
