@@ -1,6 +1,7 @@
 package com.szml.pl.impl;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.szml.pl.common.Constants;
 import com.szml.pl.common.Result;
@@ -254,51 +255,47 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
         return productDao.selectProductById(id);
     }
     @Override
-    public List<ProductDto> findProductFromUser(String rightId, String productName,
-                                                Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId){
-        List<ProductDto> productDtos=new ArrayList<>();
-        List<Product> products=productDao.selectProductFromUser(rightId,productName,onlineTime,lineTime,status,manageUserId);
-        for(Product product:products) {
-            ProductDto productDto=new ProductDto();
-            BeanUtils.copyProperties(product,productDto);
-            productDtos.add(productDto);
+    public Page<ProductDto> findProductFromUser(ProductDto productDto,Long current, Long size){
+        Page<Product> products=productDao.selectProductFromUser(new Page<>(current,size),productDto.getRightId(),productDto.getProductName(),productDto.getOnlineTime(),productDto.getLineTime(),productDto.getStatus(),productDto.getManageUserId());
+        Page<ProductDto> productDtos=new Page<>();
+        for(Product product:products.getRecords()) {
+            ProductDto dto=new ProductDto();
+            BeanUtils.copyProperties(product,dto);
+            productDtos.getRecords().add(dto);
         }
         return productDtos;
     }
     @Override
-    public List<ProductDto> findProductFromAdmin(String rightId, String productName,
-                                                 Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId){
-        List<ProductDto> productDtos=new ArrayList<>();
-        List<Product> products=productDao.selectProductFromAdmin(rightId,productName,onlineTime,lineTime,status,manageUserId);
-        for(Product product:products) {
-            ProductDto productDto=new ProductDto();
-            BeanUtils.copyProperties(product,productDto);
-            productDtos.add(productDto);
+    public Page<ProductDto> findProductFromAdmin(ProductDto productDto,Long current, Long size){
+        Page<Product> products=productDao.selectProductFromAdmin(new Page<>(current,size),productDto.getRightId(),productDto.getProductName(),productDto.getOnlineTime(),productDto.getLineTime(),productDto.getStatus(),productDto.getManageUserId());
+        Page<ProductDto> productDtos=new Page<>();
+        for(Product product:products.getRecords()) {
+            ProductDto dto=new ProductDto();
+            BeanUtils.copyProperties(product,dto);
+            productDtos.getRecords().add(dto);
         }
         return productDtos;
     }
 
     @Override
-    public List<ProductDto> findProductAndProductAgentFromUser(String rightId, String productName,
-                                                               Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId,Long adminId){
-        List<ProductDto> productDtos=new ArrayList<>();
-        List<Product> products=productDao.selectProductAndProductAgentFromUser(rightId,productName,onlineTime,lineTime,status,manageUserId,adminId);
-        for(Product product:products) {
-            ProductDto productDto=new ProductDto();
-            BeanUtils.copyProperties(product,productDto);
-            productDtos.add(productDto);
+    public Page<ProductDto> findProductAndProductAgentFromUser(ProductDto productDto,Long current, Long size){
+        Page<Product> products=productDao.selectProductAndProductAgentFromUser(new Page<>(current,size),productDto.getRightId(),productDto.getProductName(),productDto.getOnlineTime(),productDto.getLineTime(),productDto.getStatus(),productDto.getManageUserId(),productDto.getAdminId());
+        Page<ProductDto> productDtos=new Page<>();
+        for(Product product:products.getRecords()) {
+            ProductDto dto=new ProductDto();
+            BeanUtils.copyProperties(product,dto);
+            productDtos.getRecords().add(dto);
         }
         return productDtos;
     }
     @Override
-    public List<ProductDto> findProductAndProductAgentFromAdmin(String rightId, String productName,
-                                                                Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId,Long adminId){
-        List<ProductDto> productDtos=new ArrayList<>();
-        List<Product> products=productDao.selectProductAndProductAgentFromAdmin(rightId,productName,onlineTime,lineTime,status,manageUserId,adminId);
-        for(Product product:products) {
-            ProductDto productDto=new ProductDto();
-            BeanUtils.copyProperties(product,productDto);
-            productDtos.add(productDto);
+    public Page<ProductDto> findProductAndProductAgentFromAdmin(ProductDto productDto,Long current, Long size){
+        Page<Product> products=productDao.selectProductAndProductAgentFromAdmin(new Page<>(current,size),productDto.getRightId(),productDto.getProductName(),productDto.getOnlineTime(),productDto.getLineTime(),productDto.getStatus(),productDto.getManageUserId(),productDto.getAdminId());
+        Page<ProductDto> productDtos=new Page<>();
+        for(Product product:products.getRecords()) {
+            ProductDto dto=new ProductDto();
+            BeanUtils.copyProperties(product,dto);
+            productDtos.getRecords().add(dto);
         }
         return productDtos;
     }
