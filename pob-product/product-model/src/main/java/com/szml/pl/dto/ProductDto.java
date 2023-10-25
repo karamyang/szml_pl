@@ -42,4 +42,5 @@ public class ProductDto implements Serializable {
     private String notShipments;
     private Long adminId;
     private Long flag;
+    private String remark;
 }

@@ -40,4 +40,6 @@ public interface ProductService extends IService<Product> {
                                                         Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId,Long adminId);
     List<ProductDto> findProductAndProductAgentFromAdmin(String rightId, String productName,
                                                          Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId,Long adminId);
+
+    Result stockoffline();
 }

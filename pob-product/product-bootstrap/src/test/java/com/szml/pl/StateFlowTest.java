@@ -120,5 +120,10 @@ public class StateFlowTest {
         System.out.println(batchoperation.getCode()+batchoperation.getInfo());
     }
 
+    @Test
+    void stockofflinetest(){
+        Result stockoffline = productService.stockoffline();
+    }
+
 
 }

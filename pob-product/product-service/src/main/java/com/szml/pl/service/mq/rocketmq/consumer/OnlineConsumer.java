@@ -1,5 +1,6 @@
 package com.szml.pl.service.mq.rocketmq.consumer;
 
+import com.szml.pl.common.Constants;
 import com.szml.pl.common.Result;
 import com.szml.pl.dao.ProductDao;
 import com.szml.pl.dto.ProductDto;
@@ -37,7 +38,10 @@ public class OnlineConsumer implements RocketMQListener<ProductDto> {
             lineProducer.sendPobOnline(productDto);
             logger.info("再次发送延时消息");
         }else{
-            productService.online(productDto);
+            Result online = productService.online(productDto);
+            if(online.getCode().equals(Constants.ResponseCode.SUCCESS.getCode())){
+                lineProducer.sendPobOffline(productDto);
+            }
             logger.info("上线");
         }
     }
