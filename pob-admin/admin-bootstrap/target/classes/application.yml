@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: pob-admin
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url:  jdbc:mysql://101.33.248.222:3306/pob_admin?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+  redis:
+    host: 101.33.248.222
+    port: 6379
+    password: '073643'
+  mail:
+    host: smtp.qq.com
+    port: 587
+    username: 1228511591@qq.com
+    password: vevfwzgtgozqhbaa
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+
+server:
+  port: 8088
+logging:
+  path: ./logs/admin
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+  type-aliases-package: com.szml.pl.entity
+
+

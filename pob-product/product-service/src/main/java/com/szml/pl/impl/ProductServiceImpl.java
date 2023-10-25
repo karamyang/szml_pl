@@ -251,7 +251,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
                 Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(),Constants.ResponseCode.UN_ERROR.getInfo());
     }
     @Override
-    @Scheduled(cron = "0 0 10,14,20 * * ?")
+    @Scheduled(cron = "0 0 10,14,18 * * ?")
     public Result stockoffline() {
         UpdateWrapper updateWrapper = new UpdateWrapper();
         updateWrapper.eq("status",Constants.ProductState.ONLINE.getCode());
