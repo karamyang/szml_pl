@@ -1,7 +1,6 @@
 package com.szml.pl.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.szml.pl.common.dto.AdminDto;
 import com.szml.pl.dao.AdminDao;
 import com.szml.pl.dto.LoginReq;
 import com.szml.pl.entity.Admin;
@@ -20,6 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 
 /**
@@ -37,6 +37,8 @@ public class AdminServiceImpl extends ServiceImpl<AdminDao, Admin> implements Ad
     private JwtTokenUtil jwtTokenUtil;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Resource
+    private AdminDao adminDao;
     @Value("${jwt.tokenHead}")
     private String tokenHead;
     @Override
@@ -55,5 +57,10 @@ public class AdminServiceImpl extends ServiceImpl<AdminDao, Admin> implements Ad
             log.warn("登录异常:{}", e.getMessage());
         }
         return token;
+    }
+
+    @Override
+    public List<String> getPermissions(String username) {
+        return adminDao.getPermissions(username);
     }
 }

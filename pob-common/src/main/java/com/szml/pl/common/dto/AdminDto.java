@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @description:
@@ -19,4 +20,6 @@ import java.io.Serializable;
 public class AdminDto implements Serializable {
     private Long id;
     private String username;
+    private String password;
+    private List<String> permissionList;
 }

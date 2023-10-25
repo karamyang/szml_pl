@@ -3,6 +3,9 @@ package com.szml.pl.dao;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.szml.pl.entity.Admin;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @description:
@@ -11,4 +14,6 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface AdminDao extends BaseMapper<Admin> {
+
+    List<String> getPermissions(@Param("username") String username);
 }

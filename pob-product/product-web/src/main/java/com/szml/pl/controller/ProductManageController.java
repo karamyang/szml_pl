@@ -4,10 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.szml.pl.common.Constants;
 import com.szml.pl.common.response.Result;
 import com.szml.pl.service.ProductService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -22,6 +20,18 @@ public class ProductManageController {
 
     @Resource
     private ProductService productService;
+
+    @GetMapping("/test")
+    @PreAuthorize("hasAnyAuthority('test','all')")
+    public String test(){
+        return "测试系统";
+    }
+
+    @GetMapping("/edit")
+    @PreAuthorize("hasAnyAuthority('all','edit')")
+    public String edit(){
+        return "编辑权限";
+    }
     /**
      * 商品查询（条件查询）
      */

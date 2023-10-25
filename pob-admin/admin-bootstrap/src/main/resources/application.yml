@@ -8,11 +8,11 @@ spring:
     password: 123456
   main:
     allow-bean-definition-overriding: true
-  cloud:
-    nacos:
-      server-addr: 101.33.248.222:8848
-      discovery:
-        namespace: public
+#  cloud:
+#    nacos:
+#      server-addr: 101.33.248.222:8848
+#      discovery:
+#        namespace: public
 
 server:
   port: 8088
@@ -53,12 +53,6 @@ nacos:
       service-name: HelloService
       group-name: tom
     server-addr: 101.33.248.222:8848 # 自己定义, 写自己的nacos的ip地址, 8848是默认端口 ;
-#com:
-#  alipay:
-#    sofa:
-#      rpc:
-#        registry:
-#          address: nacos://101.33.248.222:8848
 # 自定义jwt key
 jwt:
   tokenHeader: Authorization #JWT存储的请求头

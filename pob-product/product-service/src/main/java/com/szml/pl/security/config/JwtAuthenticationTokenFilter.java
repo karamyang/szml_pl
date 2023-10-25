@@ -1,6 +1,8 @@
-package com.szml.pl.config;
+package com.szml.pl.security.config;
 
-import com.szml.pl.utils.JwtTokenUtil;
+import com.szml.pl.common.dubbo.AdminDubboService;
+import com.szml.pl.security.utils.JwtTokenUtil;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

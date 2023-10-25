@@ -1,11 +1,10 @@
 package com.szml.pl.dto;
 
-import com.szml.pl.entity.Admin;
+import com.szml.pl.common.dto.AdminDto;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,13 +14,20 @@ import java.util.stream.Collectors;
  * Created by macro on 2018/4/26.
  */
 public class AdminUserDetails implements UserDetails {
-    private Admin admin;
+    private Long id;
+    private String username;
+    private String password;
     private List<String> permissionList;
-    public AdminUserDetails(Admin umsAdmin, List<String> permissionList) {
-        this.admin = umsAdmin;
-        this.permissionList = permissionList;
+    public AdminUserDetails(){
+
     }
 
+    public AdminUserDetails(Long id, String username, String password, List<String> permissionList) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.permissionList = permissionList;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -33,12 +39,12 @@ public class AdminUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return admin.getPassword();
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return admin.getUsername();
+        return username;
     }
 
     @Override

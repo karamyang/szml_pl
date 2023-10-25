@@ -4,7 +4,7 @@ package com.szml.pl.entity;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Admin  {
+public class Admin  implements Serializable{
 
   private Long id;
   private String username;

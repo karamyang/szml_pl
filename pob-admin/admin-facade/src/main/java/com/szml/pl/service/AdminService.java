@@ -5,6 +5,8 @@ import com.szml.pl.common.dto.AdminDto;
 import com.szml.pl.dto.LoginReq;
 import com.szml.pl.entity.Admin;
 
+import java.util.List;
+
 /**
  * @description:
  * @author：wufengning
@@ -14,4 +16,6 @@ import com.szml.pl.entity.Admin;
 public interface  AdminService extends IService<Admin> {
 
     String login(LoginReq loginReq);
+
+    List<String> getPermissions(String username);
 }

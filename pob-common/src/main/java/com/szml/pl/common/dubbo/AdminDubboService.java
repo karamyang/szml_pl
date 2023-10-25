@@ -1,5 +1,6 @@
 package com.szml.pl.common.dubbo;
 
+import com.szml.pl.common.dto.AdminDto;
 import com.szml.pl.common.response.ObjectResult;
 
 /**
@@ -12,4 +13,6 @@ public interface AdminDubboService {
      * 根据用户名称获取id
      */
     ObjectResult getIdByName(String username);
+
+    ObjectResult<AdminDto> getUserByName(String username);
 }

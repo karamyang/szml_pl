@@ -2,6 +2,7 @@ package com.szml.pl;
 
 import com.alipay.sofa.runtime.api.annotation.SofaReference;
 import com.alipay.sofa.runtime.api.annotation.SofaReferenceBinding;
+import com.szml.pl.common.dto.AdminDto;
 import com.szml.pl.common.dubbo.AdminDubboService;
 import com.szml.pl.common.response.ObjectResult;
 import com.szml.pl.dao.ProductDao;
@@ -12,6 +13,8 @@ import com.szml.pl.service.ProductService;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -29,6 +32,8 @@ public class ApplicationTest {
     private ProductService productService;
     @Resource
     private ProductAgentService productAgentService;
+    @Resource
+    private UserDetailsService userDetailsService;
     /**
      * sofaBoot应用启动测试
      */
@@ -59,8 +64,9 @@ public class ApplicationTest {
      */
     @Test
     void RPCTest(){
-        ObjectResult pobAdmin = adminDubboService.getIdByName("pob_admin");
+        ObjectResult<AdminDto> pobAdmin = adminDubboService.getUserByName("wfn");
         System.out.println(pobAdmin.getData());
+
     }
     /**
      * 集成测试移交管理员

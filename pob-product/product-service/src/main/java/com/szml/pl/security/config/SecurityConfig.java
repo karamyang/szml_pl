@@ -1,9 +1,14 @@
-package com.szml.pl.config;
+package com.szml.pl.security.config;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.szml.pl.common.dto.AdminDto;
+import com.szml.pl.common.dubbo.AdminDubboService;
+import com.szml.pl.common.response.ObjectResult;
 import com.szml.pl.dto.AdminUserDetails;
-import com.szml.pl.entity.Admin;
-import com.szml.pl.service.AdminService;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.DubboReference;
+import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -30,16 +35,16 @@ import java.util.List;
  * @date: 2023/10/17
  */
 @Configuration
+@Slf4j
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled=true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource
-    private AdminService adminService;
-    @Resource
     private RestfulAccessDeniedHandler restfulAccessDeniedHandler;
     @Resource
     private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
-
+    @DubboReference
+    private AdminDubboService adminDubboService;
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf()// 由于使用的是JWT，我们这里不需要csrf
@@ -77,7 +82,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .accessDeniedHandler(restfulAccessDeniedHandler)
                 .authenticationEntryPoint(restAuthenticationEntryPoint);
     }
-
+    @Override
+    @Bean
+    public UserDetailsService userDetailsService() {
+        //获取登录用户信息
+        return username -> {
+            ObjectResult<AdminDto> result = adminDubboService.getUserByName(username);
+            AdminDto admin = result.getData();
+            if (admin != null) {
+                AdminUserDetails adminUserDetails=new AdminUserDetails(admin.getId(),admin.getUsername(),admin.getPassword(),admin.getPermissionList());
+                return adminUserDetails;
+            }
+            throw new UsernameNotFoundException("用户名或密码错误");
+        };
+    }
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService())
@@ -89,19 +107,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Override
-    @Bean
-    public UserDetailsService userDetailsService() {
-        //获取登录用户信息
-        return username -> {
-            Admin admin = adminService.getOne(new LambdaQueryWrapper<Admin>().eq(Admin::getUsername,username));
-            if (admin != null) {
-                List<String> permissionList = adminService.getPermissions(username);
-                return new AdminUserDetails(admin,permissionList);
-            }
-            throw new UsernameNotFoundException("用户名或密码错误");
-        };
-    }
 
     @Bean
     public JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter(){

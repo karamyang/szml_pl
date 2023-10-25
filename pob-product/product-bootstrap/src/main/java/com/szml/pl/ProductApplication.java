@@ -2,6 +2,7 @@ package com.szml.pl;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
 /**
  * @description: 商品启动类
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 //@EnableDubbo
 //@DubboComponentScan
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 @SpringBootApplication
 public class ProductApplication {
     public static void main(String[] args) {
