@@ -1,13 +1,18 @@
 package com.szml.pl;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.szml.pl.dao.ProductCategoryDao;
 import com.szml.pl.dao.ProductDao;
+import com.szml.pl.dao.ProductDraftDao;
+import com.szml.pl.dao.ProductRecordDao;
 import com.szml.pl.dto.CategoryDto;
 import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.Product;
 import com.szml.pl.entity.ProductCategory;
+import com.szml.pl.entity.ProductDraft;
 import com.szml.pl.entity.ProductRecord;
 import com.szml.pl.service.ProductCategoryService;
 import com.szml.pl.service.ProductDraftService;
@@ -153,4 +158,21 @@ public class ApplicationTest {
         List<ProductRecord> list = productRecordService.list();
         System.out.println(list);
     }
+    @Resource
+    private ProductRecordDao productRecordDao;
+    @Resource
+    private ProductDraftDao productDraftDao;
+    /**
+     * 分页查询测试
+     */
+    @Test
+    void queryTest(){
+        //操作表
+//        System.out.println(JSON.toJSONString("操作表："+productRecordService.page(new Page<>(2,5))));
+        Page<ProductDraft> lists=productDraftDao.selectProductDraftFromAdmin(new Page<>(2,2),null,null,null,null,null,null);
+        System.out.println("草稿表多条件查询："+JSON.toJSONString(lists));
+//        Page<Product> list=productDao.selectProductAndProductAgentFromAdmin(new Page<>(2,2),null,null,null,null,null,null,2L);
+//        System.out.println("商品表和权限表多条件查询："+JSON.toJSONString(list));
+    }
 }
+
