@@ -1,19 +1,15 @@
 package com.szml.pl.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.szml.pl.common.Constants;
-import com.szml.pl.common.Result;
+import com.szml.pl.common.response.Result;
 import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.Product;
-import com.szml.pl.entity.ProductDraft;
 import com.szml.pl.service.ProductDraftService;
 import com.szml.pl.service.ProductService;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.io.PrintWriter;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -92,5 +88,13 @@ public class ProductManageController {
         }
 
         return Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(product));
+    }
+
+    /**
+     * 管理人权限移交
+     */
+    @PostMapping("/updateManager")
+    public Result updateManager(@RequestParam("productId") Long productId,@RequestParam("manager") String manager){
+        return Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productService.updateManager(productId,manager)));
     }
 }

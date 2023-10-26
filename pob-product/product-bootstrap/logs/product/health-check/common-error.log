@@ -1,0 +1,6 @@
+2023-10-26 11:29:58,425 ERROR main                             - SOFA-BOOT-01-21001: HealthIndicator[nacosConfigHealthIndicator] readiness check fail; the status is: DOWN; the detail is: {}
+2023-10-26 11:29:59,836 ERROR main                             - SOFA-BOOT-01-21000: SOFABoot HealthIndicator readiness check result: failed
+2023-10-26 11:29:59,837 ERROR main                             - SOFA-BOOT-01-20000: Readiness check result: fail
+2023-10-26 11:40:08,798 ERROR main                             - SOFA-BOOT-01-21001: HealthIndicator[nacosConfigHealthIndicator] readiness check fail; the status is: DOWN; the detail is: {}
+2023-10-26 11:40:10,583 ERROR main                             - SOFA-BOOT-01-21000: SOFABoot HealthIndicator readiness check result: failed
+2023-10-26 11:40:10,584 ERROR main                             - SOFA-BOOT-01-20000: Readiness check result: fail

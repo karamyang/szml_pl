@@ -1,16 +1,10 @@
 package com.szml.pl.controller;
 
-import com.szml.pl.common.Constants;
-import com.szml.pl.common.Result;
+import com.szml.pl.common.response.Result;
 import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.Product;
-import com.szml.pl.entity.ProductDraft;
-import com.szml.pl.impl.ProductDraftServiceImpl;
-import com.szml.pl.service.ProductDraftService;
 import com.szml.pl.service.ProductService;
 import com.szml.pl.service.stateflow.IStateHandler;
-import org.springframework.beans.BeanUtils;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

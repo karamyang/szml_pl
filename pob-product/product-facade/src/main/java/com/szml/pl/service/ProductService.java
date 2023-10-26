@@ -1,7 +1,7 @@
 package com.szml.pl.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.szml.pl.common.Result;
+import com.szml.pl.common.response.Result;
 import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.Product;
 
@@ -40,4 +40,6 @@ public interface ProductService extends IService<Product> {
                                                         Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId,Long adminId);
     List<ProductDto> findProductAndProductAgentFromAdmin(String rightId, String productName,
                                                          Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId,Long adminId);
+
+    Integer updateManager(Long productId, String manager);
 }

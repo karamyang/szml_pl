@@ -1,10 +1,8 @@
 package com.szml.pl.service.mq.rocketmq.producer;
 
-import com.alibaba.fastjson.JSON;
 import com.szml.pl.common.Constants;
-import com.szml.pl.common.Result;
+import com.szml.pl.common.response.Result;
 import com.szml.pl.dto.ProductDto;
-import com.szml.pl.dto.ProductMqDto;
 import com.szml.pl.service.mq.rocketmq.util.MqLevelutil;
 import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
@@ -14,9 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class LineProducer {

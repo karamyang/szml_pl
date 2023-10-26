@@ -3,16 +3,18 @@ package com.szml.pl.impl;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.szml.pl.common.Constants;
-import com.szml.pl.common.Result;
+import com.szml.pl.common.dto.AdminDto;
+import com.szml.pl.common.dubbo.AdminDubboService;
+import com.szml.pl.common.response.ObjectResult;
+import com.szml.pl.common.response.Result;
 import com.szml.pl.dao.ProductDao;
 import com.szml.pl.dao.ProductDraftDao;
-import com.szml.pl.dao.ProductRecordDao;
 import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.Product;
 import com.szml.pl.entity.ProductDraft;
-import com.szml.pl.entity.ProductRecord;
 import com.szml.pl.service.ProductRecordService;
 import com.szml.pl.service.ProductService;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,8 +24,6 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-import javax.annotation.Resource;
 
 /**
  * @description: 商品服务
@@ -39,6 +39,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
     @Resource
     private ProductRecordService productRecordService;
 
+    @DubboReference
+    private AdminDubboService adminDubboService;
     @Resource
     private ProductService productService;
     @Override
@@ -303,4 +305,17 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
         return productDtos;
     }
 
+
+    @Override
+    @Transactional
+    public Integer updateManager(Long productId, String manager) {
+        Product product = productDao.selectById(productId);
+        Long createUserId = product.getCreateUserId();
+        //判断当前操作用户是否可以移交管理员
+        ObjectResult result = adminDubboService.getIdByName(manager);
+        AdminDto adminDto= (AdminDto) result.getData();
+        product.setManageUserId(adminDto.getId());
+        int flag = productDao.updateById(product);
+        return flag;
+    }
 }

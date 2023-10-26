@@ -18,7 +18,7 @@
         <module name="admin-facade" />
         <module name="product-web" />
         <module name="product-dal" />
-        <module name="utils" />
+        <module name="product-utils" />
         <module name="admin-service" />
         <module name="product-model" />
       </profile>
@@ -36,17 +36,17 @@
       <module name="admin-model" options="-parameters" />
       <module name="admin-service" options="-parameters" />
       <module name="admin-web" options="-parameters" />
-      <module name="pob-admin" options="-parameters" />
+      <module name="pob-admin" options="" />
       <module name="pob-common" options="-parameters" />
-      <module name="pob-product" options="-parameters" />
+      <module name="pob-product" options="" />
       <module name="product-bootstrap" options="-parameters" />
       <module name="product-dal" options="-parameters" />
       <module name="product-facade" options="-parameters" />
       <module name="product-model" options="-parameters" />
       <module name="product-service" options="-parameters" />
+      <module name="product-utils" options="-parameters" />
       <module name="product-web" options="-parameters" />
-      <module name="szml-pl" options="-parameters" />
-      <module name="utils" options="-parameters" />
+      <module name="szml-pl" options="" />
     </option>
   </component>
 </project>

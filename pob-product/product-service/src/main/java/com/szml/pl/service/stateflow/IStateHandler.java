@@ -1,10 +1,8 @@
 package com.szml.pl.service.stateflow;
 
 
-import com.szml.pl.common.Result;
+import com.szml.pl.common.response.Result;
 import com.szml.pl.dto.ProductDto;
-import com.szml.pl.entity.Product;
-import com.szml.pl.entity.ProductDraft;
 
 /**
  * @description: 状态处理接口

@@ -46,4 +46,11 @@
         update admin set update_time =#{updateTime} where id=#{id}
     </update>
 
+    <select id="getPermissions" resultType="java.lang.String">
+        SELECT permission.`value` FROM admin,admin_role,role_permission,permission
+        WHERE admin.username=#{username}
+          AND admin.id=admin_role.id
+          AND admin_role.id=role_permission.id
+          AND permission.id=role_permission.id;
+    </select>
 </mapper>

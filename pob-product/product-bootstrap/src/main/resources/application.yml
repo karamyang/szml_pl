@@ -7,6 +7,8 @@ spring:
     url: jdbc:mysql://101.33.248.222:3306/pob_product?characterEncoding=utf-8&useSSL=false
     username: root
     password: 123456
+  main:
+    allow-bean-definition-overriding: true
 server:
   port: 8087
 logging:
@@ -41,3 +43,36 @@ rocketmq:
     compressMessageBodyThreshold: 4096
     # 是否在内部发送失败时重试另一个broker，默认false
     retryNextServer: false
+
+
+# nacos配置
+nacos:
+  discovery:
+    register:
+      healthy: false
+    server-addr: 101.33.248.222:8848
+# 配置dubbo
+dubbo:
+  application:
+    name: pob-product
+    id: pob-product
+  monitor:
+    protocol: dubbo-registry
+  registry:
+    address: nacos://101.33.248.222:8848
+  config-center:
+    address: nacos://101.33.248.222:8848
+  metadata-report:
+    address: nacos://101.33.248.222:8848
+  protocol:
+    name: dubbo
+    port: 28081 # 端口不能与dubbo-provider重复;
+  consumer:
+    check: false
+
+# 自定义jwt key
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: mySecret #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24)
+  tokenHead: Bearer  #JWT负载中拿到开头

@@ -1,14 +1,10 @@
 package com.szml.pl.service.stateflow.impl;
 
-import com.szml.pl.common.Result;
+import com.szml.pl.common.response.Result;
 import com.szml.pl.dto.ProductDto;
-import com.szml.pl.entity.Product;
-import com.szml.pl.entity.ProductDraft;
 import com.szml.pl.service.stateflow.IStateHandler;
 import com.szml.pl.service.stateflow.StateConfig;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 /**
  * @description: 商品流程的实现类

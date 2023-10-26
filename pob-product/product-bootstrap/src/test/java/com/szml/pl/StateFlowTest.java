@@ -1,20 +1,16 @@
 package com.szml.pl;
 
 import com.szml.pl.common.Constants;
-import com.szml.pl.common.Result;
+import com.szml.pl.common.response.Result;
 import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.Product;
-import com.szml.pl.entity.ProductDraft;
-import com.szml.pl.service.ProductDraftService;
 import com.szml.pl.service.ProductRecordService;
 import com.szml.pl.service.ProductService;
-import com.szml.pl.service.mq.rocketmq.consumer.OnlineConsumer;
 import com.szml.pl.service.mq.rocketmq.producer.LineProducer;
 import com.szml.pl.service.stateflow.IStateHandler;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeanUtils;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Bean;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;

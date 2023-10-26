@@ -1,5 +1,7 @@
-package com.szml.pl.common;
+package com.szml.pl.common.response;
 
+
+import com.szml.pl.common.Constants;
 
 import java.io.Serializable;
 
@@ -46,6 +48,8 @@ public class Result implements Serializable {
         this.code = code;
         this.info = info;
     }
+
+    public Result(){}
 
     public String getCode() {
         return code;

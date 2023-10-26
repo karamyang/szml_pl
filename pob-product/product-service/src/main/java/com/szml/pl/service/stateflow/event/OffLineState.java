@@ -1,14 +1,10 @@
 package com.szml.pl.service.stateflow.event;
 
 import com.szml.pl.common.Constants;
-import com.szml.pl.common.Result;
+import com.szml.pl.common.response.Result;
 import com.szml.pl.dto.ProductDto;
-import com.szml.pl.entity.Product;
-import com.szml.pl.entity.ProductDraft;
 import com.szml.pl.service.stateflow.AbstractState;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 /**
  * @description: 下线状态

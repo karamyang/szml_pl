@@ -3,8 +3,10 @@ package com.szml.pl.dao;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.szml.pl.entity.Admin;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * @description:
@@ -33,4 +35,11 @@ public interface AdminDao extends BaseMapper<Admin> {
      * 更新修改时间
      */
     int updateTime(Long id, Timestamp updateTime);
+
+    /**
+     * 根据用户名查询权限
+     * @param username
+     * @return
+     */
+    List<String> getPermissions(@Param("username") String username);
 }

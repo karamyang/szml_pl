@@ -2,17 +2,19 @@ package com.szml.pl;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.szml.pl.common.dto.AdminDto;
+import com.szml.pl.common.dubbo.AdminDubboService;
+import com.szml.pl.common.response.ObjectResult;
 import com.szml.pl.dao.ProductCategoryDao;
 import com.szml.pl.dao.ProductDao;
 import com.szml.pl.dto.CategoryDto;
 import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.Product;
+import com.szml.pl.entity.ProductAgent;
 import com.szml.pl.entity.ProductCategory;
 import com.szml.pl.entity.ProductRecord;
-import com.szml.pl.service.ProductCategoryService;
-import com.szml.pl.service.ProductDraftService;
-import com.szml.pl.service.ProductRecordService;
-import com.szml.pl.service.ProductService;
+import com.szml.pl.service.*;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -39,6 +41,9 @@ public class ApplicationTest {
     private ProductDraftService productDraftService;
     @Resource
     private ProductRecordService productRecordService;
+
+    @Resource
+    private ProductAgentService productAgentService;
     /**
      * sofaBoot应用启动测试
      */
@@ -152,5 +157,37 @@ public class ApplicationTest {
     void recordQuery(){
         List<ProductRecord> list = productRecordService.list();
         System.out.println(list);
+    }
+    @DubboReference
+    private AdminDubboService adminDubboService;
+    /**
+     * 远程调用集成测试
+     * 直连测试通过
+     */
+    @Test
+    void RPCTest(){
+        ObjectResult<AdminDto> pobAdmin = adminDubboService.getUserByName("wfn");
+        System.out.println(pobAdmin.getData());
+
+    }
+    /**
+     * 集成测试移交管理员
+     * 测试通过
+     */
+    @Test
+    void exchangeManager(){
+        //Boolean aBoolean = productService.updateManager(2L, "wfn");
+        //System.out.println(aBoolean);
+    }
+
+    /**
+     * 根据商品Id查询所有的代理人集成测试
+     */
+    @Test
+    void AgentTest(){
+        List<ProductAgent> productAgents = productAgentService.queryListByProductId(4L);
+        for (ProductAgent productAgent : productAgents) {
+            System.out.println(productAgent.toString());
+        }
     }
 }

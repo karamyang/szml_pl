@@ -19,7 +19,7 @@
         <module>product-dal</module>
         <module>product-facade</module>
         <module>product-web</module>
-        <module>utils</module>
+        <module>product-utils</module>
     </modules>
 
     <properties>
