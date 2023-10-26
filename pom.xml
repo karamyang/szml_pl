@@ -87,10 +87,10 @@
         </dependency>
         <!--RPC注册与远程调用相关依赖-->
         <!--配置中心依赖-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>-->
+<!--        </dependency>-->
         <!--Duboo依赖-->
         <dependency>
             <groupId>org.apache.dubbo</groupId>

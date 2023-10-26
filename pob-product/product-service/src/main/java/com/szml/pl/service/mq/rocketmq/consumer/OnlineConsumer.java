@@ -1,7 +1,7 @@
 package com.szml.pl.service.mq.rocketmq.consumer;
 
 import com.szml.pl.common.Constants;
-import com.szml.pl.common.Result;
+import com.szml.pl.common.response.Result;
 import com.szml.pl.dao.ProductDao;
 import com.szml.pl.dto.ProductDto;
 import com.szml.pl.dto.ProductMqDto;

@@ -1,7 +1,8 @@
 package com.szml.pl.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.szml.pl.common.Result;
+import com.szml.pl.common.response.Result;
 import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.Product;
 
