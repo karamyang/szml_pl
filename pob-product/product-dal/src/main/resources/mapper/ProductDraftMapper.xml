@@ -7,6 +7,12 @@
         manage_user_id,not_shipments,create_time,update_time
     </sql>
 
+    <select id="selectProductDraftById" resultType="ProductDraft">
+        select <include refid="selectFields"></include>
+        from product_draft
+        where id= #{id}
+    </select>
+
     <select id="selectProductDraftFromUser" resultType="ProductDraft">
         select <include refid="selectFields"></include>
         from product_draft

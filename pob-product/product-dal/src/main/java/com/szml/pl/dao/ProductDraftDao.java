@@ -20,4 +20,5 @@ public interface ProductDraftDao extends BaseMapper<ProductDraft> {
                                                   Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId);
     Page<ProductDraft> selectProductDraftFromAdmin(Page<Product> page,String rightId, String productName,
                                                    Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId);
+    ProductDraft selectProductDraftById(Long id);
 }
