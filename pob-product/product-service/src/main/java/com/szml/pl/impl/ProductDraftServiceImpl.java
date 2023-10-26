@@ -81,23 +81,36 @@ public class ProductDraftServiceImpl extends ServiceImpl<ProductDraftDao, Produc
 
         Page<ProductDraft> productDrafts=draftDao.selectProductDraftFromUser(new Page<>(current,size),productDto.getRightId(),productDto.getProductName(),productDto.getOnlineTime(),productDto.getLineTime(),productDto.getStatus(),productDto.getManageUserId());
         Page<ProductDto> productDtos=new Page<>();
+        productDtos.setCurrent(productDrafts.getCurrent());
+        productDtos.setSize(productDrafts.getSize());
+        productDtos.setTotal(productDrafts.getTotal());
+        productDtos.setPages(productDrafts.getPages());
+        List<ProductDto> list=new ArrayList<>();
         for(ProductDraft product:productDrafts.getRecords()) {
             ProductDto dto=new ProductDto();
             BeanUtils.copyProperties(product,dto);
-            productDtos.getRecords().add(dto);
+            list.add(dto);
         }
+        productDtos.setRecords(list);
         return productDtos;
     }
 
     @Override
     public Page<ProductDto> findProductDraftFromAdmin(ProductDto productDto, Long current, Long size){
+
         Page<ProductDraft> productDrafts=draftDao.selectProductDraftFromAdmin(new Page<>(current,size),productDto.getRightId(),productDto.getProductName(),productDto.getOnlineTime(),productDto.getLineTime(),productDto.getStatus(),productDto.getManageUserId());
         Page<ProductDto> productDtos=new Page<>();
+        productDtos.setCurrent(productDrafts.getCurrent());
+        productDtos.setSize(productDrafts.getSize());
+        productDtos.setTotal(productDrafts.getTotal());
+        productDtos.setPages(productDrafts.getPages());
+        List<ProductDto> list=new ArrayList<>();
         for(ProductDraft product:productDrafts.getRecords()) {
             ProductDto dto=new ProductDto();
             BeanUtils.copyProperties(product,dto);
-            productDtos.getRecords().add(dto);
+            list.add(dto);
         }
+        productDtos.setRecords(list);
         return productDtos;
     }
 
