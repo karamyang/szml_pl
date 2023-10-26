@@ -37,7 +37,7 @@ public class ProductDraftServiceImpl extends ServiceImpl<ProductDraftDao, Produc
     private Logger logger = LoggerFactory.getLogger(ProductDraftServiceImpl.class);
 
     @Resource
-    private ProductDao productDao;
+    private Product productDao;
     @Resource
     private ProductDraftDao draftDao;
     @Resource
@@ -113,5 +113,8 @@ public class ProductDraftServiceImpl extends ServiceImpl<ProductDraftDao, Produc
         productDtos.setRecords(list);
         return productDtos;
     }
-
+    @Override
+    public ProductDraft findProductDraftById(Long id){
+        return draftDao.selectProductDraftById(id);
+    }
 }
