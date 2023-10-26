@@ -37,7 +37,7 @@ public class ProductDraftServiceImpl extends ServiceImpl<ProductDraftDao, Produc
     private Logger logger = LoggerFactory.getLogger(ProductDraftServiceImpl.class);
 
     @Resource
-    private Product productDao;
+    private ProductDao productDao;
     @Resource
     private ProductDraftDao draftDao;
     @Resource
