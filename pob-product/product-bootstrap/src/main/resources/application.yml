@@ -1,14 +1,41 @@
-#后续改为nacos配置中心
-#spring:
-#  application:
-#    name: pob-product
-#  datasource:
-#    driver-class-name: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://101.33.248.222:3306/pob_product?characterEncoding=utf-8&useSSL=false
-#    username: root
-#    password: 123456
-#  main:
-#    allow-bean-definition-overriding: true
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: pob-product
+  shardingsphere:
+    datasource:
+      names: m1
+      m1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://101.33.248.222:3306/pob_product?characterEncoding=utf-8&useSSL=false
+        driver-class-name: com.mysql.jdbc.Driver
+        username: root
+        password: 123456
+    sharding:
+      tables:
+        product:
+          actualDataNodes: m1.product_$->{1..2}
+          key-generator:
+            column: id
+            type: SNOWFLAKE
+          table-strategy:
+            inline:
+              sharding-column: id
+              algorithm-expression: product_$->{id % 2 + 1}
+        product_draft:
+          actualDataNodes: m1.product_draft_$->{1..2}
+          key-generator:
+            column: id
+            type: SNOWFLAKE
+          table-strategy:
+            inline:
+              sharding-column: id
+              algorithm-expression: product_draft_$->{id % 2 + 1}
+    props:
+      sql:
+        show: true
+
 server:
   port: 8087
 logging:
@@ -77,40 +104,3 @@ jwt:
   expiration: 604800 #JWT的超期限时间(60*60*24)
   tokenHead: Bearer  #JWT负载中拿到开头
 
-spring:
-  main:
-    allow-bean-definition-overriding: true
-  application:
-    name: pob-product
-  shardingsphere:
-    datasource:
-      names: m1
-      m1:
-        type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:mysql://101.33.248.222:3306/pob_product?characterEncoding=utf-8&useSSL=false
-        driver-class-name: com.mysql.jdbc.Driver
-        username: root
-        password: 123456
-    sharding:
-      tables:
-        product:
-          actualDataNodes: m1.product_$->{1..2}
-          key-generator:
-            column: id
-            type: SNOWFLAKE
-          table-strategy:
-            inline:
-              sharding-column: id
-              algorithm-expression: product_$->{id % 2 + 1}
-        product_draft:
-          actualDataNodes: m1.product_draft_$->{1..2}
-          key-generator:
-            column: id
-            type: SNOWFLAKE
-          table-strategy:
-            inline:
-              sharding-column: id
-              algorithm-expression: product_draft_$->{id % 2 + 1}
-    props:
-      sql:
-        show: true
