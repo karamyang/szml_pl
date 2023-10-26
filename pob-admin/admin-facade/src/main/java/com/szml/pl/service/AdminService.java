@@ -28,4 +28,6 @@ public interface  AdminService extends IService<Admin> {
     String login(LoginReq loginReq);
 
     List<String> getPermissions(String username);
+
+    String getRole(String username);
 }

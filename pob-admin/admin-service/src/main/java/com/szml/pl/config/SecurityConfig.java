@@ -96,7 +96,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             Admin admin = adminService.getOne(new LambdaQueryWrapper<Admin>().eq(Admin::getUsername,username));
             if (admin != null) {
                 List<String> permissionList = adminService.getPermissions(username);
-                return new AdminUserDetails(admin,permissionList);
+                String role = adminService.getRole(username);
+                return new AdminUserDetails(admin,role,permissionList);
             }
             throw new UsernameNotFoundException("用户名或密码错误");
         };

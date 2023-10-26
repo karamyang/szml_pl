@@ -3,6 +3,7 @@ package com.szml.pl.security.utils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,6 +20,7 @@ import java.util.Map;
  * @date: 2023/10/22
  */
 @Component
+@Slf4j
 public class JwtTokenUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtTokenUtil.class);
     private static final String CLAIM_KEY_USERNAME = "sub";
@@ -65,15 +67,62 @@ public class JwtTokenUtil {
     /**
      * 从token中获取登录用户名
      */
+//    public String getUserNameFromToken(String token) {
+//        String username;
+//        try {
+//            Claims claims = getClaimsFromToken(token);
+//            username =  claims.getSubject();
+//            log.info(claims.toString());
+//        } catch (Exception e) {
+//            username = null;
+//        }
+//        return username;
+//    }
+
+    /**
+     * 从token中获取登录用户名
+     */
     public String getUserNameFromToken(String token) {
         String username;
         try {
             Claims claims = getClaimsFromToken(token);
-            username =  claims.getSubject();
+            String result =  claims.getSubject();
+            String[] split = result.split(",");
+            username=split[1];
         } catch (Exception e) {
             username = null;
         }
         return username;
+    }
+    /**
+     * 从token获取role
+     */
+    public String getRoleFromToken(String token){
+        String role;
+        try {
+            Claims claims = getClaimsFromToken(token);
+            String result =  claims.getSubject();
+            String[] split = result.split(",");
+            role=split[2];
+        } catch (Exception e) {
+            role = null;
+        }
+        return role;
+    }
+    /**
+     * 获取用户id
+     */
+    public Long getIdFromToken(String token){
+        Long id;
+        try {
+            Claims claims = getClaimsFromToken(token);
+            String result =  claims.getSubject();
+            String[] split = result.split(",");
+            id=Long.valueOf(split[0]);
+        } catch (Exception e) {
+            id = null;
+        }
+        return id;
     }
 
     /**
@@ -83,7 +132,7 @@ public class JwtTokenUtil {
      * @param userDetails 从数据库中查询出来的用户信息
      */
     public boolean validateToken(String token, UserDetails userDetails) {
-        String username = getUserNameFromToken(token);
+        String username = getClaimsFromToken(token).getSubject();
         return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
 

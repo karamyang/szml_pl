@@ -22,6 +22,8 @@ import java.util.Map;
 public class JwtTokenUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtTokenUtil.class);
     private static final String CLAIM_KEY_USERNAME = "sub";
+    private static final String CLAIM_KEY_USERID = "id";
+    private static final String CLAIM_KEY_USERROLE = "role";
     private static final String CLAIM_KEY_CREATED = "created";
     @Value("${jwt.secret}")
     private String secret;
@@ -69,7 +71,9 @@ public class JwtTokenUtil {
         String username;
         try {
             Claims claims = getClaimsFromToken(token);
-            username =  claims.getSubject();
+            String result =  claims.getSubject();
+            String[] split = result.split(",");
+            username=split[1];
         } catch (Exception e) {
             username = null;
         }

@@ -54,9 +54,12 @@ public class AdminDubboServiceImpl implements AdminDubboService {
         List<String> permissions = adminDao.getPermissions(username);
         Admin admin = adminDao.selectOne(wrapper);
         AdminDto adminDto=new AdminDto();
+        //3.获取用户角色
+        String role = adminDao.getRole(username);
         //3.设置属性
         BeanUtils.copyProperties(admin,adminDto);
         adminDto.setPermissionList(permissions);
+        adminDto.setRole(role);
         //4.封装返回值
         ObjectResult<AdminDto> result=new ObjectResult<>();
         if(adminDto!=null){

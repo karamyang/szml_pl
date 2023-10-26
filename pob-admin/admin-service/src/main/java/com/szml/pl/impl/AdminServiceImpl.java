@@ -207,4 +207,9 @@ public class AdminServiceImpl extends ServiceImpl<AdminDao, Admin> implements Ad
         return adminDao.getPermissions(username);
     }
 
+    @Override
+    public String getRole(String username) {
+        return adminDao.getRole(username);
+    }
+
 }

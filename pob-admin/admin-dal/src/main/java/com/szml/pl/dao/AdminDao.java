@@ -42,4 +42,11 @@ public interface AdminDao extends BaseMapper<Admin> {
      * @return
      */
     List<String> getPermissions(@Param("username") String username);
+
+    /**
+     * 根据用户名查询角色
+     * @param username
+     * @return
+     */
+    String getRole(@Param("username") String username);
 }

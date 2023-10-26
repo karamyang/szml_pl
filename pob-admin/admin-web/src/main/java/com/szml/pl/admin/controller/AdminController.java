@@ -2,6 +2,7 @@ package com.szml.pl.admin.controller;
 
 import com.szml.pl.common.Constants;
 import com.szml.pl.common.response.Result;
+import com.szml.pl.dto.LoginReq;
 import com.szml.pl.entity.Admin;
 import com.szml.pl.service.AdminService;
 import org.springframework.web.bind.annotation.*;
@@ -20,20 +21,15 @@ public class AdminController {
 
     @Resource
     private AdminService adminService;
-    /**
-     *  用户登录
-     */
-    @GetMapping (value = "/login")
-    public Result login(@RequestParam String username,@RequestParam String password){
-        Map<String,Object> map=adminService.login(username,password);
 
-        if(map.containsKey("success")){//登录成功
-            return Result.buildResult(Constants.ResponseCode.SUCCESS);
-        }
-        else {
-            return Result.buildErrorResult();
-        }
 
+    @PostMapping("/login")
+    public Result login(@RequestBody LoginReq loginReq){
+        String token = adminService.login(loginReq);
+        if(token==null){
+            return Result.buildResult(Constants.ResponseCode.UN_ERROR,"登录失败");
+        }
+        return Result.buildResult(Constants.ResponseCode.SUCCESS,token);
     }
     /**
      *  用户注册

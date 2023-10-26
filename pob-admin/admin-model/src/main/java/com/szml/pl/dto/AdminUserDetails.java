@@ -1,6 +1,8 @@
 package com.szml.pl.dto;
 
+import com.alibaba.fastjson.JSON;
 import com.szml.pl.entity.Admin;
+import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,8 +17,10 @@ import java.util.stream.Collectors;
  */
 public class AdminUserDetails implements UserDetails {
     private Admin admin;
+    private String role;
     private List<String> permissionList;
-    public AdminUserDetails(Admin umsAdmin, List<String> permissionList) {
+    public AdminUserDetails(Admin umsAdmin,String role, List<String> permissionList) {
+        this.role=role;
         this.admin = umsAdmin;
         this.permissionList = permissionList;
     }
@@ -37,7 +41,7 @@ public class AdminUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return admin.getUsername();
+        return admin.getId()+","+admin.getUsername()+","+role;
     }
 
     @Override

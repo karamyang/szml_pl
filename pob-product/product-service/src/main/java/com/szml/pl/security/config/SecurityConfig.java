@@ -85,7 +85,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             ObjectResult<AdminDto> result = adminDubboService.getUserByName(username);
             AdminDto admin = result.getData();
             if (admin != null) {
-                AdminUserDetails adminUserDetails=new AdminUserDetails(admin.getId(),admin.getUsername(),admin.getPassword(),admin.getPermissionList());
+                AdminUserDetails adminUserDetails=new AdminUserDetails(admin.getId(),admin.getUsername(),admin.getPassword(),admin.getRole(),admin.getPermissionList());
                 return adminUserDetails;
             }
             throw new UsernameNotFoundException("用户名或密码错误");

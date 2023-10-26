@@ -16,13 +16,15 @@ public class AdminUserDetails implements UserDetails {
     private Long id;
     private String username;
     private String password;
+    private String role;
     private List<String> permissionList;
     public AdminUserDetails(){
 
     }
 
-    public AdminUserDetails(Long id, String username, String password, List<String> permissionList) {
+    public AdminUserDetails(Long id, String username, String password,String role, List<String> permissionList) {
         this.id = id;
+        this.role=role;
         this.username = username;
         this.password = password;
         this.permissionList = permissionList;
@@ -43,7 +45,7 @@ public class AdminUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return id+","+username+","+role;
     }
 
     @Override

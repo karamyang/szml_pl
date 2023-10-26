@@ -53,4 +53,11 @@
           AND admin_role.id=role_permission.id
           AND permission.id=role_permission.id;
     </select>
+
+    <select id="getRole" resultType="java.lang.String">
+        SELECT role.`name` FROM admin,admin_role,role
+        WHERE admin.username=#{username}
+          AND admin.id=admin_role.id
+          AND admin_role.id=role.id;
+    </select>
 </mapper>

@@ -8,3 +8,19 @@
 2023-10-26 12:19:35,872 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
 2023-10-26 12:19:40,868 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
 2023-10-26 12:19:40,869 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,352]
+2023-10-26 16:18:25,163 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-26 16:18:25,164 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-26 16:18:28,493 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-26 16:18:28,493 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-26 16:18:30,151 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-26 16:18:30,152 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,380]
+2023-10-26 16:18:33,489 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-26 16:18:33,490 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,205]
+2023-10-26 16:19:42,152 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-26 16:19:42,152 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-26 16:19:47,152 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-26 16:19:47,153 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,325]
+2023-10-26 17:15:44,095 INFO  main  - Thread pool 'sofa-boot-health-check' started with period: 5000 MILLISECONDS
+2023-10-26 17:15:44,096 INFO  main  - Thread pool with name 'sofa-boot-health-check' registered
+2023-10-26 17:15:49,091 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' info: [0,0,1,1,0]
+2023-10-26 17:15:49,092 INFO  SOFA-Thread-Pool-Monitor-2-thread-1 - Thread pool 'sofa-boot-health-check' average static info: [0,333]
