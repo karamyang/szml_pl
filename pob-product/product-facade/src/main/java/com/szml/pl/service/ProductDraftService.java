@@ -1,5 +1,6 @@
 package com.szml.pl.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.ProductDraft;
@@ -16,9 +17,7 @@ public interface ProductDraftService extends IService<ProductDraft> {
 
     Boolean saveDraft(ProductDto productDto);
 
-    List<ProductDto> findProductDraftFromUser(String rightId, String productName,
-                                              Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId);
-    List<ProductDto> findProductDraftFromAdmin(String rightId, String productName,
-                                               Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId);
+    Page<ProductDto> findProductDraftFromUser(ProductDto productDto, Long current, Long size);
 
+    Page<ProductDto> findProductDraftFromAdmin(ProductDto productDto, Long current, Long size);
 }

@@ -1,6 +1,7 @@
 package com.szml.pl.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.Product;
 import com.szml.pl.entity.ProductCategory;
@@ -18,14 +19,15 @@ import java.util.List;
 public interface ProductDao extends BaseMapper<Product> {
     Product selectProductById(Long id);
 
-    List<Product> selectProductFromUser(String rightId, String productName,
+    Page<Product> selectProductFromUser(Page<Product> page,String rightId, String productName,
                                         Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId);
 
-    List<Product> selectProductFromAdmin(String rightId, String productName,
+    Page<Product> selectProductFromAdmin(Page<Product> page,String rightId, String productName,
                                          Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId);
 
-    List<Product> selectProductAndProductAgentFromUser(String rightId, String productName,
+    Page<Product> selectProductAndProductAgentFromUser(Page<Product> page,String rightId, String productName,
                                                        Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId,Long adminId);
-    List<Product> selectProductAndProductAgentFromAdmin(String rightId, String productName,
+    Page<Product> selectProductAndProductAgentFromAdmin(Page<Product> page,String rightId, String productName,
                                                         Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId,Long adminId);
+
 }
