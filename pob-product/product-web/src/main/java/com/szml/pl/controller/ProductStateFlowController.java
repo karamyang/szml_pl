@@ -46,7 +46,7 @@ public class ProductStateFlowController {
      * 审核驳回
      */
     @PostMapping(value = "/nopass")
-    @PreAuthorize("hasAnyAuthority('stateflow:nopass')")
+    @PreAuthorize("hasAnyAuthority('stateflow:nopass','all')")
     public Result nopass(@RequestBody ProductDto productDto) {
 
         return stateHandler.nopass(productDto,productDto.getStatus());
@@ -56,7 +56,7 @@ public class ProductStateFlowController {
      * 审核通过
      */
     @PostMapping(value = "/pass")
-    @PreAuthorize("hasAnyAuthority('stateflow:pass')")
+    @PreAuthorize("hasAnyAuthority('stateflow:pass','all')")
     public Result pass(@RequestBody ProductDto productDto) {
         return stateHandler.pass(productDto,productDto.getStatus());
     }
@@ -65,7 +65,7 @@ public class ProductStateFlowController {
      * 上线
      */
     @PostMapping(value = "/online")
-    @PreAuthorize("hasAnyAuthority('stateflow:online')")
+    @PreAuthorize("hasAnyAuthority('stateflow:online','all')")
     public Result online(@RequestBody ProductDto productDto) {
         System.out.println(productDto.toString());
         return stateHandler.online(productDto,productDto.getStatus());
@@ -75,7 +75,7 @@ public class ProductStateFlowController {
      * 下线
      */
     @PostMapping(value = "/offline")
-    @PreAuthorize("hasAnyAuthority('stateflow:offline')")
+    @PreAuthorize("hasAnyAuthority('stateflow:offline','all')")
     public Result offline(@RequestBody ProductDto productDto) {
         return stateHandler.offline(productDto,productDto.getStatus());
     }
@@ -92,7 +92,7 @@ public class ProductStateFlowController {
      * 批量操作
      */
     @PostMapping(value = "/batchoperation")
-    @PreAuthorize("hasAnyAuthority('stateflow:batchoperation')")
+    @PreAuthorize("hasAnyAuthority('stateflow:batchoperation','all')")
     public Result batchoperation(@RequestBody List<Product> productList,Integer operation) {
         return productService.batchoperation(productList,operation);
     }
