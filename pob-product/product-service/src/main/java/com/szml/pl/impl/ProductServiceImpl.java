@@ -358,6 +358,9 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
         Long createUserId = product.getCreateUserId();
         //判断当前操作用户是否可以移交管理员
         ObjectResult result = adminDubboService.getIdByName(manager);
+        if(result.getCode().equals(Constants.ResponseCode.UN_ERROR.getCode())){
+            return 0;
+        }
         AdminDto adminDto= (AdminDto) result.getData();
         product.setManageUserId(adminDto.getId());
         int flag = productDao.updateById(product);

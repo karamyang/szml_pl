@@ -1,19 +1,20 @@
 package com.szml.pl.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.szml.pl.common.Constants;
 import com.szml.pl.common.response.Result;
 import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.Product;
+import com.szml.pl.security.utils.JwtTokenUtil;
 import com.szml.pl.service.ProductDraftService;
 import com.szml.pl.service.ProductService;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.sql.Timestamp;
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @description:
@@ -27,6 +28,10 @@ public class ProductManageController {
     private ProductService productService;
     @Resource
     private ProductDraftService productDraftService;
+    @Resource
+    private JwtTokenUtil jwtTokenUtil;
+    @Value("${jwt.tokenHeader}")
+    private String tokenHeader;
     /**
      * 商品查询（条件查询）
      */
@@ -87,8 +92,11 @@ public class ProductManageController {
      * 管理人权限移交
      */
     @PostMapping("/updateManager")
-    public Result updateManager(@RequestParam("productId") Long productId,@RequestParam("manager") String manager){
+    public Result updateManager(@RequestBody ProductDto productDto, @RequestParam("manager") String manager,HttpServletRequest request){
         //判断是不是商品的管理人
-        return Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productService.updateManager(productId,manager)));
+        String header = request.getHeader(tokenHeader);
+        boolean equals = jwtTokenUtil.getIdFromToken(header).equals(productDto.getManageUserId());
+        return equals ? Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productService.updateManager(productDto.getId(),manager)))
+                : Result.buildErrorResult();
     }
 }

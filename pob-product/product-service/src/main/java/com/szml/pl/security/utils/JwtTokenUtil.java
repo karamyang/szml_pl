@@ -29,7 +29,10 @@ public class JwtTokenUtil {
     private String secret;
     @Value("${jwt.expiration}")
     private Long expiration;
-
+    @Value("${jwt.tokenHeader}")
+    private String tokenHeader;
+    @Value("${jwt.tokenHead}")
+    private String tokenHead;
     /**
      * 根据负责生成JWT的token
      */
@@ -98,9 +101,10 @@ public class JwtTokenUtil {
      * 从token获取role
      */
     public String getRoleFromToken(String token){
+        String authToken = token.substring(this.tokenHead.length());
         String role;
         try {
-            Claims claims = getClaimsFromToken(token);
+            Claims claims = getClaimsFromToken(authToken);
             String result =  claims.getSubject();
             String[] split = result.split(",");
             role=split[2];
@@ -113,9 +117,10 @@ public class JwtTokenUtil {
      * 获取用户id
      */
     public Long getIdFromToken(String token){
+        String authToken = token.substring(this.tokenHead.length());
         Long id;
         try {
-            Claims claims = getClaimsFromToken(token);
+            Claims claims = getClaimsFromToken(authToken);
             String result =  claims.getSubject();
             String[] split = result.split(",");
             id=Long.valueOf(split[0]);
