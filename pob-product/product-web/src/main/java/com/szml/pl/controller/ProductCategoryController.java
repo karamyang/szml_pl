@@ -28,7 +28,6 @@ public class ProductCategoryController {
      * @return
      */
     @GetMapping("/querylist")
-    @PreAuthorize("hasAnyAuthority('edit')")
     public Result queryCategoryList(){
         return Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(categoryService.queryCategoryList()));
     }

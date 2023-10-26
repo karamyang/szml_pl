@@ -27,6 +27,7 @@ public class ProductAgentController {
      */
     @GetMapping("/querylist")
     public Result queryAgent(@RequestParam("productId") Long productId){
+        //判断一下是不是商品的管理人
         return Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productAgentService.queryListByProductId(productId)));
     }
 

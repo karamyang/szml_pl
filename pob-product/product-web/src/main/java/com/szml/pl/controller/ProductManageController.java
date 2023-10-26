@@ -88,6 +88,7 @@ public class ProductManageController {
      */
     @PostMapping("/updateManager")
     public Result updateManager(@RequestParam("productId") Long productId,@RequestParam("manager") String manager){
+        //判断是不是商品的管理人
         return Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productService.updateManager(productId,manager)));
     }
 }
