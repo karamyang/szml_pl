@@ -46,6 +46,7 @@ public class LineProducer {
                 logger.info("发送失败");
             }
         }, 2000, level);
+
         return Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo());
     }
     public Result sendPobOffline(ProductDto productDto) {
@@ -61,7 +62,7 @@ public class LineProducer {
 
             @Override
             public void onException(Throwable throwable) {
-                sendPobOffline(productDto);
+//                sendPobOffline(productDto);
             }
         }, 2000, level);
         return Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo());

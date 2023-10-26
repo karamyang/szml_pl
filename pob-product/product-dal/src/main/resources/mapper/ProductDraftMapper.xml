@@ -43,7 +43,6 @@
         select <include refid="selectFields"></include>
         from product_draft
         <where>
-            status!=3
             <if test="rightId !=null and rightId !=''">
                 and right_id=#{rightId}
             </if>

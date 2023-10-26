@@ -1,8 +1,10 @@
 package com.szml.pl.impl;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mysql.jdbc.TimeUtil;
 import com.szml.pl.common.Constants;
+import com.szml.pl.common.ids.IIdGenerator;
 import com.szml.pl.dao.ProductDao;
 import com.szml.pl.dao.ProductDraftDao;
 import com.szml.pl.dao.ProductRecordDao;
@@ -12,6 +14,8 @@ import com.szml.pl.entity.ProductDraft;
 import com.szml.pl.entity.ProductRecord;
 import com.szml.pl.service.ProductDraftService;
 import com.szml.pl.service.ProductRecordService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,12 +34,16 @@ import javax.annotation.Resource;
  */
 @Service
 public class ProductDraftServiceImpl extends ServiceImpl<ProductDraftDao, ProductDraft> implements ProductDraftService {
+    private Logger logger = LoggerFactory.getLogger(ProductDraftServiceImpl.class);
+
     @Resource
     private ProductDao productDao;
     @Resource
     private ProductDraftDao draftDao;
     @Resource
     private ProductRecordService productRecordService;
+    @Resource
+    IIdGenerator idGenerator;
     @Override
     @Transactional
     public Boolean saveDraft(ProductDto productDto) {
@@ -54,8 +62,12 @@ public class ProductDraftServiceImpl extends ServiceImpl<ProductDraftDao, Produc
         }
         //5.否则新增商品草稿数据
         productDraft.setCreateTime(new Timestamp(System.currentTimeMillis()));
+        //用雪花算法设置全局id
+        productDraft.setId(idGenerator.nextId());
+        logger.info("{}",idGenerator.nextId());
         Product product=new Product();
         BeanUtils.copyProperties(productDto,product);
+        product.setId(idGenerator.nextId());
         productRecordService.addRecord(product,Constants.ProductRecordState.SAVEDRAFT.getCode(),Constants.ProductRecordState.SAVEDRAFT.getInfo());
         draftDao.insert(productDraft);
         return true;
@@ -63,28 +75,28 @@ public class ProductDraftServiceImpl extends ServiceImpl<ProductDraftDao, Produc
 
 
 
+
     @Override
-    public List<ProductDto> findProductDraftFromUser(String rightId, String productName,
-                                                     Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId){
-        List<ProductDto> productDtos=new ArrayList<>();
-        List<ProductDraft> productDrafts=draftDao.selectProductDraftFromUser(rightId,productName,onlineTime,lineTime,status,manageUserId);
-        for(ProductDraft productDraft:productDrafts) {
-            ProductDto productDto=new ProductDto();
-            BeanUtils.copyProperties(productDraft,productDto);
-            productDtos.add(productDto);
+    public Page<ProductDto> findProductDraftFromUser(ProductDto productDto, Long current, Long size){
+
+        Page<ProductDraft> productDrafts=draftDao.selectProductDraftFromUser(new Page<>(current,size),productDto.getRightId(),productDto.getProductName(),productDto.getOnlineTime(),productDto.getLineTime(),productDto.getStatus(),productDto.getManageUserId());
+        Page<ProductDto> productDtos=new Page<>();
+        for(ProductDraft product:productDrafts.getRecords()) {
+            ProductDto dto=new ProductDto();
+            BeanUtils.copyProperties(product,dto);
+            productDtos.getRecords().add(dto);
         }
         return productDtos;
     }
 
     @Override
-    public List<ProductDto> findProductDraftFromAdmin(String rightId, String productName,
-                                                      Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId){
-        List<ProductDto> productDtos=new ArrayList<>();
-        List<ProductDraft> productDrafts=draftDao.selectProductDraftFromAdmin(rightId,productName,onlineTime,lineTime,status,manageUserId);
-        for(ProductDraft productDraft:productDrafts) {
-            ProductDto productDto=new ProductDto();
-            BeanUtils.copyProperties(productDraft,productDto);
-            productDtos.add(productDto);
+    public Page<ProductDto> findProductDraftFromAdmin(ProductDto productDto, Long current, Long size){
+        Page<ProductDraft> productDrafts=draftDao.selectProductDraftFromAdmin(new Page<>(current,size),productDto.getRightId(),productDto.getProductName(),productDto.getOnlineTime(),productDto.getLineTime(),productDto.getStatus(),productDto.getManageUserId());
+        Page<ProductDto> productDtos=new Page<>();
+        for(ProductDraft product:productDrafts.getRecords()) {
+            ProductDto dto=new ProductDto();
+            BeanUtils.copyProperties(product,dto);
+            productDtos.getRecords().add(dto);
         }
         return productDtos;
     }

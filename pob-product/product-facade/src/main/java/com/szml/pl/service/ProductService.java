@@ -1,7 +1,7 @@
 package com.szml.pl.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.szml.pl.common.response.Result;
+import com.szml.pl.common.Result;
 import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.Product;
 
@@ -32,14 +32,11 @@ public interface ProductService extends IService<Product> {
 
     Product findProductById(Long id);
 
-    List<ProductDto> findProductFromUser(String rightId, String productName,
-                                         Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId);
-    List<ProductDto> findProductFromAdmin(String rightId, String productName,
-                                          Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId);
-    List<ProductDto> findProductAndProductAgentFromUser(String rightId, String productName,
-                                                        Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId,Long adminId);
-    List<ProductDto> findProductAndProductAgentFromAdmin(String rightId, String productName,
-                                                         Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId,Long adminId);
-
     Integer updateManager(Long productId, String manager);
+    Page<ProductDto> findProductFromUser(ProductDto productDto, Long current, Long size);
+    Page<ProductDto> findProductFromAdmin(ProductDto productDto, Long current, Long size);
+    Page<ProductDto> findProductAndProductAgentFromUser(ProductDto productDto, Long current, Long size);
+
+    Page<ProductDto> findProductAndProductAgentFromAdmin(ProductDto productDto, Long current, Long size);
+    Result stockoffline();
 }

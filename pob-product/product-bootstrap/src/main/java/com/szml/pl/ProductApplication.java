@@ -5,6 +5,7 @@ import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * @description: 商品启动类
@@ -14,6 +15,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 @EnableDubbo
 @DubboComponentScan
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableScheduling
 @SpringBootApplication
 public class ProductApplication {
     public static void main(String[] args) {

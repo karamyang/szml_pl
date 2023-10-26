@@ -87,4 +87,12 @@ public class ProductStateFlowController {
     public Result batchoperation(@RequestBody List<Product> productList,Integer operation) {
         return productService.batchoperation(productList,operation);
     }
+
+    /**
+     * 库存为0下线
+     */
+    @PostMapping(value = "/stockoffline")
+    public Result stockoffline() {
+        return productService.stockoffline();
+    }
 }

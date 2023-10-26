@@ -1,6 +1,8 @@
 package com.szml.pl.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.szml.pl.entity.Product;
 import com.szml.pl.entity.ProductDraft;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -14,8 +16,8 @@ import java.util.List;
  */
 @Mapper
 public interface ProductDraftDao extends BaseMapper<ProductDraft> {
-    List<ProductDraft> selectProductDraftFromUser(String rightId, String productName,
+    Page<ProductDraft> selectProductDraftFromUser(Page<Product> page, String rightId, String productName,
                                                   Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId);
-    List<ProductDraft> selectProductDraftFromAdmin(String rightId, String productName,
+    Page<ProductDraft> selectProductDraftFromAdmin(Page<Product> page,String rightId, String productName,
                                                    Timestamp onlineTime, Timestamp lineTime, Integer status, Long manageUserId);
 }

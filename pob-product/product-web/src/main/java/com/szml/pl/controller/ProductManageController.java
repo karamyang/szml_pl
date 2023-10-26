@@ -1,6 +1,8 @@
 package com.szml.pl.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.szml.pl.common.Constants;
 import com.szml.pl.common.response.Result;
 import com.szml.pl.dto.ProductDto;
@@ -29,39 +31,30 @@ public class ProductManageController {
      * 商品查询（条件查询）
      */
     @RequestMapping(value = "/gets",method = RequestMethod.POST)
-    public Result queryProductList(@RequestBody ProductDto productDto){
+    public Result queryProductList(@RequestBody ProductDto productDto,@RequestParam Long current,@RequestParam Long size){
+        //current为当前页数  size为每页数量
 
-        String rightId= productDto.getRightId();
-        String productName = productDto.getProductName();
-        Timestamp onlineTime = productDto.getOnlineTime();
-        Timestamp lineTime = productDto.getLineTime();
-        Integer status = productDto.getStatus();
-        Long manageUserId = productDto.getManageUserId();
-        Long adminId=productDto.getAdminId();
-
-        if(adminId==null){//代理人为空 查询商品和草稿
+        if(productDto.getAdminId()==null){//代理人为空 查询商品和草稿
 
             //普通用户查找商品表（不包括审核中的商品）
-            List<ProductDto> productDtoList=productService.findProductFromUser(rightId,productName,onlineTime,lineTime,status,manageUserId);
+            Page<ProductDto> productDtoPage=productService.findProductFromUser(productDto,current,size);
             //管理员查找商品表
-//          List<ProductDto> productDtoList=productService.findProductFromAdmin(rightId,productName,onlineTime,lineTime,status,manageUserId);
-
+//          Page<ProductDto> productDtoPage=productService.findProductFromAdmin(productDto,current,size);
             //普通用户查找草稿表（不包括审核中的商品）
-            List<ProductDto> productDtoList1=productDraftService.findProductDraftFromUser(rightId,productName,onlineTime,lineTime,status,manageUserId);
+            Page<ProductDto> productDtoPage1=productDraftService.findProductDraftFromUser(productDto,current,size);
             //管理员查找草稿表
-//          List<ProductDto> productDtoList=productDraftService.findProductProductDraftFromAdmin(rightId,productName,onlineTime,lineTime,status,manageUserId);
+//          Page<ProductDto> productDtoPage1=productDraftService.findProductProductDraftFromAdmin(productDto,current,size);
 
-            productDtoList.addAll(productDtoList1);
-            return Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productDtoList));
+            return Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productDtoPage));
         }
         else{//存在代理人为 查找商品和代理
 
             //普通用户查找
-            List<ProductDto> productDtoList=productService.findProductAndProductAgentFromUser(rightId,productName,onlineTime,lineTime,status,manageUserId,adminId);
+            Page<ProductDto> productDtoPage=productService.findProductAndProductAgentFromUser(productDto,current,size);
             //管理员查找
-//          List<ProductDto> productDtoList=productService.findProductAndProductAgentFromAdmin(rightId,productName,onlineTime,lineTime,status,manageUserId,adminId);
+//          Page<ProductDto> productDtoPage=productService.findProductAndProductAgentFromAdmin(productDto,current,size);
 
-            return Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productDtoList));
+            return Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productDtoPage));
         }
     }
 
