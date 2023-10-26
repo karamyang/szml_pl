@@ -8,7 +8,7 @@
         <artifactId>pob-product</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
+    <packaging>jar</packaging>
     <artifactId>product-utils</artifactId>
 
     <properties>

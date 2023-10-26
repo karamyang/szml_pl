@@ -113,5 +113,8 @@ public class ProductDraftServiceImpl extends ServiceImpl<ProductDraftDao, Produc
         productDtos.setRecords(list);
         return productDtos;
     }
-
+    @Override
+    public ProductDraft findProductDraftById(Long id){
+        return draftDao.selectProductDraftById(id);
+    }
 }

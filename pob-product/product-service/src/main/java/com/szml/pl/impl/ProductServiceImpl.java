@@ -42,7 +42,7 @@ import javax.annotation.Resource;
 public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> implements ProductService {
     private Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
     @Resource
-    ProductDao productDao;
+    private ProductDao productDao;
     @Resource
     private ProductDraftDao productDraftDao;
     @Resource
