@@ -28,43 +28,46 @@ public class LineProducer {
     public static final String POB_OFFLINE = "pob_offline";
 
     public Result sendPobOnline(ProductDto productDto) {
-        if (productDto.getOnlineTime().getTime()<System.currentTimeMillis()){
-            return Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(),Constants.ResponseCode.UN_ERROR.getInfo());
-        }
-        Integer level = MqLevelutil.calculateDefault((productDto.getOnlineTime().getTime()-System.currentTimeMillis())/1000);
-        logger.info("{} {}",productDto.getOnlineTime().getTime(),System.currentTimeMillis());
-        logger.info("延时等级 {}",level);
-        rocketMQTemplate.asyncSend(POB_ONLINE, MessageBuilder.withPayload(productDto).build(), new SendCallback() {
-            @Override
-            public void onSuccess(SendResult sendResult) {
-                logger.info("发送成功");
-            }
-
-            @Override
-            public void onException(Throwable throwable) {
-//                sendPobOnline(productDto);
-                logger.info("发送失败");
-            }
-        }, 2000, level);
+        rocketMQTemplate.syncSendDelayTimeMills(POB_ONLINE, MessageBuilder.withPayload(productDto).build(), productDto.getOnlineTime().getTime()-System.currentTimeMillis());
+        rocketMQTemplate.syncSendDelayTimeMills(POB_OFFLINE, MessageBuilder.withPayload(productDto).build(), productDto.getLineTime().getTime()-System.currentTimeMillis());
+//        if (productDto.getOnlineTime().getTime()<System.currentTimeMillis()){
+//            return Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(),Constants.ResponseCode.UN_ERROR.getInfo());
+//        }
+//        Integer level = MqLevelutil.calculateDefault((productDto.getOnlineTime().getTime()-System.currentTimeMillis())/1000);
+//        logger.info("{} {}",productDto.getOnlineTime().getTime(),System.currentTimeMillis());
+//        logger.info("延时等级 {}",level);
+//        rocketMQTemplate.asyncSend(POB_ONLINE, MessageBuilder.withPayload(productDto).build(), new SendCallback() {
+//            @Override
+//            public void onSuccess(SendResult sendResult) {
+//                logger.info("发送成功");
+//            }
+//
+//            @Override
+//            public void onException(Throwable throwable) {
+////                sendPobOnline(productDto);
+//                logger.info("发送失败");
+//            }
+//        }, 2000, level);
 
         return Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo());
     }
     public Result sendPobOffline(ProductDto productDto) {
-        if (productDto.getLineTime().getTime()<System.currentTimeMillis()){
-            return Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(),Constants.ResponseCode.UN_ERROR.getInfo());
-        }
-        Integer level = MqLevelutil.calculateDefault((productDto.getLineTime().getTime()-System.currentTimeMillis())/1000);
-        rocketMQTemplate.asyncSend(POB_OFFLINE, MessageBuilder.withPayload(productDto).build(), new SendCallback() {
-            @Override
-            public void onSuccess(SendResult sendResult) {
-
-            }
-
-            @Override
-            public void onException(Throwable throwable) {
-//                sendPobOffline(productDto);
-            }
-        }, 2000, level);
+        SendResult sendResult = rocketMQTemplate.syncSendDelayTimeMills(POB_OFFLINE, MessageBuilder.withPayload(productDto).build(), productDto.getLineTime().getTime());
+//        if (productDto.getLineTime().getTime()<System.currentTimeMillis()){
+//            return Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(),Constants.ResponseCode.UN_ERROR.getInfo());
+//        }
+//        Integer level = MqLevelutil.calculateDefault((productDto.getLineTime().getTime()-System.currentTimeMillis())/1000);
+//        rocketMQTemplate.asyncSend(POB_OFFLINE, MessageBuilder.withPayload(productDto).build(), new SendCallback() {
+//            @Override
+//            public void onSuccess(SendResult sendResult) {
+//
+//            }
+//
+//            @Override
+//            public void onException(Throwable throwable) {
+////                sendPobOffline(productDto);
+//            }
+//        }, 2000, level);
         return Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo());
     }
 

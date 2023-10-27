@@ -96,7 +96,7 @@ public class ProductManageController {
             if(product == null){
                 return Result.buildErrorResult();
             }
-            return Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productDto));
+            return Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(product));
         }
         ProductDraft productDraft=productDraftService.findProductDraftById(productDto.getId());
         if(productDraft == null){
@@ -109,7 +109,7 @@ public class ProductManageController {
             String role = jwtTokenUtil.getRoleFromToken(authHeader);
             Long id = jwtTokenUtil.getIdFromToken(authHeader);
 
-            return productDraft.getCreateUserId().equals(id)?  Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productDto)):Result.buildErrorResult();
+            return productDraft.getCreateUserId().equals(id)?  Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productDraft)):Result.buildErrorResult();
         }
         else return Result.buildErrorResult();
     }

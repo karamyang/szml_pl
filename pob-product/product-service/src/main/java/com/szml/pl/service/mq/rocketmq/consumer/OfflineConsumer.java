@@ -24,15 +24,15 @@ public class OfflineConsumer implements RocketMQListener<ProductDto> {
     ProductService productService;
     @Override
     public void onMessage(ProductDto productDto) {
-        if(productDto.getLineTime().getTime()<System.currentTimeMillis()){
+//        if(productDto.getLineTime().getTime()<System.currentTimeMillis()){
+//            productService.offline(productDto);
+//            return;
+//        }
+//        Integer level = MqLevelutil.calculateDefault((productDto.getLineTime().getTime()-System.currentTimeMillis())/1000);
+//        if(level>=5){
+//            lineProducer.sendPobOffline(productDto);
+//        }else{
             productService.offline(productDto);
-            return;
-        }
-        Integer level = MqLevelutil.calculateDefault((productDto.getLineTime().getTime()-System.currentTimeMillis())/1000);
-        if(level>=5){
-            lineProducer.sendPobOffline(productDto);
-        }else{
-            productService.offline(productDto);
-        }
+//        }
     }
 }

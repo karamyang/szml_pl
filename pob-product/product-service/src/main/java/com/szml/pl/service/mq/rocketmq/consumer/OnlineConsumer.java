@@ -28,19 +28,19 @@ public class OnlineConsumer implements RocketMQListener<ProductDto> {
     ProductService productService;
     @Override
     public void onMessage(ProductDto productDto) {
-        if(productDto.getOnlineTime().getTime()<System.currentTimeMillis()){
-            productService.online(productDto);
-            return;
-        }
-        Integer level = MqLevelutil.calculateDefault((productDto.getOnlineTime().getTime()-System.currentTimeMillis())/1000);
-        logger.info("延时等级 {}",level);
-        if(level>=5){
-            lineProducer.sendPobOnline(productDto);
-            logger.info("再次发送延时消息");
-        }else{
+//        if(productDto.getOnlineTime().getTime()<System.currentTimeMillis()){
+//            productService.online(productDto);
+//            return;
+//        }
+//        Integer level = MqLevelutil.calculateDefault((productDto.getOnlineTime().getTime()-System.currentTimeMillis())/1000);
+//        logger.info("延时等级 {}",level);
+//        if(level>=5){
+//            lineProducer.sendPobOnline(productDto);
+//            logger.info("再次发送延时消息");
+//        }else{
              productService.online(productDto);
-            lineProducer.sendPobOffline(productDto);
-            logger.info("上线");
-        }
+//            lineProducer.sendPobOffline(productDto);
+//            logger.info("上线");
+//        }
     }
 }
