@@ -118,8 +118,11 @@ public class ProductManageController {
      * 管理人权限移交
      */
     @PostMapping("/updateManager")
-    public Result updateManager(@RequestParam("productId") Long productId,@RequestParam("manager") String manager){
+    public Result updateManager(@RequestBody ProductDto productDto, @RequestParam("manager") String manager,HttpServletRequest request){
         //判断是不是商品的管理人
-        return Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productService.updateManager(productId,manager)));
+        String header = request.getHeader(tokenHeader);
+        boolean equals = jwtTokenUtil.getIdFromToken(header).equals(productDto.getManageUserId());
+        return equals ? Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productService.updateManager(productDto.getId(),manager)))
+                : Result.buildErrorResult();
     }
 }

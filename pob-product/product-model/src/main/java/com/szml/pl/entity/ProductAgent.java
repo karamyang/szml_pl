@@ -1,6 +1,7 @@
 package com.szml.pl.entity;
 
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -10,7 +11,6 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductAgent {
-
   private Long adminId;
   private Long productId;
   private String username;

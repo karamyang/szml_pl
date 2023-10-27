@@ -79,7 +79,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
         }
         else {
             //2.判断是否存在于商品表
-            Product product1 = productDao.selectById(productId);
+            Product product1 = productService.getById(productId);
             //存在则更新商品
             if(product1!=null){
                 //更新商品
@@ -98,9 +98,10 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
                 //3.否则添加商品到商品表
                 product.setCreateTime(new Timestamp(System.currentTimeMillis()));
                 //用雪花算法设置全局id
-                product.setId(idGenerator.nextId());
-                int flag = productDao.insert(product);
-                if(flag<0){
+//                product.setId(idGenerator.nextId());
+                product.setId(null);
+                boolean save = productService.save(product);
+                if(!save){
                     return false;
                 }
             }
@@ -358,6 +359,9 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
         Long createUserId = product.getCreateUserId();
         //判断当前操作用户是否可以移交管理员
         ObjectResult result = adminDubboService.getIdByName(manager);
+        if(result.getCode().equals(Constants.ResponseCode.UN_ERROR.getCode())){
+            return 0;
+        }
         AdminDto adminDto= (AdminDto) result.getData();
         product.setManageUserId(adminDto.getId());
         int flag = productDao.updateById(product);
