@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: pob-product
+  cloud:
+    nacos:
+      server-addr: 101.33.248.222:8848
+      discovery:
+        namespace: public
+      config:
+        group: pob
+        file-extension: yaml
+  profiles:
+    active: dev
+  main:
+    allow-bean-definition-overriding: true

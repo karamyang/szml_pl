@@ -1,5 +1,6 @@
 package com.szml.pl.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -42,7 +43,7 @@ import javax.annotation.Resource;
 public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> implements ProductService {
     private Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
     @Resource
-    ProductDao productDao;
+    private ProductDao productDao;
     @Resource
     private ProductDraftDao productDraftDao;
     @Resource
@@ -63,51 +64,53 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
         BeanUtils.copyProperties(productDto,product);
         product.setStatus(Constants.ProductState.UNREVIEW.getCode());
         //1.判断草稿表中是否存在
-        ProductDraft productDraft = productDraftDao.selectById(productId);
-        if(productDraft!=null){
-            //删除草稿表中的内容
-            int flag = productDraftDao.deleteById(productId);
-            //从草稿插入到商品
+        if(productId!=null){
+            ProductDraft productDraft = productDraftDao.selectById(productId);
+            if(productDraft!=null){
+                //删除草稿表中的内容
+                int flag = productDraftDao.deleteById(productId);
+                //从草稿插入到商品
+                product.setCreateTime(new Timestamp(System.currentTimeMillis()));
+                //防止草稿表中的id和商品表中id冲突
+                int flag1 = productDao.insert(product);
+                if(flag<0||flag1<0) {
+                    return false;
+                }
+                productRecordService.addRecord(product,Constants.ProductRecordState.SUBMITDRAFT.getCode(),Constants.ProductRecordState.SUBMITDRAFT.getInfo());
+                return true;
+            }
+           else{
+                //2.判断是否存在于商品表
+                Product product1 = productService.getById(productId);
+                //存在则更新商品
+                if(product1!=null) {
+                    //更新商品
+                    product.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+                    int flag = productDao.updateById(product);
+                    if (flag > 0) {
+                        //4.增加操作表记录
+                        productRecordService.addRecord(product, Constants.ProductRecordState.UPDATE.getCode(), Constants.ProductRecordState.UPDATE.getInfo());
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+        }
+        else{
+            //3.否则添加商品到商品表
             product.setCreateTime(new Timestamp(System.currentTimeMillis()));
-            //防止草稿表中的id和商品表中id冲突
-            //用雪花算法设置全局id
-            product.setId(idGenerator.nextId());
-            int flag1 = productDao.insert(product);
-            if(flag<0||flag1<0) {
+            boolean save = productService.save(product);
+            LambdaQueryWrapper<Product> wrapper=new LambdaQueryWrapper();
+            wrapper.eq(Product::getProductName,product.getProductName());
+            Product product1 = productDao.selectOne(wrapper);
+            if(!save){
                 return false;
             }
+            //4.增加操作表记录
+            productRecordService.addRecord(product1,Constants.ProductRecordState.SUBMITDRAFT.getCode(),Constants.ProductRecordState.SUBMITDRAFT.getInfo());
+            return true;
         }
-        else {
-            //2.判断是否存在于商品表
-            Product product1 = productService.getById(productId);
-            //存在则更新商品
-            if(product1!=null){
-                //更新商品
-                product.setUpdateTime(new Timestamp(System.currentTimeMillis()));
-                int flag = productDao.updateById(product);
-                if(flag>0){
-                    //4.增加操作表记录
-                    productRecordService.addRecord(product,Constants.ProductRecordState.UPDATE.getCode(),Constants.ProductRecordState.UPDATE.getInfo());
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            }
-            else {
-                //3.否则添加商品到商品表
-                product.setCreateTime(new Timestamp(System.currentTimeMillis()));
-                //用雪花算法设置全局id
-//                product.setId(idGenerator.nextId());
-                product.setId(null);
-                boolean save = productService.save(product);
-                if(!save){
-                    return false;
-                }
-            }
-        }
-        //4.增加操作表记录
-        productRecordService.addRecord(product,Constants.ProductRecordState.SUBMITDRAFT.getCode(),Constants.ProductRecordState.SUBMITDRAFT.getInfo());
         return true;
     }
 
@@ -269,6 +272,21 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
         return productService.update(updateWrapper) ?  Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo()) :
                 Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(),Constants.ResponseCode.UN_ERROR.getInfo());
     }
+
+    @Override
+    @Transactional
+    public Result deletedraft(Long id,Long userid) {
+        int i = productDraftDao.deleteById(id);
+        Product product=new Product();
+        product.setId(id);
+        product.setManageUserId(userid);
+        if(i>0){
+            productRecordService.addRecord(product,Constants.ProductRecordState.DELETE.getCode(), Constants.ProductRecordState.DELETE.getInfo());
+            return Result.buildResult(Constants.ResponseCode.SUCCESS,"删除成功");
+        }
+        return Result.buildResult(Constants.ResponseCode.UN_ERROR,Constants.ResponseCode.UN_ERROR);
+    }
+
     @Override
     public Result submit(ProductDto product) {
        return productService.commitProduct(product)? Result.buildResult(Constants.ResponseCode.SUCCESS.getCode(),Constants.ResponseCode.SUCCESS.getInfo()) :

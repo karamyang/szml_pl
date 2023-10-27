@@ -1,5 +1,6 @@
 package com.szml.pl.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.szml.pl.dao.AdminDao;
 import com.szml.pl.dto.LoginReq;
@@ -53,6 +54,8 @@ public class AdminServiceImpl extends ServiceImpl<AdminDao, Admin> implements Ad
     private PasswordEncoder passwordEncoder;
     @Value("${jwt.tokenHead}")
     private String tokenHead;
+    @Value("${jwt.tokenHeader}")
+    private String tokenHeader;
     @Resource
     private RedisTemplate<String, String> redisTemplate;
 
@@ -177,7 +180,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminDao, Admin> implements Ad
         }
 
         // 重置密码
-        adminDao.updatePassword(admin.getId(), password);
+        adminDao.updatePassword(admin.getId(), passwordEncoder.encode(password));
         //更新修改时间
         adminDao.updateTime(admin.getId(),new Timestamp(System.currentTimeMillis()));
 
@@ -186,7 +189,9 @@ public class AdminServiceImpl extends ServiceImpl<AdminDao, Admin> implements Ad
 
     @Override
     public String login(LoginReq loginReq) {
+        Map<String,String> result=new HashMap<>();
         String token = null;
+        String role=null;
         try {
             //返回一个userDetails对象
             UserDetails userDetails = userDetailsService.loadUserByUsername(loginReq.getUsername());
@@ -196,10 +201,14 @@ public class AdminServiceImpl extends ServiceImpl<AdminDao, Admin> implements Ad
             UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);
             token = jwtTokenUtil.generateToken(userDetails);
+            //获取用户角色
+            role=adminDao.getRole(loginReq.getUsername());
+            result.put("token",token);
+            result.put("role",role);
         } catch (AuthenticationException e) {
             log.warn("登录异常:{}", e.getMessage());
         }
-        return token;
+        return JSON.toJSONString(result);
     }
 
     @Override

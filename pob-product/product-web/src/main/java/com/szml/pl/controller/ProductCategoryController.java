@@ -18,7 +18,7 @@ import javax.annotation.Resource;
  * @date: 2023/10/22
  */
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/product/category")
 public class ProductCategoryController {
     @Resource
     private ProductCategoryService categoryService;
@@ -28,6 +28,7 @@ public class ProductCategoryController {
      * @return
      */
     @GetMapping("/querylist")
+    @PreAuthorize("hasAnyAuthority('all')")
     public Result queryCategoryList(){
         return Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(categoryService.queryCategoryList()));
     }

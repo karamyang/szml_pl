@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      server-addr: 101.33.248.222:8848
+      discovery:
+        namespace: public
+      config:
+        group: gateway
+        file-extension: yaml
+  profiles:
+    active: dev

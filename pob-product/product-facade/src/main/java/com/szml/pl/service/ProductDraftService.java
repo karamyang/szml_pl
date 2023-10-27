@@ -17,6 +17,8 @@ public interface ProductDraftService extends IService<ProductDraft> {
 
     Boolean saveDraft(ProductDto productDto);
 
+    ProductDraft findProductDraftById(Long id);
+
     Page<ProductDto> findProductDraftFromUser(ProductDto productDto, Long current, Long size);
 
     Page<ProductDto> findProductDraftFromAdmin(ProductDto productDto, Long current, Long size);

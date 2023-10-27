@@ -1,5 +1,6 @@
 package com.szml.pl.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mysql.jdbc.TimeUtil;
@@ -52,24 +53,27 @@ public class ProductDraftServiceImpl extends ServiceImpl<ProductDraftDao, Produc
         BeanUtils.copyProperties(productDto,productDraft);
         productDraft.setStatus(Constants.ProductState.DRAFT.getCode());
         Long productId=productDto.getId();
+        String productName = productDraft.getProductName();
         //2.判断草稿表中是否存在
-        ProductDraft productDraft1 = draftDao.selectById(productId);
-        if(productDraft1!=null){
+        if(productId!=null){
             //3.更新商品草稿数据
             productDraft.setUpdateTime(new Timestamp(System.currentTimeMillis()));
             int flag = draftDao.updateById(productDraft);
+            Product product=new Product();
+            BeanUtils.copyProperties(productDraft,product);
+            productRecordService.addRecord(product,Constants.ProductRecordState.SAVEDRAFT.getCode(),Constants.ProductRecordState.SAVEDRAFT.getInfo());
             return flag>0?true:false;
         }
-        //5.否则新增商品草稿数据
         productDraft.setCreateTime(new Timestamp(System.currentTimeMillis()));
-        //用雪花算法设置全局id
-        productDraft.setId(idGenerator.nextId());
-        logger.info("{}",idGenerator.nextId());
-        Product product=new Product();
-        BeanUtils.copyProperties(productDto,product);
-        product.setId(idGenerator.nextId());
-        productRecordService.addRecord(product,Constants.ProductRecordState.SAVEDRAFT.getCode(),Constants.ProductRecordState.SAVEDRAFT.getInfo());
+        //4.否则新增商品草稿数据
         draftDao.insert(productDraft);
+        LambdaQueryWrapper<ProductDraft> wrapper=new LambdaQueryWrapper();
+        wrapper.eq(ProductDraft::getProductName,productName);
+        ProductDraft productDraft1 = draftDao.selectOne(wrapper);
+        //3、新增操作记录
+        Product product=new Product();
+        BeanUtils.copyProperties(productDraft1,product);
+        productRecordService.addRecord(product,Constants.ProductRecordState.SAVEDRAFT.getCode(),Constants.ProductRecordState.SAVEDRAFT.getInfo());
         return true;
     }
 
@@ -113,5 +117,8 @@ public class ProductDraftServiceImpl extends ServiceImpl<ProductDraftDao, Produc
         productDtos.setRecords(list);
         return productDtos;
     }
-
+    @Override
+    public ProductDraft findProductDraftById(Long id){
+        return draftDao.selectProductDraftById(id);
+    }
 }

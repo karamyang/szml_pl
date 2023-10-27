@@ -25,3 +25,93 @@
 2023-10-27 01:27:23,316 INFO  RMI TCP Connection(3)-192.168.56.1 - HealthChecker[sofaComponentHealthChecker] liveness check start.
 2023-10-27 01:27:23,316 INFO  RMI TCP Connection(3)-192.168.56.1 - HealthChecker[sofaComponentHealthChecker] liveness check success with 0 retry.
 2023-10-27 01:27:23,316 INFO  RMI TCP Connection(3)-192.168.56.1 - SOFABoot HealthChecker liveness check result: success.
+2023-10-27 10:18:47,598 INFO  main                             - Found 1 HealthChecker implementation:sofaComponentHealthChecker
+2023-10-27 10:18:47,600 INFO  main                             - Found 6 HealthIndicator implementation:nacosConfigHealthIndicator,nacosDiscoveryHealthIndicator,diskSpaceHealthIndicator,pingHealthContributor,refreshScopeHealthIndicator,redisHealthContributor
+2023-10-27 10:18:47,600 INFO  main                             - Found 0 ReadinessCheckCallback implementation: 
+2023-10-27 10:18:47,600 INFO  main                             - Begin SOFABoot HealthChecker readiness check.
+2023-10-27 10:18:47,601 INFO  main                             - SOFABoot HealthChecker readiness check 1 item: SOFABoot-Components.
+2023-10-27 10:18:47,602 INFO  main                             - HealthChecker[sofaComponentHealthChecker] readiness check start.
+2023-10-27 10:18:47,603 INFO  main                             - Create health-check thread pool, corePoolSize: 1, maxPoolSize: 1.
+2023-10-27 10:18:47,621 INFO  main                             - HealthChecker[sofaComponentHealthChecker] readiness check success with 0 retry.
+2023-10-27 10:18:47,621 INFO  main                             - SOFABoot HealthChecker readiness check result: success.
+2023-10-27 10:18:47,622 INFO  main                             - Begin SOFABoot HealthIndicator readiness check.
+2023-10-27 10:18:47,622 INFO  main                             - SOFABoot HealthChecker readiness check 6 item: nacosConfigHealthIndicator,nacosDiscoveryHealthIndicator,diskSpaceHealthIndicator,pingHealthContributor,refreshScopeHealthIndicator,redisHealthContributor.
+2023-10-27 10:18:47,622 INFO  main                             - HealthIndicator[nacosConfigHealthIndicator] readiness check start.
+2023-10-27 10:18:47,626 ERROR main                             - SOFA-BOOT-01-21001: HealthIndicator[nacosConfigHealthIndicator] readiness check fail; the status is: DOWN; the detail is: {}
+2023-10-27 10:18:47,626 INFO  main                             - HealthIndicator[nacosDiscoveryHealthIndicator] readiness check start.
+2023-10-27 10:18:47,626 INFO  main                             - HealthIndicator[nacosDiscoveryHealthIndicator] readiness check success.
+2023-10-27 10:18:47,626 INFO  main                             - HealthIndicator[diskSpaceHealthIndicator] readiness check start.
+2023-10-27 10:18:47,628 INFO  main                             - HealthIndicator[diskSpaceHealthIndicator] readiness check success.
+2023-10-27 10:18:47,628 INFO  main                             - HealthIndicator[pingHealthContributor] readiness check start.
+2023-10-27 10:18:47,629 INFO  main                             - HealthIndicator[pingHealthContributor] readiness check success.
+2023-10-27 10:18:47,629 INFO  main                             - HealthIndicator[refreshScopeHealthIndicator] readiness check start.
+2023-10-27 10:18:47,629 INFO  main                             - HealthIndicator[refreshScopeHealthIndicator] readiness check success.
+2023-10-27 10:18:47,629 INFO  main                             - HealthIndicator[redisHealthContributor] readiness check start.
+2023-10-27 10:18:48,760 INFO  main                             - HealthIndicator[redisHealthContributor] readiness check success.
+2023-10-27 10:18:48,760 ERROR main                             - SOFA-BOOT-01-21000: SOFABoot HealthIndicator readiness check result: failed
+2023-10-27 10:18:48,761 ERROR main                             - SOFA-BOOT-01-20000: Readiness check result: fail
+2023-10-27 10:18:51,709 INFO  RMI TCP Connection(11)-192.168.200.1 - Begin SOFABoot HealthChecker liveness check.
+2023-10-27 10:18:51,711 INFO  RMI TCP Connection(11)-192.168.200.1 - SOFABoot HealthChecker liveness check 1 item: SOFABoot-Components.
+2023-10-27 10:18:51,711 INFO  RMI TCP Connection(11)-192.168.200.1 - HealthChecker[sofaComponentHealthChecker] liveness check start.
+2023-10-27 10:18:51,711 INFO  RMI TCP Connection(11)-192.168.200.1 - HealthChecker[sofaComponentHealthChecker] liveness check success with 0 retry.
+2023-10-27 10:18:51,711 INFO  RMI TCP Connection(11)-192.168.200.1 - SOFABoot HealthChecker liveness check result: success.
+2023-10-27 10:22:54,282 INFO  main                             - Found 1 HealthChecker implementation:sofaComponentHealthChecker
+2023-10-27 10:22:54,284 INFO  main                             - Found 6 HealthIndicator implementation:nacosConfigHealthIndicator,nacosDiscoveryHealthIndicator,diskSpaceHealthIndicator,pingHealthContributor,refreshScopeHealthIndicator,redisHealthContributor
+2023-10-27 10:22:54,284 INFO  main                             - Found 0 ReadinessCheckCallback implementation: 
+2023-10-27 10:22:54,284 INFO  main                             - Begin SOFABoot HealthChecker readiness check.
+2023-10-27 10:22:54,284 INFO  main                             - SOFABoot HealthChecker readiness check 1 item: SOFABoot-Components.
+2023-10-27 10:22:54,285 INFO  main                             - HealthChecker[sofaComponentHealthChecker] readiness check start.
+2023-10-27 10:22:54,286 INFO  main                             - Create health-check thread pool, corePoolSize: 1, maxPoolSize: 1.
+2023-10-27 10:22:54,302 INFO  main                             - HealthChecker[sofaComponentHealthChecker] readiness check success with 0 retry.
+2023-10-27 10:22:54,302 INFO  main                             - SOFABoot HealthChecker readiness check result: success.
+2023-10-27 10:22:54,302 INFO  main                             - Begin SOFABoot HealthIndicator readiness check.
+2023-10-27 10:22:54,302 INFO  main                             - SOFABoot HealthChecker readiness check 6 item: nacosConfigHealthIndicator,nacosDiscoveryHealthIndicator,diskSpaceHealthIndicator,pingHealthContributor,refreshScopeHealthIndicator,redisHealthContributor.
+2023-10-27 10:22:54,302 INFO  main                             - HealthIndicator[nacosConfigHealthIndicator] readiness check start.
+2023-10-27 10:22:54,306 ERROR main                             - SOFA-BOOT-01-21001: HealthIndicator[nacosConfigHealthIndicator] readiness check fail; the status is: DOWN; the detail is: {}
+2023-10-27 10:22:54,306 INFO  main                             - HealthIndicator[nacosDiscoveryHealthIndicator] readiness check start.
+2023-10-27 10:22:54,306 INFO  main                             - HealthIndicator[nacosDiscoveryHealthIndicator] readiness check success.
+2023-10-27 10:22:54,306 INFO  main                             - HealthIndicator[diskSpaceHealthIndicator] readiness check start.
+2023-10-27 10:22:54,308 INFO  main                             - HealthIndicator[diskSpaceHealthIndicator] readiness check success.
+2023-10-27 10:22:54,308 INFO  main                             - HealthIndicator[pingHealthContributor] readiness check start.
+2023-10-27 10:22:54,308 INFO  main                             - HealthIndicator[pingHealthContributor] readiness check success.
+2023-10-27 10:22:54,308 INFO  main                             - HealthIndicator[refreshScopeHealthIndicator] readiness check start.
+2023-10-27 10:22:54,309 INFO  main                             - HealthIndicator[refreshScopeHealthIndicator] readiness check success.
+2023-10-27 10:22:54,309 INFO  main                             - HealthIndicator[redisHealthContributor] readiness check start.
+2023-10-27 10:22:55,394 INFO  main                             - HealthIndicator[redisHealthContributor] readiness check success.
+2023-10-27 10:22:55,394 ERROR main                             - SOFA-BOOT-01-21000: SOFABoot HealthIndicator readiness check result: failed
+2023-10-27 10:22:55,396 ERROR main                             - SOFA-BOOT-01-20000: Readiness check result: fail
+2023-10-27 10:22:57,998 INFO  RMI TCP Connection(11)-192.168.200.1 - Begin SOFABoot HealthChecker liveness check.
+2023-10-27 10:22:57,999 INFO  RMI TCP Connection(11)-192.168.200.1 - SOFABoot HealthChecker liveness check 1 item: SOFABoot-Components.
+2023-10-27 10:22:57,999 INFO  RMI TCP Connection(11)-192.168.200.1 - HealthChecker[sofaComponentHealthChecker] liveness check start.
+2023-10-27 10:22:57,999 INFO  RMI TCP Connection(11)-192.168.200.1 - HealthChecker[sofaComponentHealthChecker] liveness check success with 0 retry.
+2023-10-27 10:22:58,000 INFO  RMI TCP Connection(11)-192.168.200.1 - SOFABoot HealthChecker liveness check result: success.
+2023-10-27 10:29:11,808 INFO  main                             - Found 1 HealthChecker implementation:sofaComponentHealthChecker
+2023-10-27 10:29:11,810 INFO  main                             - Found 6 HealthIndicator implementation:nacosConfigHealthIndicator,nacosDiscoveryHealthIndicator,diskSpaceHealthIndicator,pingHealthContributor,refreshScopeHealthIndicator,redisHealthContributor
+2023-10-27 10:29:11,811 INFO  main                             - Found 0 ReadinessCheckCallback implementation: 
+2023-10-27 10:29:11,811 INFO  main                             - Begin SOFABoot HealthChecker readiness check.
+2023-10-27 10:29:11,811 INFO  main                             - SOFABoot HealthChecker readiness check 1 item: SOFABoot-Components.
+2023-10-27 10:29:11,812 INFO  main                             - HealthChecker[sofaComponentHealthChecker] readiness check start.
+2023-10-27 10:29:11,813 INFO  main                             - Create health-check thread pool, corePoolSize: 1, maxPoolSize: 1.
+2023-10-27 10:29:11,833 INFO  main                             - HealthChecker[sofaComponentHealthChecker] readiness check success with 0 retry.
+2023-10-27 10:29:11,833 INFO  main                             - SOFABoot HealthChecker readiness check result: success.
+2023-10-27 10:29:11,833 INFO  main                             - Begin SOFABoot HealthIndicator readiness check.
+2023-10-27 10:29:11,833 INFO  main                             - SOFABoot HealthChecker readiness check 6 item: nacosConfigHealthIndicator,nacosDiscoveryHealthIndicator,diskSpaceHealthIndicator,pingHealthContributor,refreshScopeHealthIndicator,redisHealthContributor.
+2023-10-27 10:29:11,833 INFO  main                             - HealthIndicator[nacosConfigHealthIndicator] readiness check start.
+2023-10-27 10:29:11,837 ERROR main                             - SOFA-BOOT-01-21001: HealthIndicator[nacosConfigHealthIndicator] readiness check fail; the status is: DOWN; the detail is: {}
+2023-10-27 10:29:11,837 INFO  main                             - HealthIndicator[nacosDiscoveryHealthIndicator] readiness check start.
+2023-10-27 10:29:11,837 INFO  main                             - HealthIndicator[nacosDiscoveryHealthIndicator] readiness check success.
+2023-10-27 10:29:11,837 INFO  main                             - HealthIndicator[diskSpaceHealthIndicator] readiness check start.
+2023-10-27 10:29:11,839 INFO  main                             - HealthIndicator[diskSpaceHealthIndicator] readiness check success.
+2023-10-27 10:29:11,839 INFO  main                             - HealthIndicator[pingHealthContributor] readiness check start.
+2023-10-27 10:29:11,839 INFO  main                             - HealthIndicator[pingHealthContributor] readiness check success.
+2023-10-27 10:29:11,839 INFO  main                             - HealthIndicator[refreshScopeHealthIndicator] readiness check start.
+2023-10-27 10:29:11,840 INFO  main                             - HealthIndicator[refreshScopeHealthIndicator] readiness check success.
+2023-10-27 10:29:11,840 INFO  main                             - HealthIndicator[redisHealthContributor] readiness check start.
+2023-10-27 10:29:13,368 INFO  main                             - HealthIndicator[redisHealthContributor] readiness check success.
+2023-10-27 10:29:13,368 ERROR main                             - SOFA-BOOT-01-21000: SOFABoot HealthIndicator readiness check result: failed
+2023-10-27 10:29:13,369 ERROR main                             - SOFA-BOOT-01-20000: Readiness check result: fail
+2023-10-27 10:29:16,265 INFO  RMI TCP Connection(7)-192.168.200.1 - Begin SOFABoot HealthChecker liveness check.
+2023-10-27 10:29:16,266 INFO  RMI TCP Connection(7)-192.168.200.1 - SOFABoot HealthChecker liveness check 1 item: SOFABoot-Components.
+2023-10-27 10:29:16,266 INFO  RMI TCP Connection(7)-192.168.200.1 - HealthChecker[sofaComponentHealthChecker] liveness check start.
+2023-10-27 10:29:16,266 INFO  RMI TCP Connection(7)-192.168.200.1 - HealthChecker[sofaComponentHealthChecker] liveness check success with 0 retry.
+2023-10-27 10:29:16,266 INFO  RMI TCP Connection(7)-192.168.200.1 - SOFABoot HealthChecker liveness check result: success.

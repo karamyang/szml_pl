@@ -10,3 +10,9 @@
 2023-10-26 23:29:23,563 ERROR main                             - SOFA-BOOT-01-21001: HealthIndicator[dbHealthContributor] readiness check fail; the status is: DOWN; the detail is: {"database":"MySQL","validationQuery":"isValid()","error":"org.springframework.dao.InvalidDataAccessApiUsageException: ConnectionCallback; isValid; nested exception is java.sql.SQLFeatureNotSupportedException: isValid"}
 2023-10-26 23:29:23,563 ERROR main                             - SOFA-BOOT-01-21000: SOFABoot HealthIndicator readiness check result: failed
 2023-10-26 23:29:23,564 ERROR main                             - SOFA-BOOT-01-20000: Readiness check result: fail
+2023-10-27 10:22:50,298 ERROR main                             - SOFA-BOOT-01-21001: HealthIndicator[nacosConfigHealthIndicator] readiness check fail; the status is: DOWN; the detail is: {}
+2023-10-27 10:22:50,302 ERROR main                             - SOFA-BOOT-01-21000: SOFABoot HealthIndicator readiness check result: failed
+2023-10-27 10:22:50,303 ERROR main                             - SOFA-BOOT-01-20000: Readiness check result: fail
+2023-10-27 10:29:36,913 ERROR main                             - SOFA-BOOT-01-21001: HealthIndicator[nacosConfigHealthIndicator] readiness check fail; the status is: DOWN; the detail is: {}
+2023-10-27 10:29:36,916 ERROR main                             - SOFA-BOOT-01-21000: SOFABoot HealthIndicator readiness check result: failed
+2023-10-27 10:29:36,916 ERROR main                             - SOFA-BOOT-01-20000: Readiness check result: fail

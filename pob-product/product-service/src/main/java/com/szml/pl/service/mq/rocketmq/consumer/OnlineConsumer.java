@@ -38,10 +38,8 @@ public class OnlineConsumer implements RocketMQListener<ProductDto> {
             lineProducer.sendPobOnline(productDto);
             logger.info("再次发送延时消息");
         }else{
-            Result online = productService.online(productDto);
-            if(online.getCode().equals(Constants.ResponseCode.SUCCESS.getCode())){
-                lineProducer.sendPobOffline(productDto);
-            }
+             productService.online(productDto);
+            lineProducer.sendPobOffline(productDto);
             logger.info("上线");
         }
     }

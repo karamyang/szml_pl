@@ -35,6 +35,9 @@ public class PassReviewState extends AbstractState {
 
     @Override
     public Result online(ProductDto productDto, Integer currentStatus) {
+        if (productDto.getOnlineTime()==null){
+            return productService.online(productDto);
+        }
         return lineProducer.sendPobOnline(productDto);
     }
 
