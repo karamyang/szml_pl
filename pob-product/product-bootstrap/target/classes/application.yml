@@ -1,14 +1,4 @@
 #后续改为nacos配置中心
-#spring:
-#  application:
-#    name: pob-product
-#  datasource:
-#    driver-class-name: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://101.33.248.222:3306/pob_product?characterEncoding=utf-8&useSSL=false
-#    username: root
-#    password: 123456
-#  main:
-#    allow-bean-definition-overriding: true
 server:
   port: 8087
 logging:
@@ -80,6 +70,11 @@ jwt:
 spring:
   main:
     allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      server-addr: 101.33.248.222:8848
+      discovery:
+        namespace: public
   application:
     name: pob-product
   shardingsphere:
