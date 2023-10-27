@@ -5,6 +5,7 @@ import com.szml.pl.common.response.Result;
 import com.szml.pl.dto.LoginReq;
 import com.szml.pl.entity.Admin;
 import com.szml.pl.service.AdminService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -35,16 +36,21 @@ public class AdminController {
      *  用户注册
      */
     @PostMapping(value = "/register")
+    @PreAuthorize("hasAnyAuthority('all')")
     public Result register(@RequestBody Admin admin){
-        Map<String,Object> map=adminService.register(admin);
-
-        if(map==null|| map.isEmpty()){//登录成功
-            return Result.buildResult(Constants.ResponseCode.SUCCESS);
-        }
-        else {
-            return Result.buildErrorResult();
-        }
+        boolean save = adminService.save(admin);
+        return save ? Result.buildSuccessResult() :Result.buildErrorResult();
     }
+    /**
+     *  用户删除
+     */
+    @PostMapping(value = "/delete")
+    @PreAuthorize("hasAnyAuthority('all')")
+    public Result delete(@RequestBody Admin admin){
+        boolean save = adminService.removeById(admin.getId());
+        return save ? Result.buildSuccessResult() :Result.buildErrorResult();
+    }
+
 
     /**
      *  发送验证码到邮箱

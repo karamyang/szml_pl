@@ -1,14 +1,20 @@
 package com.szml.pl.controller;
 
+import com.alibaba.nacos.api.naming.pojo.healthcheck.impl.Http;
 import com.szml.pl.common.response.Result;
 import com.szml.pl.dto.ProductDto;
 import com.szml.pl.entity.Product;
+import com.szml.pl.entity.ProductAgent;
+import com.szml.pl.security.utils.JwtTokenUtil;
+import com.szml.pl.service.ProductAgentService;
 import com.szml.pl.service.ProductService;
 import com.szml.pl.service.stateflow.IStateHandler;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 
@@ -25,21 +31,41 @@ public class ProductStateFlowController {
     ProductService productService;
     @Resource
     IStateHandler stateHandler;
+    @Resource
+    ProductAgentService productAgentService;
+    @Value("${jwt.tokenHeader}")
+    private String tokenHeader;
+    @Value("${jwt.tokenHead}")
+    private String tokenHead;
+    @Resource
+    JwtTokenUtil jwtTokenUtil;
     /**
      * 发起审核
      */
     @PostMapping(value = "/audit")
-    public Result audit(@RequestBody ProductDto productDto) {
+    public Result audit(@RequestBody ProductDto productDto, HttpServletRequest request) {
         //判断一下是不是商品的管理人
-        return stateHandler.audit(productDto,productDto.getStatus());
+        String header = request.getHeader(tokenHeader);
+        Long idFromToken = jwtTokenUtil.getIdFromToken(header);
+        boolean selectprodcutagent = productAgentService.selectprodcutagent(productDto.getId(), idFromToken);
+        if(selectprodcutagent){
+                return stateHandler.audit(productDto,productDto.getStatus());
+        }
+        return Result.buildErrorResult();
     }
     /**
      * 提交
      */
     @PostMapping(value = "/submit")
-    public Result submit(@RequestBody ProductDto productDto) {
+    public Result submit(@RequestBody ProductDto productDto, HttpServletRequest request) {
         //判断一下是不是商品的管理人
-        return stateHandler.submit(productDto,productDto.getStatus());
+        String header = request.getHeader(tokenHeader);
+        Long idFromToken = jwtTokenUtil.getIdFromToken(header);
+        boolean selectprodcutagent = productAgentService.selectprodcutagent(productDto.getId(), idFromToken);
+        if(selectprodcutagent){
+            return stateHandler.submit(productDto,productDto.getStatus());
+        }
+        return Result.buildErrorResult();
     }
 
     /**
@@ -83,9 +109,15 @@ public class ProductStateFlowController {
      * 编辑
      */
     @PostMapping(value = "/compile")
-    public Result compile(@RequestBody ProductDto productDto) {
-        System.out.println(productDto.toString());
-        return stateHandler.compile(productDto,productDto.getStatus());
+    public Result compile(@RequestBody ProductDto productDto, HttpServletRequest request) {
+        //判断一下是不是商品的管理人
+        String header = request.getHeader(tokenHeader);
+        Long idFromToken = jwtTokenUtil.getIdFromToken(header);
+        boolean selectprodcutagent = productAgentService.selectprodcutagent(productDto.getId(), idFromToken);
+        if(selectprodcutagent){
+            return stateHandler.compile(productDto,productDto.getStatus());
+        }
+        return Result.buildErrorResult();
     }
 
     /**
