@@ -23,6 +23,11 @@ spring:
             class: javax.net.ssl.SSLSocketFactory
   main:
     allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      server-addr: 101.33.248.222:8848
+      discovery:
+        namespace: public
 server:
   port: 8088
 logging:

@@ -18,7 +18,7 @@ import java.util.List;
  * @date: 2023/10/21
  */
 @RestController
-@RequestMapping("/stateflow")
+@RequestMapping("/product/stateflow")
 public class ProductStateFlowController {
 
     @Resource

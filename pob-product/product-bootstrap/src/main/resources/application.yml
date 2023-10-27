@@ -9,6 +9,11 @@ spring:
     password: 123456
   main:
     allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      server-addr: 101.33.248.222:8848
+      discovery:
+        namespace: public
 server:
   port: 8087
 logging:

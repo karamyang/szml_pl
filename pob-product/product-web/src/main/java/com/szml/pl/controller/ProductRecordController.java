@@ -18,7 +18,7 @@ import javax.annotation.Resource;
  * @date: 2023/10/22
  */
 @RestController
-@RequestMapping("/record")
+@RequestMapping("/product/record")
 public class ProductRecordController {
 
     @Resource
