@@ -25,11 +25,11 @@ public class AdminController {
 
     @PostMapping("/login")
     public Result login(@RequestBody LoginReq loginReq){
-        String token = adminService.login(loginReq);
-        if(token==null){
+        String result = adminService.login(loginReq);
+        if(result==null){
             return Result.buildResult(Constants.ResponseCode.UN_ERROR,"登录失败");
         }
-        return Result.buildResult(Constants.ResponseCode.SUCCESS,token);
+        return Result.buildResult(Constants.ResponseCode.SUCCESS,result);
     }
     /**
      *  用户注册
