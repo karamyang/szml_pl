@@ -19,6 +19,7 @@
         <module name="product-web" />
         <module name="product-dal" />
         <module name="product-utils" />
+        <module name="pob-gateway" />
         <module name="admin-service" />
         <module name="product-model" />
       </profile>
@@ -38,6 +39,7 @@
       <module name="admin-web" options="-parameters" />
       <module name="pob-admin" options="" />
       <module name="pob-common" options="-parameters" />
+      <module name="pob-gateway" options="-parameters" />
       <module name="pob-product" options="" />
       <module name="product-bootstrap" options="-parameters" />
       <module name="product-dal" options="-parameters" />

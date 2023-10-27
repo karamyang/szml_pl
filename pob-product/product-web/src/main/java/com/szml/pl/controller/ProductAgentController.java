@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
  * @date: 2023/10/22
  */
 @RestController
-@RequestMapping("/agent")
+@RequestMapping("/product/agent")
 public class ProductAgentController {
     @Resource
     private ProductAgentService productAgentService;

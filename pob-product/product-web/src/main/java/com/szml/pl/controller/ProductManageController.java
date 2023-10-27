@@ -25,7 +25,7 @@ import java.util.List;
  * @date: 2023/10/22
  */
 @RestController
-@RequestMapping("/manage")
+@RequestMapping("/product/manage")
 public class ProductManageController {
     @Resource
     private ProductService productService;
