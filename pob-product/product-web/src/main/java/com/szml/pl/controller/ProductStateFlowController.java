@@ -113,6 +113,9 @@ public class ProductStateFlowController {
         //判断一下是不是商品的管理人
         String header = request.getHeader(tokenHeader);
         Long idFromToken = jwtTokenUtil.getIdFromToken(header);
+        if(productDto.getId()==null){
+            return stateHandler.compile(productDto,productDto.getStatus());
+        }
         boolean selectprodcutagent = productAgentService.selectprodcutagent(productDto.getId(), idFromToken);
         if(selectprodcutagent){
             return stateHandler.compile(productDto,productDto.getStatus());
@@ -125,7 +128,7 @@ public class ProductStateFlowController {
      */
     @PostMapping(value = "/batchoperation")
     @PreAuthorize("hasAnyAuthority('stateflow:batchoperation','all')")
-    public Result batchoperation(@RequestBody List<Product> productList,Integer operation) {
+    public Result batchoperation(@RequestBody List<Product> productList,@RequestParam Integer operation) {
         return productService.batchoperation(productList,operation);
     }
 
@@ -135,5 +138,18 @@ public class ProductStateFlowController {
     @PostMapping(value = "/stockoffline")
     public Result stockoffline() {
         return productService.stockoffline();
+    }
+
+    @PostMapping(value = "/deletedraft")
+    public Result deletedraft(@RequestBody ProductDto productDto, HttpServletRequest request) {
+        String header = request.getHeader(tokenHeader);
+        Long idFromToken = jwtTokenUtil.getIdFromToken(header);
+        boolean selectprodcutagent = productAgentService.selectprodcutagent(productDto.getId(), idFromToken);
+
+        if(selectprodcutagent||idFromToken==productDto.getManageUserId()) {
+            return productService.deletedraft(productDto.getId(),idFromToken);
+        }else{
+            return Result.buildErrorResult();
+        }
     }
 }

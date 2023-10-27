@@ -10,6 +10,7 @@ import com.szml.pl.service.ProductAgentService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -36,7 +37,7 @@ public class ProductAgentServiceImpl extends ServiceImpl<ProductAgentDao, Produc
     public boolean selectprodcutagent(Long prodcutId,Long adminId) {
         QueryWrapper<ProductAgent> wrapper = new QueryWrapper<>();
         wrapper.eq("admin_id",adminId);
-        wrapper.eq("prodcut_id",prodcutId);
+        wrapper.eq("product_id",prodcutId);
         ProductAgent productAgent = productAgentDao.selectOne(wrapper);
         if(productAgent==null){
             return false;
@@ -51,6 +52,8 @@ public class ProductAgentServiceImpl extends ServiceImpl<ProductAgentDao, Produc
         ProductAgent productAgent = new ProductAgent();
         productAgent.setProductId(productDto.getId());
         productAgent.setAdminId(adminId);
+        productAgent.setUsername("");
+        productAgent.setCreateTime(new Timestamp(System.currentTimeMillis()));
         int insert = productAgentDao.insert(productAgent);
         return insert>0 ? true:false;
     }
@@ -59,7 +62,7 @@ public class ProductAgentServiceImpl extends ServiceImpl<ProductAgentDao, Produc
     public boolean delete(ProductDto productDto, Long adminId) {
         QueryWrapper<ProductAgent> wrapper = new QueryWrapper<>();
         wrapper.eq("admin_id",adminId);
-        wrapper.eq("prodcut_id",productDto.getId());
+        wrapper.eq("product_id",productDto.getId());
         int delete = productAgentDao.delete(wrapper);
         return delete>0 ? true:false;
     }

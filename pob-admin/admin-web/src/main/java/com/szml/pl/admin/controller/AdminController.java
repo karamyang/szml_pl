@@ -6,6 +6,7 @@ import com.szml.pl.dto.LoginReq;
 import com.szml.pl.entity.Admin;
 import com.szml.pl.service.AdminService;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -22,7 +23,8 @@ public class AdminController {
 
     @Resource
     private AdminService adminService;
-
+    @Resource
+    PasswordEncoder passwordEncoder;
 
     @PostMapping("/login")
     public Result login(@RequestBody LoginReq loginReq){
@@ -38,6 +40,7 @@ public class AdminController {
     @PostMapping(value = "/register")
     @PreAuthorize("hasAnyAuthority('all')")
     public Result register(@RequestBody Admin admin){
+        admin.setPassword(passwordEncoder.encode(admin.getPassword()));
         boolean save = adminService.save(admin);
         return save ? Result.buildSuccessResult() :Result.buildErrorResult();
     }

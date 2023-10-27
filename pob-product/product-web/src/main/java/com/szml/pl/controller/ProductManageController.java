@@ -48,10 +48,12 @@ public class ProductManageController {
 
             String authHeader = request.getHeader(this.tokenHeader);
             if (authHeader != null && authHeader.startsWith(this.tokenHead)) {
-                String authToken = authHeader.substring(this.tokenHead.length());
+//                String authToken = authHeader.substring(this.tokenHead.length());
                 //从token中获取用户id
-                String role = jwtTokenUtil.getRoleFromToken(authToken);
-                return role.equals("operator")? Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productService.findProductFromUser(productDto,current,size))):Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productService.findProductFromAdmin(productDto,current,size)));
+                String role = jwtTokenUtil.getRoleFromToken(authHeader);
+                return role.equals("operator")?
+                        Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productService.findProductFromUser(productDto,current,size)))
+                        :Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productService.findProductFromAdmin(productDto,current,size)));
             }
             else return Result.buildErrorResult();
         }
@@ -76,9 +78,8 @@ public class ProductManageController {
 
         String authHeader = request.getHeader(this.tokenHeader);
         if (authHeader != null && authHeader.startsWith(this.tokenHead)) {
-            String authToken = authHeader.substring(this.tokenHead.length());
             //从token中获取用户role
-            String role = jwtTokenUtil.getRoleFromToken(authToken);
+            String role = jwtTokenUtil.getRoleFromToken(authHeader);
             return role.equals("operator")? Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productDraftService.findProductDraftFromUser(productDto,current,size))):Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productDraftService.findProductDraftFromAdmin(productDto,current,size)));
         }
         else return Result.buildErrorResult();
@@ -87,7 +88,7 @@ public class ProductManageController {
     /**
      * 单一商品查询(商品详情)
      */
-    @RequestMapping(value = "/get",method = RequestMethod.GET)
+    @RequestMapping(value = "/get",method = RequestMethod.POST)
     public Result queryProduct(HttpServletRequest request,@RequestBody ProductDto productDto){
 
         if(!productDto.getStatus().equals(1)){//当前商品不是草稿
@@ -104,10 +105,9 @@ public class ProductManageController {
 
         String authHeader = request.getHeader(this.tokenHeader);
         if (authHeader != null && authHeader.startsWith(this.tokenHead)) {
-            String authToken = authHeader.substring(this.tokenHead.length());
             //从token中获取用户id
-            String role = jwtTokenUtil.getRoleFromToken(authToken);
-            Long id = jwtTokenUtil.getIdFromToken(authToken);
+            String role = jwtTokenUtil.getRoleFromToken(authHeader);
+            Long id = jwtTokenUtil.getIdFromToken(authHeader);
 
             return productDraft.getCreateUserId().equals(id)?  Result.buildResult(Constants.ResponseCode.SUCCESS, JSON.toJSONString(productDto)):Result.buildErrorResult();
         }

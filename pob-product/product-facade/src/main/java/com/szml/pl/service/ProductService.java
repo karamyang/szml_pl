@@ -40,4 +40,6 @@ public interface ProductService extends IService<Product> {
 
     Page<ProductDto> findProductAndProductAgentFromAdmin(ProductDto productDto, Long current, Long size);
     Result stockoffline();
+
+    Result deletedraft(Long id,Long userId);
 }

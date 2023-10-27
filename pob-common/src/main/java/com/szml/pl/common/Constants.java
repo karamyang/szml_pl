@@ -129,7 +129,11 @@ public class Constants {
         /**
          * 8.更新商品
          */
-        UPDATE(8,"更新商品");
+        UPDATE(8,"更新商品"),
+        /**
+         * 9.删除商品
+         */
+        DELETE(9,"删除记录");
         private Integer code;
         private String info;
 
